@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07060c">
+<title>Results reveal · Asking for leave</title>
+
+<!-- Same fonts as roleplay-conversation.html; the results screen and its stamp are InterDisplay. -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+<style>
+/* Base: the current #resultsScreen from roleplay-conversation.html, laid out in its final
+   (docked) state. The reveal in results.js starts from a big centred ring and docks into this. */
+:root { --ease-out: cubic-bezier(.22, 1, .36, 1); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #000; }
+body {
+  min-height: 100dvh;
+  display: flex; flex-direction: column;
+  font-family: 'InterDisplay', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+img { -webkit-user-drag: none; user-select: none; }
+
+/* ─── Prototype controls: in flow above the phone, so they never cover it ─── */
+.proto {
+  flex: none; z-index: 20;
+  padding: calc(4px + env(safe-area-inset-top)) 8px 4px;
+  background: #0c0b12; border-bottom: 1px solid #1d1a2a;
+  font: 600 12.5px/1 'Inter', system-ui, sans-serif;
+}
+.proto-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.proto-body { display: none; margin-top: 6px; }
+.proto.open .proto-body { display: flex; }
+.proto button, .proto label {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 10px; border-radius: 8px;
+  background: #1a1726; border: 1px solid #2a2540; color: #d8d6e4;
+  cursor: pointer; user-select: none;
+  transition: background-color 150ms ease, scale 150ms ease-out;
+}
+.proto button:active { scale: .96; }
+.proto button[aria-pressed="true"] { background: #fff; color: #0a0a14; border-color: #fff; }
+.proto .toggle { margin-right: auto; }
+.proto .toggle svg { transition: rotate 200ms var(--ease-out); }
+.proto.open .toggle svg { rotate: 180deg; }
+.proto input { accent-color: #fff; margin: 0; }
+
+/* ─── Outcome themes: the current screen's (purple win, red fail, amber time's up) + two new stamps ─── */
+.results-screen {
+  --stamp: #ffe14d; --accent: #ffe14d; --word: #ffe14d; --title: #fff;
+  --border: rgba(255,214,90,.22);
+  --ring-glow: rgba(245,158,11,.55);
+  --cta-bg: #fff; --cta-fg: #0a0a14;
+  position: relative; flex: 1; min-height: 0;
+  overflow: hidden; isolation: isolate;
+  container-type: size;
+  background: #07060c;
+}
+.t-lavender { --stamp: #b7a6ff; --accent: #b7a6ff; --word: #b7a6ff; --border: rgba(183,166,255,.28); }
+.t-red {
+  --stamp: #ff4040; --accent: #ff5a5a; --word: #ff6b6b; --title: #ff6b6b; --border: rgba(255,90,90,.28);
+  --ring-glow: rgba(239,68,68,.45);
+  --cta-bg: linear-gradient(135deg, #ff7a59 0%, #ef4444 60%, #b91c1c 100%); --cta-fg: #fff;
+}
+.t-amber {
+  --stamp: #fbbf24; --accent: #fbbf24; --word: #fbbf24; --title: #fbbf24; --border: rgba(251,191,36,.26);
+  --cta-bg: linear-gradient(135deg, #fde047 0%, #f59e0b 60%, #d97706 100%); --cta-fg: #1a1206;
+}
+
+.bg { position: absolute; inset: 0; z-index: 0; }
+.t-gold .bg, .t-lavender .bg {
+  background:
+    radial-gradient(ellipse 120% 60% at 50% 0%, #2a1654 0%, transparent 60%),
+    linear-gradient(180deg, #1a0d3a 0%, #07060c 70%);
+}
+.t-red .bg   { background: radial-gradient(ellipse 100% 55% at 50% 0%, rgba(150,22,22,.32) 0%, transparent 65%), #0c0508; }
+.t-amber .bg { background: radial-gradient(ellipse 100% 55% at 50% 0%, rgba(180,120,20,.2) 0%, transparent 65%), #0d0a06; }
+.bg::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 8%,  rgba(255,255,255,0.7), transparent 60%),
+    radial-gradient(1px 1px at 60% 4%,  rgba(255,255,255,0.5), transparent 60%),
+    radial-gradient(1px 1px at 85% 12%, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(1px 1px at 35% 18%, rgba(255,255,255,0.4), transparent 60%),
+    radial-gradient(1px 1px at 78% 22%, rgba(255,255,255,0.5), transparent 60%),
+    radial-gradient(1px 1px at 12% 26%, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(1px 1px at 50% 14%, rgba(255,255,255,0.4), transparent 60%),
+    radial-gradient(1px 1px at 92% 6%,  rgba(255,255,255,0.7), transparent 60%);
+}
+
+/* .cam takes the camera punch-ins, .screen the shakes, so the two never fight over one transform */
+.cam { position: absolute; inset: 0; z-index: 1; transform-origin: 0 0; }
+.screen { position: relative; height: 100%; display: flex; flex-direction: column; }
+
+.r-status, .home { display: none; }
+.r-header {
+  flex: none;
+  padding: 8px 18px 4px;
+  display: grid; grid-template-columns: 28px 1fr 28px;
+  align-items: center; gap: 14px;
+}
+.r-header .close { width: 28px; height: 28px; color: #fff; font-size: 22px; line-height: 1; }
+.r-header .r-title { font-size: 18px; font-weight: 800; text-align: center; color: var(--title); }
+
+.r-content { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 12px 20px 0; }
+
+/* ─── Hero: ring + face + stars, docked at the original's final size (280 box × .62) ─── */
+.hero { position: relative; flex: none; height: 190px; }
+.avatar-wrap, .stars-wrap {
+  position: absolute; left: 50%; top: -50px; /* ring centre at y = 90 */
+  width: 280px; height: 280px; margin-left: -140px;
+  transform: scale(.62); transform-origin: 50% 50%;
+  will-change: transform;
+}
+.avatar-wrap { z-index: 1; }
+.stars-wrap  { z-index: 3; pointer-events: none; }
+.ring, .ring-flash { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ring .track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 4; }
+.ring .progress {
+  fill: none; stroke: url(#r-goldGrad); stroke-width: 10; stroke-linecap: round;
+  filter: drop-shadow(0 0 8px var(--ring-glow));
+}
+.t-red .ring .progress { stroke: #7a1d1d; }
+.ring-flash { opacity: 0; }
+.ring-flash path { fill: none; stroke: #fff4c2; stroke-width: 12; stroke-linecap: round; filter: drop-shadow(0 0 10px rgba(255,220,120,.9)); }
+.t-red .ring-flash path { stroke: #ff9a9a; filter: drop-shadow(0 0 10px rgba(255,80,80,.9)); }
+.r-avatar {
+  position: absolute; left: 50%; top: 50%;
+  width: 200px; height: 200px; margin: -100px 0 0 -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #3d2f5e 0%, #2c2148 65%, #221934 100%);
+  box-shadow: inset 0 -4px 16px rgba(0,0,0,0.35);
+  overflow: hidden;
+}
+.r-avatar img {
+  width: 100%; height: 100%; display: block;
+  object-fit: contain; object-position: 50% 80%;
+  transform: scale(1.08); transform-origin: 50% 70%;
+}
+.r-avatar img.happy { object-fit: cover; object-position: 50% 44%; transform: none; }
+.r-avatar img.fail  { object-fit: cover; object-position: 50% 38%; transform: none; }
+
+/* Stars on the ring's bottom arc: outer ones on the arc ends, the crown dropped below 6 o'clock.
+   A touch chunkier than the original 40px so the landings read. */
+.r-slot { position: absolute; }
+.r-slot-left   { left: 56px;  top: 230px; width: 48px; height: 48px; z-index: 1; }
+.r-slot-middle { left: 114px; top: 242px; width: 52px; height: 52px; z-index: 2; }
+.r-slot-right  { left: 176px; top: 230px; width: 48px; height: 48px; z-index: 1; }
+.slot-in, .squash, .r-slot svg, .sglow, .sheen-clip { position: absolute; inset: 0; }
+.squash { transform-origin: 50% 85%; }
+svg.star { width: 100%; height: 100%; overflow: visible; display: block; }
+.r-slot .empty use { fill: #2a2440; stroke: #3a2f5a; stroke-width: 1.5; stroke-linejoin: round; }
+.t-red .r-slot .empty use { stroke: rgba(239,68,68,.45); }
+.gold { filter: drop-shadow(0 4px 6px rgba(0,0,0,.45)); }
+.gold use { fill: url(#r-starGrad); stroke: #7a4f12; stroke-width: 2; stroke-linejoin: round; paint-order: stroke fill; }
+.gold .gloss { fill: #fff; opacity: .3; }
+.dull use { fill: url(#r-dullGrad); stroke: #7a6a80; stroke-width: 1.5; stroke-linejoin: round; }
+.crack path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.crack .edge { stroke: rgba(255,120,120,.95); stroke-width: 2.4; }
+.crack .gap  { stroke: #12060a; stroke-width: 1; }
+.flash use { fill: none; stroke: var(--stamp); stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0 0 4px var(--stamp)); }
+.sglow {
+  inset: -45%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,214,90,.5) 0%, rgba(255,180,40,.14) 38%, transparent 68%);
+}
+/* shimmer: a light band swept across each earned star, clipped to the star shape */
+.sheen-clip { overflow: hidden; clip-path: polygon(50% 7.5%, 61.75% 36.5%, 92.75% 39%, 69% 58.75%, 76.5% 89%, 50% 72.75%, 23.5% 89%, 31% 58.75%, 7.25% 39%, 38.25% 36.5%); }
+.sheen {
+  position: absolute; top: -20%; left: 0; width: 38%; height: 140%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+}
+.r-slot .gold, .r-slot .dull, .r-slot .crack, .r-slot .flash, .r-slot .sglow, .r-slot .sheen-clip { opacity: 0; }
+.r-slot.earned .gold, .r-slot.earned .sheen-clip { opacity: 1; }
+.r-slot.earned .sglow { opacity: .45; }
+.r-slot.cracked .crack { opacity: 1; }
+
+/* ─── The stamp: one line, the current border + glow style, no fill, between the ring and the stats ─── */
+.r-stamp-row { flex: none; display: flex; justify-content: center; margin: 0 0 34px; position: relative; z-index: 2; pointer-events: none; }
+.r-stamp {
+  font-size: 23px; font-weight: 900; font-style: italic; line-height: 1;
+  letter-spacing: 1.6px; text-align: center; text-transform: uppercase; white-space: nowrap;
+  color: var(--stamp);
+  -webkit-text-stroke: .6px rgba(255,255,255,.18);
+  border: 2.5px solid var(--stamp); border-radius: 9px; padding: 8px 18px 8px 16px;
+  text-shadow: 0 0 16px color-mix(in srgb, var(--stamp) 55%, transparent);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--stamp) 35%, transparent), inset 0 0 14px color-mix(in srgb, var(--stamp) 18%, transparent);
+  transform: rotate(-7deg);
+}
+
+/* ─── Stats tiles (unchanged from the current screen) ─── */
+.r-stats { flex: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.r-stat {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 18px 8px 16px;
+  display: grid; place-items: center; text-align: center;
+}
+.r-stat .num {
+  font-size: 28px; font-weight: 800; letter-spacing: 0.5px; line-height: 1;
+  margin-bottom: 8px; font-variant-numeric: tabular-nums; color: #fff;
+}
+.r-stat .lbl { font-size: 13px; font-weight: 600; color: #9aa0a6; line-height: 1.2; }
+
+.r-divider { flex: none; margin: 14px 0; border-top: 1px dashed rgba(255,255,255,0.12); }
+
+/* ─── Feedback carousel: two cards, a 64px peek, two dots ─── */
+.r-track {
+  flex: none;
+  display: flex; align-items: stretch; gap: 12px;
+  margin: 0 -20px; padding: 0 20px;
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  scroll-padding-inline: 20px;
+  scrollbar-width: none;
+}
+.r-track::-webkit-scrollbar { display: none; }
+.r-track.dragging { scroll-snap-type: none; cursor: grabbing; user-select: none; }
+@media (pointer: fine) { .r-track { cursor: grab; } }
+.r-card {
+  flex: 0 0 calc(100% - 56px); /* 316px on a 412px screen */
+  scroll-snap-align: start; scroll-snap-stop: always;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 16px 16px 16px;
+}
+.r-card:last-child { scroll-snap-align: end; }
+.r-card h2 { color: var(--accent); font-size: 18px; font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+
+.metrics { display: flex; justify-content: space-between; padding: 0 2px; }
+.metric { width: 86px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.m-name { margin-top: 6px; font-size: 13.5px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+.m-word { margin-top: 1px; font-size: 13px; font-weight: 700; color: var(--word); }
+.english .m-name { font-weight: 500; color: #c4c5cc; }
+
+/* Ring dial: two rotating half-rings, so the fill animates with transform only. */
+.dial { position: relative; width: var(--d); height: var(--d); --d: 64px; --w: 5.5px; }
+.dial::before { content: ''; position: absolute; inset: 0; border-radius: 50%; border: var(--w) solid rgba(255,255,255,0.09); }
+.dial-half { position: absolute; top: 0; width: 50%; height: 100%; overflow: hidden; }
+.dial-half.r { left: 50%; }
+.dial-half.l { left: 0; }
+.dial .arc {
+  position: absolute; top: 0; width: 200%; height: 100%;
+  border-radius: 50%; border: var(--w) solid transparent;
+  transform: rotate(45deg); opacity: 0;
+}
+/* the right window holds a left half-ring and the left window a right half-ring; rotating sweeps each into view */
+.dial-half.r .arc { left: -100%; border-bottom-color: var(--accent); border-left-color: var(--accent); }
+.dial-half.l .arc { left: 0;     border-top-color: var(--accent);    border-right-color: var(--accent); }
+.dial-cap, .dial-head { position: absolute; inset: 0; opacity: 0; }
+.dial-cap::before, .dial-head::before { /* round caps */
+  content: ''; position: absolute; left: calc(50% - var(--w) / 2); top: 0;
+  width: var(--w); height: var(--w); border-radius: 50%; background: var(--accent);
+}
+.dial.on .arc, .dial.on .dial-cap, .dial.on .dial-head { opacity: 1; }
+.dial-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.metric .m-word, .dial .dial-num { opacity: 0; }
+.metric.on .m-word, .dial.on .dial-num { opacity: 1; }
+
+.r-quote { display: flex; gap: 10px; align-items: center; margin-top: 12px; padding: 9px 12px; border-radius: 14px; background: rgba(255,255,255,0.06); }
+.r-quote img { flex: none; width: 24px; height: 24px; border-radius: 50%; object-fit: cover; object-position: 50% 16%; background: #2c2148; }
+.r-quote p { font-size: 13px; font-weight: 500; line-height: 1.3; color: #c4c5cc; }
+
+.r-fix { margin-top: 12px; padding: 9px 12px; border-radius: 14px; background: rgba(255,255,255,0.06); }
+.r-fix p { font-size: 14px; line-height: 1.45; }
+.r-fix .wrong { font-weight: 500; color: #ff8a8a; text-decoration: line-through; text-decoration-color: #ff5a5a; text-decoration-thickness: 1.5px; }
+.r-fix .right { font-weight: 700; color: #34d399; }
+
+.r-dots { flex: none; display: flex; justify-content: center; margin-top: 6px; }
+.r-dot { position: relative; height: 22px; padding: 0 4px; display: grid; place-items: center; }
+.r-dot::before { content: ''; width: 6px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.28); transition: background-color 200ms ease; }
+.r-dot[aria-current="true"]::before { width: 22px; background: #fff; }
+
+/* ─── CTA ─── */
+.r-cta-wrap { flex: none; padding: 6px 20px max(18px, env(safe-area-inset-bottom)); }
+.r-cta {
+  width: 100%; height: 56px; border-radius: 28px;
+  background: var(--cta-bg); color: var(--cta-fg);
+  font-size: 16px; font-weight: 800;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  transition: scale 150ms ease-out;
+}
+.r-cta:active { scale: .97; }
+
+/* ─── Shorter screens (most phones in a browser): same layout, tighter spacing ─── */
+@container (max-height: 850px) {
+  .r-content { padding-top: 4px; }
+  .r-stamp-row { margin-bottom: 22px; }
+  .r-stamp { font-size: 22px; padding: 7px 16px 7px 14px; }
+  .r-stat { padding: 13px 8px 12px; }
+  .r-stat .num { font-size: 26px; margin-bottom: 6px; }
+  .r-divider { margin: 11px 0; }
+  .r-card { padding: 13px 14px 13px; }
+  .r-card h2 { font-size: 17px; margin-bottom: 9px; }
+  .dial { --d: 56px; --w: 5px; }
+  .dial-num { font-size: 18px; }
+  .m-name { margin-top: 4px; font-size: 13px; }
+  .m-word { font-size: 12.5px; }
+  .r-quote, .r-fix { margin-top: 9px; padding: 7px 10px; }
+  .r-cta-wrap { padding-top: 4px; }
+}
+
+/* ─── FX layer: flying stars, particles, confetti, dust ─── */
+.fx { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.fx > * { position: absolute; left: 0; top: 0; opacity: 0; will-change: transform, opacity; }
+.fx > .flyer { opacity: 1; }
+.p-dot   { border-radius: 50%; background: radial-gradient(circle at 40% 35%, #fff6c8, #f5d56b 40%, #d29a2a 100%); }
+.p-trail { border-radius: 50%; background: radial-gradient(circle, #fff8d6 0%, #ffd54a 45%, rgba(255,190,40,0) 72%); }
+.p-spark { border-radius: 2px; background: linear-gradient(90deg, transparent, #fff3b0 40%, #ffd04d); }
+.p-star  { background: linear-gradient(#fff2b0, #f5b72a); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.p-ring  { border-radius: 50%; border: 4px solid #ffe38a; box-shadow: 0 0 14px rgba(255,210,80,.5); }
+.p-bloom { border-radius: 50%; background: radial-gradient(circle, rgba(255,246,200,.95) 0%, rgba(255,200,70,.45) 30%, rgba(255,170,40,0) 68%); }
+.p-conf  { border-radius: 2px; }
+.p-dust  { border-radius: 50%; background: radial-gradient(circle, rgba(235,228,255,.5), transparent 70%); }
+.t-red .p-dust   { background: radial-gradient(circle, rgba(255,190,190,.45), transparent 70%); }
+.t-amber .p-dust { background: radial-gradient(circle, rgba(255,226,160,.45), transparent 70%); }
+.p-shard { background: linear-gradient(160deg, #6a5a70, #2a2230); border: 1px solid rgba(255,110,110,.7); }
+
+/* ─── Desktop: centre a 412px phone ─── */
+@media (min-width: 640px) {
+  body { align-items: center; justify-content: center; gap: 14px; padding: 16px; background: #050409; }
+  .proto { order: -1; width: 412px; border: 1px solid #1d1a2a; border-radius: 12px; padding: 8px; }
+  .results-screen {
+    flex: none; width: 412px; height: min(917px, calc(100dvh - 110px));
+    border-radius: 42px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 30px 80px rgba(0,0,0,.6);
+  }
+  .r-status {
+    display: flex; flex: none; height: 48px; padding: 18px 28px 0;
+    justify-content: space-between; align-items: center;
+    font-size: 14px; font-weight: 700; font-feature-settings: 'tnum';
+  }
+  .r-status .right { display: flex; gap: 5px; align-items: center; }
+  .r-cta-wrap { padding-bottom: 4px; }
+  .home { display: block; flex: none; width: 130px; height: 5px; margin: 6px auto 8px; border-radius: 4px; background: #fff; opacity: .85; }
+}
+</style>
+</head>
+<body>
+
+<div class="proto" id="proto">
+  <div class="proto-row">
+    <button class="toggle" id="protoToggle" aria-expanded="false" aria-controls="protoBody">
+      <span id="protoLabel">3★</span>
+      <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button id="replay">
+      <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M10 6a4 4 0 1 1-1.2-2.85M10 1.5v2.2H7.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Replay
+    </button>
+  </div>
+  <div class="proto-row proto-body" id="protoBody">
+    <button data-outcome="perfect">3★</button>
+    <button data-outcome="close">Close call</button>
+    <button data-outcome="failed">Mission failed</button>
+    <button data-outcome="timesup">Time's up</button>
+    <label><input type="checkbox" id="slow"> 0.25×</label>
+    <label><input type="checkbox" id="rm"> Reduced motion</label>
+  </div>
+</div>
+
+<main class="results-screen t-gold" id="phone">
+  <!-- defs live inside the screen so theme variables reach them -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <path id="r-star" d="M20 3 L24.7 14.6 L37.1 15.6 L27.6 23.5 L30.6 35.6 L20 29.1 L9.4 35.6 L12.4 23.5 L2.9 15.6 L15.3 14.6 Z"/>
+      <linearGradient id="r-goldGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"  stop-color="#f3cf6e"/><stop offset="45%" stop-color="#c89028"/><stop offset="100%" stop-color="#6b3e0e"/>
+      </linearGradient>
+      <linearGradient id="r-starGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"  stop-color="#f5d56b"/><stop offset="50%" stop-color="#d29a2a"/><stop offset="100%" stop-color="#7a4f12"/>
+      </linearGradient>
+      <linearGradient id="r-dullGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6a5a70"/><stop offset="100%" stop-color="#2a2230"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="bg" id="bg"></div>
+
+  <div class="cam" id="cam">
+    <div class="screen" id="screen">
+      <div class="r-status" aria-hidden="true">
+        <span>9:41</span>
+        <span class="right">
+          <svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="8" width="3" height="3" rx="0.5" fill="white"/><rect x="5" y="5.5" width="3" height="5.5" rx="0.5" fill="white"/><rect x="10" y="3" width="3" height="8" rx="0.5" fill="white"/><rect x="15" y="0.5" width="3" height="10.5" rx="0.5" fill="white"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 1.5C4.4 1.5 1.6 3 0.2 4.6L1.8 6c1-1.2 3.2-2.2 6.2-2.2s5.2 1 6.2 2.2L15.8 4.6C14.4 3 11.6 1.5 8 1.5zm0 3c-2.3 0-3.9 0.9-4.6 1.9l1.5 1.4c.5-.5 1.7-1 3.1-1s2.6.5 3.1 1L12.6 6.4c-.7-1-2.3-1.9-4.6-1.9zm0 3.2L9.5 9.2 8 10.7 6.5 9.2 8 7.7z" fill="white"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="22" height="11" rx="2.8" stroke="white" stroke-opacity="0.45" fill="none"/><rect x="2" y="2" width="19" height="8" rx="1.4" fill="white"/><rect x="23.2" y="3.5" width="1.6" height="5" rx="0.5" fill="white" fill-opacity="0.6"/></svg>
+        </span>
+      </div>
+
+      <div class="r-header" id="header">
+        <button class="close" aria-label="Close">×</button>
+        <div class="r-title">Asking for leave</div>
+        <span></span>
+      </div>
+
+      <div class="r-content">
+        <div class="hero">
+          <div class="avatar-wrap" id="avatarWrap">
+            <svg class="ring" viewBox="0 0 280 280" aria-hidden="true">
+              <circle class="track" cx="140" cy="140" r="120"/>
+              <path class="progress" d="M 80 243.92 A 120 120 0 1 1 200 243.92"/>
+            </svg>
+            <svg class="ring-flash" id="ringFlash" viewBox="0 0 280 280" aria-hidden="true"><path d="M 80 243.92 A 120 120 0 1 1 200 243.92"/></svg>
+            <div class="r-avatar" id="avatar"><img id="avatarImg" alt="Marcus" draggable="false"></div>
+          </div>
+          <div class="stars-wrap" id="starsWrap"></div>
+        </div>
+
+        <div class="r-stamp-row"><div class="r-stamp" id="stamp" role="status"></div></div>
+
+        <div class="r-stats" id="stats">
+          <div class="r-stat"><div class="num" data-stat="messages">0</div><div class="lbl">Chat<br>Messages</div></div>
+          <div class="r-stat"><div class="num" data-stat="words">0</div><div class="lbl">Words<br>Spoken</div></div>
+          <div class="r-stat"><div class="num" data-stat="seconds">0:00</div><div class="lbl">Minutes<br>Spent</div></div>
+        </div>
+
+        <div class="r-divider" id="divider"></div>
+
+        <div class="r-track" id="track">
+          <section class="r-card" aria-label="How you came across">
+            <h2>How you came across</h2>
+            <div class="metrics" id="cameAcross"></div>
+            <div class="r-quote"><img id="quoteFace" alt="Marcus" draggable="false"><p id="quoteText"></p></div>
+          </section>
+          <section class="r-card english" aria-label="Your English">
+            <h2>Your English</h2>
+            <div class="metrics" id="english"></div>
+            <div class="r-fix" aria-label="Top fix">
+              <p class="wrong" id="fixWrong"></p>
+              <p class="right" id="fixRight"></p>
+            </div>
+          </section>
+        </div>
+        <div class="r-dots" id="dots" aria-label="Feedback cards">
+          <button class="r-dot" aria-label="How you came across" aria-current="true"></button>
+          <button class="r-dot" aria-label="Your English"></button>
+        </div>
+      </div>
+
+      <div class="r-cta-wrap" id="ctaWrap"><button class="r-cta" id="cta">See detailed results</button></div>
+      <div class="home" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="fx" id="fx" aria-hidden="true"></div>
+</main>
+
+<span id="clock" hidden></span>
+<script src="results.js"></script>
+</body>
+</html>
