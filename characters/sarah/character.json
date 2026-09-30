@@ -1,0 +1,88 @@
+{
+  "id": "sarah",
+  "name": "Sarah",
+  "role": "Guide. Appears once, when you are about to lose, with a hint (taking it caps you at 2 stars).",
+  "frozen": true,
+  "look": "a friendly woman in her mid-twenties with long, straight, glossy jet-black hair falling past her shoulders with a centre parting, large warm brown eyes with thick upper lashes, softly arched dark eyebrows, light warm-tan skin, a small nose and a gentle smile. She wears a plain fitted black crew-neck t-shirt.",
+  "style": "Smooth Bitmoji-like 2D cartoon avatar exactly as in the Sarah reference images: soft thin outlines, flat colours with very gentle shading, big expressive eyes, rounded friendly features. This style is unique to Sarah as the app's guide; never draw her in Marcus's style.",
+  "personality": "Warm, quick and on your side. Speaks in one short, practical tip, never a lecture.",
+  "voice": {
+    "id": null,
+    "model": null,
+    "settings": null,
+    "pronunciationDictionaries": [],
+    "note": "Look up her id with --list-voices if she already has one; she has no lines in Asking for leave."
+  },
+  "references": [
+    "sarah.png",
+    "flow-assets/av-introduction.png",
+    "flow-assets/banner-sarah.png"
+  ],
+  "styleReferences": [],
+  "existing": {
+    "faces": {
+      "waving": "sarah.png",
+      "avatar": "flow-assets/av-introduction.png",
+      "pointing-down": "flow-assets/banner-sarah.png"
+    },
+    "clips": {
+      "hint": "flow-assets/sarah-hint.mp4"
+    }
+  },
+  "sheet": [
+    {
+      "id": "front-neutral",
+      "type": "still",
+      "summary": "Front bust, hands down, soft neutral smile (the base frame for her clips).",
+      "prompt": "Sarah facing the camera, chest-up, arms relaxed at her sides and out of frame, a soft closed-mouth smile, eyes bright and attentive.",
+      "aspect": "9:16",
+      "output": "characters/sarah/sheet/front-neutral.png",
+      "status": "draft"
+    },
+    {
+      "id": "three-quarter-left",
+      "type": "still",
+      "summary": "Three-quarter view turned to our left, friendly.",
+      "prompt": "Sarah in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, soft closed-mouth smile. Hair falls naturally over her far shoulder.",
+      "aspect": "9:16",
+      "output": "characters/sarah/sheet/three-quarter-left.png",
+      "status": "draft"
+    },
+    {
+      "id": "concerned",
+      "type": "still",
+      "summary": "Mood face: concerned for you (you are about to lose).",
+      "prompt": "Sarah facing the camera, concerned and caring: brows drawn up in the middle, eyes wide and soft, lips pressed together gently, head tilted slightly. Worried for the player, not scared.",
+      "aspect": "9:16",
+      "output": "characters/sarah/sheet/concerned.png",
+      "status": "draft"
+    },
+    {
+      "id": "encouraging",
+      "type": "still",
+      "summary": "Mood face: encouraging, \"you've got this\".",
+      "prompt": "Sarah facing the camera, encouraging: bright eyes, eyebrows lifted, a warm wide closed-mouth smile, a small confident nod of the head.",
+      "aspect": "9:16",
+      "output": "characters/sarah/sheet/encouraging.png",
+      "status": "draft"
+    },
+    {
+      "id": "thinking",
+      "type": "still",
+      "summary": "Mood face: thinking of the right tip.",
+      "prompt": "Sarah facing the camera, thinking: eyes glancing up and to one side, one eyebrow slightly raised, lips pushed a little to one side. Hands are out of frame.",
+      "aspect": "9:16",
+      "output": "characters/sarah/sheet/thinking.png",
+      "status": "draft"
+    },
+    {
+      "id": "celebrating",
+      "type": "still",
+      "summary": "Mood face: proud of you after a win.",
+      "prompt": "Sarah facing the camera, delighted and proud: eyes crinkled with joy, a big open smile showing the top teeth, eyebrows high. Hands are out of frame.",
+      "aspect": "9:16",
+      "output": "characters/sarah/sheet/celebrating.png",
+      "status": "draft"
+    }
+  ]
+}

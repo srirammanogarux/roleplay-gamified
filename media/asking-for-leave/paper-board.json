@@ -1,0 +1,296 @@
+{
+  "roleplay": "asking-for-leave",
+  "note": "Driven by the main agent through the Paper MCP. cardId = Paper node id of the scene card. prompt/status = what Paper showed at the last sync.",
+  "paperFile": null,
+  "paperPage": null,
+  "syncedAt": null,
+  "cards": [
+    {
+      "cardId": null,
+      "itemId": "topic-avatar",
+      "summary": "Topic tile avatar on the topics list: Marcus, arms crossed, stern (same picture as boss.png).",
+      "prompt": "Marcus, the boss, standing chest-up against a plain pure black background, arms crossed over his chest, stern and impatient: brows low and furrowed, mouth closed in a hard frown. Centred, square framing.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-1-deadline-start",
+      "summary": "Start frame of story-1-deadline: Marcus typing at his desk under the wall clock and calendar.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-1-deadline-end",
+      "summary": "End frame of story-1-deadline: Marcus looking up at the calendar, worried.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-1-deadline",
+      "summary": "Tomorrow is the big client handoff. Marcus types at his desk, then looks up at the wall calendar and realises how close the day is. The app rings the calendar on top of this clip.",
+      "prompt": "Interior of Marcus's office in warm late-afternoon light. Medium shot from slightly left of centre: Marcus sits at a wide wooden desk, typing on a keyboard, a closed notepad and pen beside it and a stack of papers at the left edge; a brass desk lamp glows on the left. Behind him, on a pale cream wall, hangs a round wall clock with plain tick marks (no numerals) and, on the right, a large tear-off desk calendar with a red header band and a blank white page (no printed month, day or number). Sunlight falls diagonally through a window on the left. Action: for the first two seconds he types, focused, brows furrowed. Then he stops, lifts his eyes and head towards the calendar on the right, and his brows rise with dawning worry; his mouth stays closed. He holds that worried look to the end. Camera: a very slow, steady push-in towards Marcus and the calendar; no cuts.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-2-workdone-start",
+      "summary": "Start frame of story-2-workdone: The player (purple silhouette) working at a laptop in a home study.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-2-workdone-end",
+      "summary": "End frame of story-2-workdone: The player back at the laptop after celebrating.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-2-workdone",
+      "summary": "Establishes that your work is done: you (a faceless purple silhouette) finish the last task, throw both arms up in relief, the desk lamp clicks on, and you settle back.",
+      "prompt": "A cosy home study in the early evening. Wide shot, straight on: a wooden desk in the foreground with an open silver laptop (screen turned away from camera), a small stack of books and an unlit desk lamp on the right. Behind: a tall dark-wood bookshelf packed with books and small plants on the left, a white wall clock without numerals, a copper pendant lamp hanging from the ceiling, and a large window with lilac curtains and a soft city skyline outside. At the desk sits the player: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details, a thin lighter-purple rim outline), seated on a desk chair. Action: the figure types for a beat, then throws both arms straight up in a triumphant stretch as the desk lamp switches on with a warm glow, then lowers the arms and leans back contentedly towards the laptop. Camera: locked off with a barely perceptible slow push-in. No cuts.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-3-theask-start",
+      "summary": "Start frame of story-3-theask: The player sitting at the laptop in the same study.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-3-theask-end",
+      "summary": "End frame of story-3-theask: The player leaning forward over the laptop, worried.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-3-theask",
+      "summary": "The worry sets in: you need tomorrow off, the day of the handoff. The silhouette rubs its face with both hands, then leans in over the laptop, dreading the ask. The app adds a night tint on top.",
+      "prompt": "The same cosy home study as story 2, same camera position and framing, same furniture, bookshelf, window, curtains and pendant lamp; the desk lamp is on. The player, the smooth faceless deep-purple silhouette figure with a thin lighter-purple rim outline, sits at the desk facing the open laptop. Action: the figure slowly raises both hands and rubs its face in worry, holds for a beat, then lowers the hands and leans forward over the desk towards the laptop, shoulders hunched, dreading what comes next. Movements are slow and heavy. Camera: locked off with a very slow push-in. No cuts.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-4a-walk-start",
+      "summary": "Start frame of story-4a-walk: The player from behind, at the start of an office corridor.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-4a-walk-end",
+      "summary": "End frame of story-4a-walk: The player near the glass door of Marcus's cabin.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-4a-walk",
+      "summary": "You walk down the office corridor towards the boss's glass cabin door. Plays first, then cross-fades into the cabin clip.",
+      "prompt": "A quiet office corridor, symmetrical one-point perspective: beige walls, grey carpet with a subtle pattern, recessed ceiling lights, a potted plant on a small side table on the right, a small framed picture on the left wall. At the far end, a frosted glass door in a steel frame leads into a bright cabin (the door has NO sign and no lettering). The player, a smooth faceless deep-purple silhouette figure with a thin lighter-purple rim outline, is seen from behind in the foreground. Action: the figure walks steadily away from the camera down the corridor towards the glass door, getting smaller, and slows as it nears the door. Camera: follows gently behind at walking pace, then lets the figure pull ahead. No cuts.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-4-cabin-start",
+      "summary": "Start frame of story-4-cabin: Marcus seen through the glass wall of his cabin, writing.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-4-cabin-end",
+      "summary": "End frame of story-4-cabin: Closer on Marcus writing at his desk, stern.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "story-4-cabin",
+      "summary": "Point of view entering the cabin: through the glass wall we see Marcus writing at his desk; the camera glides through the glass until he fills the frame, stern and busy.",
+      "prompt": "Marcus's glass-walled cabin in warm afternoon light. The shot starts outside the cabin looking in through a clear glass wall with thin steel frames and a steel door rail at the top: Marcus sits at his desk writing on a sheet of paper with a pen, a computer monitor (screen facing away) and keyboard on the left, a brass desk lamp glowing, stacked papers, a window with a soft city skyline and a framed landscape painting behind him. Action: Marcus keeps writing, eyes down, brows furrowed, mouth closed; he does not look up. Camera: a slow, smooth dolly forward that passes through the glass wall (the glass and frame slide out of the frame edges) and ends on a closer medium shot of Marcus at his desk. His writing hand stays small and simple in the frame. No cuts.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "faceoff-marcus",
+      "summary": "Marcus's circle in the face-off and mission screens: tight, angry close-up.",
+      "prompt": "Tight head-and-shoulders close-up of Marcus facing the camera against a plain pure black background, angry and impatient: brows pulled hard down and together, eyes narrowed and glaring straight at the viewer, mouth closed in a deep frown. Square framing, face centred.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "faceoff-you",
+      "summary": "The player's circle: a faceless purple silhouette, chest-up.",
+      "prompt": "The player as a smooth, faceless, deep-purple silhouette bust (head, neck and shoulders, a simple collared shirt shape) with a thin lighter-purple rim outline, facing the camera, centred against a very dark navy background. No facial features at all.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-greeting-start",
+      "summary": "Start frame of marcus-greeting: Marcus, neutral-stern bust on black.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-greeting-end",
+      "summary": "End frame of marcus-greeting: Marcus back to neutral-stern.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-greeting",
+      "summary": "Marcus's avatar as he opens (\"hey make it quick\"): a small impatient gesture, then back to neutral. Plays with the opening line.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera with a stern, busy expression. Action: he gives a small impatient tilt of the head and a brief lift of the eyebrows, as if saying \"go on, quickly\", then settles back to his stern neutral look. His mouth stays closed. Keep his hands below the frame. Camera: locked off with a very slight push-in and return. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "meter-calm",
+      "summary": "Anger-meter face: calm.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, neutral and composed: brows level, eyes steady, mouth closed in a relaxed line. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "meter-approving",
+      "summary": "Anger-meter face: approving.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, approving: brows relaxed and slightly raised, eyes warm, a faint closed-mouth smile, a healthy warm flush in the cheeks. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "meter-irritated",
+      "summary": "Anger-meter face: irritated.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, irritated: brows slightly lowered and drawn together, eyes narrowing, mouth pressed flat. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "meter-angry",
+      "summary": "Anger-meter face: angry.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, angry: brows pulled hard down, eyes glaring, deep frown lines, mouth turned down in a scowl. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "meter-furious",
+      "summary": "Anger-meter face: furious.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, furious: face flushed deep red across the cheeks and forehead, brows slammed down, eyes wide and glaring, teeth clenched and bared. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-angry-start",
+      "summary": "Start frame of marcus-angry: Marcus scowling, arms crossed.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-angry-end",
+      "summary": "End frame of marcus-angry: Marcus furious, arms crossed.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-angry",
+      "summary": "Morph when Marcus blows up (\"Tomorrow, what???\"): arms crossed, the scowl deepens to fury.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, arms folded across his chest at the bottom edge of the frame, scowling at the camera. Action: his anger builds: brows drive further down, eyes widen into a glare, his jaw tightens and the scowl deepens; he leans forward very slightly. His mouth stays closed or clenched, never forming words. Camera: a quick but smooth small push-in, then hold. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-kickout-start",
+      "summary": "Start frame of marcus-kickout: Marcus furious, arms crossed.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-kickout-end",
+      "summary": "End frame of marcus-kickout: Marcus pointing to the door, furious.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-kickout",
+      "summary": "Poor-path ending (\"We're done here.\"): Marcus, furious, unfolds his arms and points to the door, telling you to leave.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, arms crossed, furious. Action: he closes his eyes for a moment in exasperation, then opens them glaring, uncrosses his arms and raises one hand to point firmly towards the side of the frame, towards the door. The pointing hand is simple and correctly formed with a single extended index finger, held at shoulder height at the edge of the frame. His mouth stays closed in a hard frown. Camera: locked off. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-meeting-exit-start",
+      "summary": "Start frame of marcus-meeting-exit: Close on Marcus checking his wristwatch.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-meeting-exit-end",
+      "summary": "End frame of marcus-meeting-exit: Marcus looking up, done waiting.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-meeting-exit",
+      "summary": "Time's-up ending (\"I've got a meeting.\"): Marcus checks his watch, then looks up, out of time for you.",
+      "prompt": "Close medium shot of Marcus against a plain dark charcoal background, head tipped down, looking at a silver wristwatch on his raised left wrist at the bottom of the frame. Action: he glances at the watch, then lowers the wrist out of the frame and lifts his head to look at the camera with a tired, final, \"that's it\" expression, brows raised, mouth closed. Camera: a slow tilt up from the watch to his face. Frame his face inside the centred square so the clip can be cropped square.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-happy",
+      "summary": "Results avatar when you win: Marcus pleased.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, pleased and won over: a warm closed-mouth smile, brows relaxed, eyes soft with crow's feet.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "marcus-master",
+      "summary": "Marcus's master image (arms crossed). Default results avatar and his main character reference. Frozen.",
+      "prompt": "Marcus standing chest-up against a plain pure black background, arms crossed, stern and impatient.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "sarah-avatar",
+      "summary": "Sarah's avatar on the \"tap for guided response\" launcher by the mic. Frozen.",
+      "prompt": "Sarah, chest-up against a plain pure black background, waving hello with a warm smile.",
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "sarah-hint-start",
+      "summary": "Start frame of sarah-hint: Sarah front bust on black, neutral.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "sarah-hint-end",
+      "summary": "End frame of sarah-hint: Sarah smiling, hand lowered.",
+      "prompt": null,
+      "status": "approved"
+    },
+    {
+      "cardId": null,
+      "itemId": "sarah-hint",
+      "summary": "Guided path: Sarah pops in with a tip. She raises one finger (\"here's an idea\") with a bright look, then lowers it and smiles.",
+      "prompt": "Sarah, chest-up and centred against a plain pure black background, facing the camera with a calm neutral face. Action: her eyes light up and she raises one hand beside her face with the index finger pointing up, as if saying \"here's an idea\", holds it for a beat with an excited open smile, then lowers the hand out of frame and settles into a warm closed-mouth smile. Her raised hand is simple and correctly formed. Camera: locked off. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "status": "approved"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "roleplay": "characters",
+  "title": "Character sets",
+  "note": "Character sheets are not tied to one roleplay. Each character-sheet item expands into the entries listed in characters/<name>/character.json (params.entries: null = all). Stills first: approve an Elena/Ryan entry marked reference before the rest can be drawn; clips need their first/last faces approved.",
+  "characters": [
+    "marcus",
+    "sarah",
+    "elena",
+    "ryan"
+  ],
+  "playlists": {},
+  "items": [
+    {
+      "id": "elena-sheet",
+      "kind": "character-sheet",
+      "scene": "elena · character set",
+      "summary": "Elena, the senior leader: new full set (faces bored/neutral/interested/delighted + greeting/laugh/checks-phone/leaves clips) in Marcus's style.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "character": "elena",
+        "entries": null
+      },
+      "output": null,
+      "status": "draft"
+    },
+    {
+      "id": "ryan-sheet",
+      "kind": "character-sheet",
+      "scene": "ryan · character set",
+      "summary": "Ryan, the coworker who blames you: new full set in Marcus's style.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "character": "ryan",
+        "entries": null
+      },
+      "output": null,
+      "status": "draft"
+    },
+    {
+      "id": "marcus-sheet",
+      "kind": "character-sheet",
+      "scene": "marcus · character set",
+      "summary": "Marcus: only the missing angles and mood faces, drawn from his existing art.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "character": "marcus",
+        "entries": null
+      },
+      "output": null,
+      "status": "draft"
+    },
+    {
+      "id": "sarah-sheet",
+      "kind": "character-sheet",
+      "scene": "sarah · character set",
+      "summary": "Sarah: only the missing angles and mood faces, in her own style.",
+      "prompt": null,
+      "characters": [
+        "sarah"
+      ],
+      "params": {
+        "character": "sarah",
+        "entries": null
+      },
+      "output": null,
+      "status": "draft"
+    }
+  ]
+}

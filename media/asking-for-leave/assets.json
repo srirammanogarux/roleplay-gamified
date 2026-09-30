@@ -1,0 +1,1371 @@
+{
+  "roleplay": "asking-for-leave",
+  "title": "Asking for leave",
+  "note": "Describes the EXISTING Leave assets with reconstructed prompts, all approved. Story and morph clips start and end on stills extracted from the current clips (media/asking-for-leave/stills), so any one can be remade as a take. The original clips were made at 4/6 s; Veo needs 8 s for first+last frame, so remakes are generated at 8 s and retimed to the original length (params.fitSeconds). Original story clips have baked-in text (calendar, \"CEO\" door sign) and a visible sparkle mark; the reconstructed prompts follow the new no-text rule.",
+  "characters": [
+    "marcus",
+    "sarah"
+  ],
+  "playlists": {
+    "poor": [
+      "v-opening",
+      "v-poor-u1",
+      "v-poor-b2",
+      "v-poor-u2",
+      "v-poor-b3",
+      "v-poor-u3",
+      "v-poor-b4",
+      "v-poor-u4",
+      "v-poor-b5"
+    ],
+    "guided": [
+      "v-opening",
+      "v-guided-u1",
+      "v-guided-b2",
+      "v-guided-u2",
+      "v-guided-b3",
+      "v-guided-u3",
+      "v-guided-b4",
+      "v-guided-hint",
+      "v-guided-b5",
+      "v-guided-u5",
+      "v-guided-b6",
+      "v-guided-u6"
+    ],
+    "perfect": [
+      "v-opening",
+      "v-guided-u1",
+      "v-perfect-b2",
+      "v-perfect-u2",
+      "v-perfect-b3",
+      "v-perfect-u3",
+      "v-perfect-b4",
+      "v-perfect-u4"
+    ],
+    "timesup": [
+      "v-opening",
+      "v-timesup-u1",
+      "v-timesup-b2",
+      "v-timesup-u2",
+      "v-timesup-b3",
+      "v-timesup-u3",
+      "v-timesup-b4",
+      "v-timesup-u4",
+      "v-timesup-b5",
+      "v-timesup-u5"
+    ]
+  },
+  "items": [
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "topic-avatar",
+      "scene": "topics",
+      "summary": "Topic tile avatar on the topics list: Marcus, arms crossed, stern (same picture as boss.png).",
+      "prompt": "Marcus, the boss, standing chest-up against a plain pure black background, arms crossed over his chest, stern and impatient: brows low and furrowed, mouth closed in a hard frown. Centred, square framing.",
+      "params": {
+        "aspect": "1:1",
+        "frozen": true
+      },
+      "output": "flow-assets/av-rude-boss.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-1-deadline-start",
+      "scene": "story 1 · the deadline",
+      "summary": "Start frame of story-1-deadline: Marcus typing at his desk under the wall clock and calendar.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide1_deadline_silent.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-1-deadline-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-1-deadline-end",
+      "scene": "story 1 · the deadline",
+      "summary": "End frame of story-1-deadline: Marcus looking up at the calendar, worried.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide1_deadline_silent.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-1-deadline-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-1-deadline",
+      "scene": "story 1 · the deadline",
+      "summary": "Tomorrow is the big client handoff. Marcus types at his desk, then looks up at the wall calendar and realises how close the day is. The app rings the calendar on top of this clip.",
+      "prompt": "Interior of Marcus's office in warm late-afternoon light. Medium shot from slightly left of centre: Marcus sits at a wide wooden desk, typing on a keyboard, a closed notepad and pen beside it and a stack of papers at the left edge; a brass desk lamp glows on the left. Behind him, on a pale cream wall, hangs a round wall clock with plain tick marks (no numerals) and, on the right, a large tear-off desk calendar with a red header band and a blank white page (no printed month, day or number). Sunlight falls diagonally through a window on the left. Action: for the first two seconds he types, focused, brows furrowed. Then he stops, lifts his eyes and head towards the calendar on the right, and his brows rise with dawning worry; his mouth stays closed. He holds that worried look to the end. Camera: a very slow, steady push-in towards Marcus and the calendar; no cuts.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-1-deadline-start",
+        "lastStill": "story-1-deadline-end"
+      },
+      "output": "videos/slide1_deadline_silent.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-2-workdone-start",
+      "scene": "story 2 · work done",
+      "summary": "Start frame of story-2-workdone: The player (purple silhouette) working at a laptop in a home study.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide2_workdone_silent.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-2-workdone-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-2-workdone-end",
+      "scene": "story 2 · work done",
+      "summary": "End frame of story-2-workdone: The player back at the laptop after celebrating.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide2_workdone_silent.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-2-workdone-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-2-workdone",
+      "scene": "story 2 · work done",
+      "summary": "Establishes that your work is done: you (a faceless purple silhouette) finish the last task, throw both arms up in relief, the desk lamp clicks on, and you settle back.",
+      "prompt": "A cosy home study in the early evening. Wide shot, straight on: a wooden desk in the foreground with an open silver laptop (screen turned away from camera), a small stack of books and an unlit desk lamp on the right. Behind: a tall dark-wood bookshelf packed with books and small plants on the left, a white wall clock without numerals, a copper pendant lamp hanging from the ceiling, and a large window with lilac curtains and a soft city skyline outside. At the desk sits the player: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details, a thin lighter-purple rim outline), seated on a desk chair. Action: the figure types for a beat, then throws both arms straight up in a triumphant stretch as the desk lamp switches on with a warm glow, then lowers the arms and leans back contentedly towards the laptop. Camera: locked off with a barely perceptible slow push-in. No cuts.",
+      "characters": [],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-2-workdone-start",
+        "lastStill": "story-2-workdone-end"
+      },
+      "output": "videos/slide2_workdone_silent.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-3-theask-start",
+      "scene": "story 3 · the ask",
+      "summary": "Start frame of story-3-theask: The player sitting at the laptop in the same study.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide3_theask_silent.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-3-theask-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-3-theask-end",
+      "scene": "story 3 · the ask",
+      "summary": "End frame of story-3-theask: The player leaning forward over the laptop, worried.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide3_theask_silent.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-3-theask-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-3-theask",
+      "scene": "story 3 · the ask",
+      "summary": "The worry sets in: you need tomorrow off, the day of the handoff. The silhouette rubs its face with both hands, then leans in over the laptop, dreading the ask. The app adds a night tint on top.",
+      "prompt": "The same cosy home study as story 2, same camera position and framing, same furniture, bookshelf, window, curtains and pendant lamp; the desk lamp is on. The player, the smooth faceless deep-purple silhouette figure with a thin lighter-purple rim outline, sits at the desk facing the open laptop. Action: the figure slowly raises both hands and rubs its face in worry, holds for a beat, then lowers the hands and leans forward over the desk towards the laptop, shoulders hunched, dreading what comes next. Movements are slow and heavy. Camera: locked off with a very slow push-in. No cuts.",
+      "characters": [],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-3-theask-start",
+        "lastStill": "story-3-theask-end"
+      },
+      "output": "videos/slide3_theask_silent.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-4a-walk-start",
+      "scene": "story 4 · entering the cabin",
+      "summary": "Start frame of story-4a-walk: The player from behind, at the start of an office corridor.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide4a_walk_silent.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-4a-walk-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-4a-walk-end",
+      "scene": "story 4 · entering the cabin",
+      "summary": "End frame of story-4a-walk: The player near the glass door of Marcus's cabin.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide4a_walk_silent.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-4a-walk-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-4a-walk",
+      "scene": "story 4 · entering the cabin",
+      "summary": "You walk down the office corridor towards the boss's glass cabin door. Plays first, then cross-fades into the cabin clip.",
+      "prompt": "A quiet office corridor, symmetrical one-point perspective: beige walls, grey carpet with a subtle pattern, recessed ceiling lights, a potted plant on a small side table on the right, a small framed picture on the left wall. At the far end, a frosted glass door in a steel frame leads into a bright cabin (the door has NO sign and no lettering). The player, a smooth faceless deep-purple silhouette figure with a thin lighter-purple rim outline, is seen from behind in the foreground. Action: the figure walks steadily away from the camera down the corridor towards the glass door, getting smaller, and slows as it nears the door. Camera: follows gently behind at walking pace, then lets the figure pull ahead. No cuts.",
+      "characters": [],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-4a-walk-start",
+        "lastStill": "story-4a-walk-end"
+      },
+      "output": "videos/slide4a_walk_silent.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-4-cabin-start",
+      "scene": "story 4 · entering the cabin",
+      "summary": "Start frame of story-4-cabin: Marcus seen through the glass wall of his cabin, writing.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide4_cabin_silent.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-4-cabin-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-4-cabin-end",
+      "scene": "story 4 · entering the cabin",
+      "summary": "End frame of story-4-cabin: Closer on Marcus writing at his desk, stern.",
+      "prompt": null,
+      "params": {
+        "aspect": "9:16",
+        "extract": {
+          "from": "videos/slide4_cabin_silent.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/story-4-cabin-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-4-cabin",
+      "scene": "story 4 · entering the cabin",
+      "summary": "Point of view entering the cabin: through the glass wall we see Marcus writing at his desk; the camera glides through the glass until he fills the frame, stern and busy.",
+      "prompt": "Marcus's glass-walled cabin in warm afternoon light. The shot starts outside the cabin looking in through a clear glass wall with thin steel frames and a steel door rail at the top: Marcus sits at his desk writing on a sheet of paper with a pen, a computer monitor (screen facing away) and keyboard on the left, a brass desk lamp glowing, stacked papers, a window with a soft city skyline and a framed landscape painting behind him. Action: Marcus keeps writing, eyes down, brows furrowed, mouth closed; he does not look up. Camera: a slow, smooth dolly forward that passes through the glass wall (the glass and frame slide out of the frame edges) and ends on a closer medium shot of Marcus at his desk. His writing hand stays small and simple in the frame. No cuts.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-4-cabin-start",
+        "lastStill": "story-4-cabin-end"
+      },
+      "output": "videos/slide4_cabin_silent.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "faceoff-marcus",
+      "scene": "face-off · mission",
+      "summary": "Marcus's circle in the face-off and mission screens: tight, angry close-up.",
+      "prompt": "Tight head-and-shoulders close-up of Marcus facing the camera against a plain pure black background, angry and impatient: brows pulled hard down and together, eyes narrowed and glaring straight at the viewer, mouth closed in a deep frown. Square framing, face centred.",
+      "params": {
+        "aspect": "1:1",
+        "size": 440
+      },
+      "output": "img/boss-goal.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "faceoff-you",
+      "scene": "face-off · mission",
+      "summary": "The player's circle: a faceless purple silhouette, chest-up.",
+      "prompt": "The player as a smooth, faceless, deep-purple silhouette bust (head, neck and shoulders, a simple collared shirt shape) with a thin lighter-purple rim outline, facing the camera, centred against a very dark navy background. No facial features at all.",
+      "params": {
+        "aspect": "1:1"
+      },
+      "output": "img/you.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-greeting-start",
+      "scene": "conversation · Marcus",
+      "summary": "Start frame of marcus-greeting: Marcus, neutral-stern bust on black.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-intro.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-greeting-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-greeting-end",
+      "scene": "conversation · Marcus",
+      "summary": "End frame of marcus-greeting: Marcus back to neutral-stern.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-intro.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-greeting-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "marcus-greeting",
+      "scene": "conversation · Marcus",
+      "summary": "Marcus's avatar as he opens (\"hey make it quick\"): a small impatient gesture, then back to neutral. Plays with the opening line.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera with a stern, busy expression. Action: he gives a small impatient tilt of the head and a brief lift of the eyebrows, as if saying \"go on, quickly\", then settles back to his stern neutral look. His mouth stays closed. Keep his hands below the frame. Camera: locked off with a very slight push-in and return. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 4,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "marcus-greeting-start",
+        "lastStill": "marcus-greeting-end",
+        "crop": "square",
+        "size": 480
+      },
+      "output": "flow-assets/boss-intro.mp4",
+      "posters": {
+        "first": "flow-assets/boss-intro-poster.jpg",
+        "last": "flow-assets/boss-intro-last.jpg"
+      }
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "meter-calm",
+      "scene": "conversation · anger meter",
+      "summary": "Anger-meter face: calm.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, neutral and composed: brows level, eyes steady, mouth closed in a relaxed line. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "params": {
+        "aspect": "1:1",
+        "size": 360,
+        "sheet": true
+      },
+      "output": "flow-assets/boss-meter-calm.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "meter-approving",
+      "scene": "conversation · anger meter",
+      "summary": "Anger-meter face: approving.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, approving: brows relaxed and slightly raised, eyes warm, a faint closed-mouth smile, a healthy warm flush in the cheeks. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "params": {
+        "aspect": "1:1",
+        "size": 360,
+        "sheet": true
+      },
+      "output": "flow-assets/boss-meter-approving.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "meter-irritated",
+      "scene": "conversation · anger meter",
+      "summary": "Anger-meter face: irritated.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, irritated: brows slightly lowered and drawn together, eyes narrowing, mouth pressed flat. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "params": {
+        "aspect": "1:1",
+        "size": 360,
+        "sheet": true
+      },
+      "output": "flow-assets/boss-meter-irritated.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "meter-angry",
+      "scene": "conversation · anger meter",
+      "summary": "Anger-meter face: angry.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, angry: brows pulled hard down, eyes glaring, deep frown lines, mouth turned down in a scowl. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "params": {
+        "aspect": "1:1",
+        "size": 360,
+        "sheet": true
+      },
+      "output": "flow-assets/boss-meter-angry.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "meter-furious",
+      "scene": "conversation · anger meter",
+      "summary": "Anger-meter face: furious.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, furious: face flushed deep red across the cheeks and forehead, brows slammed down, eyes wide and glaring, teeth clenched and bared. Same framing, size and lighting as the other meter faces so they swap cleanly.",
+      "params": {
+        "aspect": "1:1",
+        "size": 360,
+        "sheet": true
+      },
+      "output": "flow-assets/boss-meter-furious.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-angry-start",
+      "scene": "conversation · Marcus",
+      "summary": "Start frame of marcus-angry: Marcus scowling, arms crossed.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-angry.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-angry-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-angry-end",
+      "scene": "conversation · Marcus",
+      "summary": "End frame of marcus-angry: Marcus furious, arms crossed.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-angry.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-angry-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "marcus-angry",
+      "scene": "conversation · Marcus",
+      "summary": "Morph when Marcus blows up (\"Tomorrow, what???\"): arms crossed, the scowl deepens to fury.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, arms folded across his chest at the bottom edge of the frame, scowling at the camera. Action: his anger builds: brows drive further down, eyes widen into a glare, his jaw tightens and the scowl deepens; he leans forward very slightly. His mouth stays closed or clenched, never forming words. Camera: a quick but smooth small push-in, then hold. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 4,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "marcus-angry-start",
+        "lastStill": "marcus-angry-end",
+        "crop": "square",
+        "size": 480
+      },
+      "output": "flow-assets/boss-angry.mp4",
+      "posters": {
+        "first": "flow-assets/boss-angry-poster.jpg",
+        "last": "flow-assets/boss-angry-last.jpg"
+      }
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-kickout-start",
+      "scene": "conversation · Marcus",
+      "summary": "Start frame of marcus-kickout: Marcus furious, arms crossed.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-kickout.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-kickout-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-kickout-end",
+      "scene": "conversation · Marcus",
+      "summary": "End frame of marcus-kickout: Marcus pointing to the door, furious.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-kickout.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-kickout-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "marcus-kickout",
+      "scene": "conversation · Marcus",
+      "summary": "Poor-path ending (\"We're done here.\"): Marcus, furious, unfolds his arms and points to the door, telling you to leave.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, arms crossed, furious. Action: he closes his eyes for a moment in exasperation, then opens them glaring, uncrosses his arms and raises one hand to point firmly towards the side of the frame, towards the door. The pointing hand is simple and correctly formed with a single extended index finger, held at shoulder height at the edge of the frame. His mouth stays closed in a hard frown. Camera: locked off. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "marcus-kickout-start",
+        "lastStill": "marcus-kickout-end",
+        "crop": "square",
+        "size": 720
+      },
+      "output": "flow-assets/boss-kickout.mp4",
+      "posters": {
+        "first": "flow-assets/boss-kickout-poster.jpg",
+        "last": "flow-assets/boss-kickout-last.jpg"
+      }
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-meeting-exit-start",
+      "scene": "conversation · Marcus",
+      "summary": "Start frame of marcus-meeting-exit: Close on Marcus checking his wristwatch.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-meeting-exit.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-meeting-exit-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-meeting-exit-end",
+      "scene": "conversation · Marcus",
+      "summary": "End frame of marcus-meeting-exit: Marcus looking up, done waiting.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/boss-meeting-exit.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/marcus-meeting-exit-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "marcus-meeting-exit",
+      "scene": "conversation · Marcus",
+      "summary": "Time's-up ending (\"I've got a meeting.\"): Marcus checks his watch, then looks up, out of time for you.",
+      "prompt": "Close medium shot of Marcus against a plain dark charcoal background, head tipped down, looking at a silver wristwatch on his raised left wrist at the bottom of the frame. Action: he glances at the watch, then lowers the wrist out of the frame and lifts his head to look at the camera with a tired, final, \"that's it\" expression, brows raised, mouth closed. Camera: a slow tilt up from the watch to his face. Frame his face inside the centred square so the clip can be cropped square.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "marcus-meeting-exit-start",
+        "lastStill": "marcus-meeting-exit-end",
+        "crop": "square",
+        "size": 720
+      },
+      "output": "flow-assets/boss-meeting-exit.mp4",
+      "posters": {
+        "first": "flow-assets/boss-meeting-exit-poster.jpg",
+        "last": "flow-assets/boss-meeting-exit-last.jpg"
+      }
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-happy",
+      "scene": "conversation · results",
+      "summary": "Results avatar when you win: Marcus pleased.",
+      "prompt": "Marcus, chest-up and centred against a plain pure black background, facing the camera, pleased and won over: a warm closed-mouth smile, brows relaxed, eyes soft with crow's feet.",
+      "params": {
+        "aspect": "1:1",
+        "size": 420,
+        "sheet": true
+      },
+      "output": "flow-assets/boss-happy-avatar.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "marcus-master",
+      "scene": "conversation · results",
+      "summary": "Marcus's master image (arms crossed). Default results avatar and his main character reference. Frozen.",
+      "prompt": "Marcus standing chest-up against a plain pure black background, arms crossed, stern and impatient.",
+      "params": {
+        "aspect": "1:1",
+        "frozen": true
+      },
+      "output": "boss.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "sarah"
+      ],
+      "status": "approved",
+      "id": "sarah-avatar",
+      "scene": "conversation · Sarah",
+      "summary": "Sarah's avatar on the \"tap for guided response\" launcher by the mic. Frozen.",
+      "prompt": "Sarah, chest-up against a plain pure black background, waving hello with a warm smile.",
+      "params": {
+        "aspect": "1:1",
+        "frozen": true
+      },
+      "output": "flow-assets/av-introduction.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "sarah"
+      ],
+      "status": "approved",
+      "id": "sarah-hint-start",
+      "scene": "conversation · Sarah",
+      "summary": "Start frame of sarah-hint: Sarah front bust on black, neutral.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/sarah-hint.mp4",
+          "at": "first"
+        }
+      },
+      "output": "media/asking-for-leave/stills/sarah-hint-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "sarah"
+      ],
+      "status": "approved",
+      "id": "sarah-hint-end",
+      "scene": "conversation · Sarah",
+      "summary": "End frame of sarah-hint: Sarah smiling, hand lowered.",
+      "prompt": null,
+      "params": {
+        "aspect": "1:1",
+        "extract": {
+          "from": "flow-assets/sarah-hint.mp4",
+          "at": "last"
+        }
+      },
+      "output": "media/asking-for-leave/stills/sarah-hint-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "sarah-hint",
+      "scene": "conversation · Sarah",
+      "summary": "Guided path: Sarah pops in with a tip. She raises one finger (\"here's an idea\") with a bright look, then lowers it and smiles.",
+      "prompt": "Sarah, chest-up and centred against a plain pure black background, facing the camera with a calm neutral face. Action: her eyes light up and she raises one hand beside her face with the index finger pointing up, as if saying \"here's an idea\", holds it for a beat with an excited open smile, then lowers the hand out of frame and settles into a warm closed-mouth smile. Her raised hand is simple and correctly formed. Camera: locked off. Frame the head and shoulders inside the centred square so the clip can be cropped square.",
+      "characters": [
+        "sarah"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 4,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "sarah-hint-start",
+        "lastStill": "sarah-hint-end",
+        "crop": "square",
+        "size": 480
+      },
+      "output": "flow-assets/sarah-hint.mp4",
+      "posters": {
+        "first": "flow-assets/sarah-hint-poster.jpg",
+        "last": "flow-assets/sarah-hint-last.jpg"
+      }
+    },
+    {
+      "id": "v-opening",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Marcus, turn 1: busy, short on patience.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "hey make it quick. i've got a client meeting in 5 minutes. i hope your tasks are done? tomorrow we have a big day to nail!"
+      },
+      "output": "flow-assets/voice/v-opening.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-u1",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Player, turn 2: ignored his question, buried the ask.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "sir, actually... i wanted to talk about something. it's kind of important. i mean, if you have time."
+      },
+      "output": "flow-assets/voice/v-poor-u1.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-b2",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Marcus, turn 3: pressed, patience thinning.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "i asked about your tasks. is it done or not? i've got a client meeting to attend in sometime."
+      },
+      "output": "flow-assets/voice/v-poor-b2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-u2",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Player, turn 4: asked for the client day with no reason.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes yes, it's done. so... can i not come in tomorrow? i have some personal work."
+      },
+      "output": "flow-assets/voice/v-poor-u2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-b3",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Marcus, turn 5: furious, done being patient.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "are you kidding me! tomorrow we have the client handoff and you want to vanish for \"personal work\"? no. you'll be at your desk.",
+        "emotion": "[angry]"
+      },
+      "output": "flow-assets/voice/v-poor-b3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-u3",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Player, turn 6: argued instead of helping him say yes.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "but sir, my work is finished! why does it even matter if i'm here?"
+      },
+      "output": "flow-assets/voice/v-poor-u3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-b4",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Marcus, turn 7: cold, final warning.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "because tomorrow has to go perfectly. that's why. give me one reason i can defend to the client."
+      },
+      "output": "flow-assets/voice/v-poor-b4.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-u4",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Player, turn 8: no reason, no plan, no trust.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i just... really need the day, sir. i can't tell you everything.",
+        "emotion": "[hesitant]"
+      },
+      "output": "flow-assets/voice/v-poor-u4.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-poor-b5",
+      "kind": "voice",
+      "scene": "voices · Poor path",
+      "summary": "Marcus, turn 9: shuts it down.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "then the answer is no. we're done here. be at your desk tomorrow.",
+        "emotion": "[coldly]"
+      },
+      "output": "flow-assets/voice/v-poor-b5.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-u1",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 2.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes sir, all done. tested everything this morning and the docs are with the team."
+      },
+      "output": "flow-assets/voice/v-guided-u1.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-b2",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 3: eases a little, watching the clock.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "good. so, what do you need? quickly."
+      },
+      "output": "flow-assets/voice/v-guided-b2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-u2",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 4: vague ask: no day named, no reason.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "well, actually sir... is it okay if i'm, you know... not here tomorrow? something's come up."
+      },
+      "output": "flow-assets/voice/v-guided-u2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-b3",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 5: tensing up fast.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "not here? tomorrow? the client handoff is tomorrow. what is \"something\"?"
+      },
+      "output": "flow-assets/voice/v-guided-b3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-u3",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 6: \"personal\" won't survive the client day.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "it's... personal, sir. i just really need the day."
+      },
+      "output": "flow-assets/voice/v-guided-u3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-b4",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 7: furious, done being patient.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "\"personal\" doesn't cut it. not tomorrow. give me a reason i can defend, or the answer is no.",
+        "emotion": "[frustrated]"
+      },
+      "output": "flow-assets/voice/v-guided-b4.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-hint",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player reads Sarah's guided answer (turn 8).",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "sir! tomorrow i have to take my mom for a health checkup, she's been having a severe fever for the past 2 days and i have to be there for her. also, my work is finished and handed over to jack. can you consider this situation and give me an off tomorrow?"
+      },
+      "output": "flow-assets/voice/v-guided-hint.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-b5",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 9: sincere, yet worried about the handoff.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "i'm sorry to hear that, family comes first. but tell me straight, does jack know the full picture? if the client asks something tomorrow, can he answer it?",
+        "emotion": "[sincerely]"
+      },
+      "output": "flow-assets/voice/v-guided-b5.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-u5",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 10.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes sir, i walked jack through everything this evening and he has all the docs. i'll keep my phone on the whole day too."
+      },
+      "output": "flow-assets/voice/v-guided-u5.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-b6",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 11: yields, settles the plan.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "alright. take tomorrow and be with her. if anything comes up i'll call jack first, you second. get going."
+      },
+      "output": "flow-assets/voice/v-guided-b6.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-guided-u6",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 12.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "thank you, sir. i hope tomorrow goes great."
+      },
+      "output": "flow-assets/voice/v-guided-u6.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-perfect-b2",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Marcus, turn 3: eases up, still wound tight.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "good. at least someone's ahead of it. so, what do you need?"
+      },
+      "output": "flow-assets/voice/v-perfect-b2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-perfect-u2",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 4.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "sir, i'd like tomorrow off. my mom's not been well and i have to take her for a health checkup."
+      },
+      "output": "flow-assets/voice/v-perfect-u2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-perfect-b3",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Marcus, turn 5: pushes back, testing you.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "tomorrow? the day of the client handoff? that's a bold ask right now."
+      },
+      "output": "flow-assets/voice/v-perfect-b3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-perfect-u3",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 6.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i know the timing's hard. everything i own is done and handed over to jack, i'll keep my phone on all day, and the team can reach me in minutes if anything breaks. you won't feel the gap."
+      },
+      "output": "flow-assets/voice/v-perfect-u3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-perfect-b4",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Marcus, turn 7: won over, a little impressed.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "alright. health comes first, and you've actually thought the coverage through. that's rare. take tomorrow. keep that phone close.",
+        "emotion": "[impressed]"
+      },
+      "output": "flow-assets/voice/v-perfect-b4.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-perfect-u4",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 8.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "thank you, sir. good luck with the client."
+      },
+      "output": "flow-assets/voice/v-perfect-u4.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-u1",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 2: small talk on a 5-minute clock.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "good evening sir! i hope your day went well. i actually came by earlier but you were busy, so i thought i'd come back when you're free..."
+      },
+      "output": "flow-assets/voice/v-timesup-u1.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-b2",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Marcus, turn 3: clipped, eyeing the clock.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "i'm not free, i'm in a rush. what is it?"
+      },
+      "output": "flow-assets/voice/v-timesup-b2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-u2",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 4.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "right, yes. so first, about my tasks, everything is done. i tested everything and the docs are with the team."
+      },
+      "output": "flow-assets/voice/v-timesup-u2.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-b3",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Marcus, turn 5: hurrying you along.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "good. and? get to the point."
+      },
+      "output": "flow-assets/voice/v-timesup-b3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-u3",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 6: still circling, the clock is bleeding out.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "so i was thinking, you know how my cousin visited last month? there's this family thing tomorrow and, well, i was wondering if maybe..."
+      },
+      "output": "flow-assets/voice/v-timesup-u3.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-b4",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Marcus, turn 7: one foot out the door.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "tomorrow? say it straight, i have to walk out the door."
+      },
+      "output": "flow-assets/voice/v-timesup-b4.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-u4",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 8.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes, um, so basically what i'm trying to ask is...",
+        "emotion": "[nervously]"
+      },
+      "output": "flow-assets/voice/v-timesup-u4.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-b5",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Marcus, turn 9: zero time left.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "out with it. now.",
+        "emotion": "[impatient]"
+      },
+      "output": "flow-assets/voice/v-timesup-b5.mp3",
+      "status": "approved"
+    },
+    {
+      "id": "v-timesup-u5",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 10.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "okay okay, so, the thing is, there's this whole situation at home..."
+      },
+      "output": "flow-assets/voice/v-timesup-u5.mp3",
+      "status": "approved"
+    }
+  ]
+}

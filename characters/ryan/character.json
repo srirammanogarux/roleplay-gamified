@@ -1,0 +1,149 @@
+{
+  "id": "ryan",
+  "name": "Ryan",
+  "role": "Coworker. Casual and likeable on the surface; blames you in the project review.",
+  "look": "a man in his early thirties with tousled sandy-blond hair swept to one side, light stubble, bright blue eyes, fair skin with a faint flush on the cheeks and an easy lopsided grin. Slim build. He wears a light-blue oxford shirt with the top button open and the sleeves rolled to the forearms, no tie, grey chinos and a black smartwatch.",
+  "style": null,
+  "personality": "Easy-going, charming, a bit lazy; deflects blame without thinking and backs down fast when calmly shown the facts. Talks over people when he is nervous.",
+  "voice": {
+    "id": null,
+    "model": null,
+    "settings": null,
+    "pronunciationDictionaries": [],
+    "note": "New voice: relaxed, friendly American male in his thirties."
+  },
+  "references": [],
+  "styleReferences": [
+    "flow-assets/boss-meter-calm.png",
+    "boss.png"
+  ],
+  "sheet": [
+    {
+      "id": "neutral",
+      "type": "still",
+      "summary": "Base reference: front bust, relaxed neutral face. Approve this first; every other Ryan image copies it.",
+      "prompt": "Ryan facing the camera, chest-up, relaxed and neutral: brows level, eyes friendly, mouth closed, shoulders loose. This is his master reference portrait: clear, evenly lit, every detail of his hair, stubble and shirt visible.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/neutral.png",
+      "status": "draft",
+      "reference": true,
+      "base": true
+    },
+    {
+      "id": "three-quarter-left",
+      "type": "still",
+      "summary": "Three-quarter view turned to our left, neutral. Second reference.",
+      "prompt": "Ryan in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, relaxed neutral expression, mouth closed.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/three-quarter-left.png",
+      "status": "draft",
+      "reference": true
+    },
+    {
+      "id": "casual-grin",
+      "type": "still",
+      "summary": "Mood face: easy lopsided grin, everything is fine.",
+      "prompt": "Ryan facing the camera with his easy lopsided grin, closed mouth, one corner higher, eyebrows relaxed, eyes friendly.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/casual-grin.png",
+      "status": "draft"
+    },
+    {
+      "id": "smug",
+      "type": "still",
+      "summary": "Mood face: smug after shifting the blame.",
+      "prompt": "Ryan facing the camera, smug: one eyebrow slightly raised, eyes half-lidded, a small self-satisfied closed-mouth smirk, chin lifted a little.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/smug.png",
+      "status": "draft"
+    },
+    {
+      "id": "surprised",
+      "type": "still",
+      "summary": "Mood face: caught off guard when you answer back.",
+      "prompt": "Ryan facing the camera, caught off guard: eyebrows jump up, eyes wide, mouth closed or slightly parted, head pulled back a touch.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/surprised.png",
+      "status": "draft"
+    },
+    {
+      "id": "defensive",
+      "type": "still",
+      "summary": "Mood face: defensive, tense.",
+      "prompt": "Ryan facing the camera, defensive: brows pulled together and down, eyes narrowed, jaw tight, mouth closed in a tense line, shoulders raised slightly.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/defensive.png",
+      "status": "draft"
+    },
+    {
+      "id": "sheepish",
+      "type": "still",
+      "summary": "Mood face: caught out, sheepish.",
+      "prompt": "Ryan facing the camera, sheepish: eyes glancing down and away, brows raised in the middle, an awkward closed-mouth half smile, neck slightly flushed.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/sheepish.png",
+      "status": "draft"
+    },
+    {
+      "id": "annoyed",
+      "type": "still",
+      "summary": "Mood face: quietly annoyed.",
+      "prompt": "Ryan facing the camera, quietly annoyed: brows lowered, eyes rolled slightly to the side, lips pressed together, cheek muscles tight.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/annoyed.png",
+      "status": "draft"
+    },
+    {
+      "id": "leans-back",
+      "type": "video",
+      "summary": "Clip: leans back, casual, from neutral to casual grin.",
+      "prompt": "Ryan starts neutral, then leans back slightly as if into a chair and settles into his easy lopsided grin. The camera eases back a little. No speaking.",
+      "firstFrame": "neutral",
+      "lastFrame": "casual-grin",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/leans-back.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "shifts-blame",
+      "type": "video",
+      "summary": "Clip: glances sideways at you and settles smug.",
+      "prompt": "Ryan starts with his casual grin, flicks his eyes sideways towards our right (towards the player) for a beat, then looks back with a smug smirk. Hands stay out of frame. The camera pushes in slightly. No speaking.",
+      "firstFrame": "casual-grin",
+      "lastFrame": "smug",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/shifts-blame.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "caught-out",
+      "type": "video",
+      "summary": "Clip: the facts land, from smug to sheepish.",
+      "prompt": "Ryan starts smug, then his smirk fades, his eyebrows lift, and he looks down and away into a sheepish expression. The camera holds still. No speaking.",
+      "firstFrame": "smug",
+      "lastFrame": "sheepish",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/caught-out.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "gets-defensive",
+      "type": "video",
+      "summary": "Clip: tenses up, from surprised to defensive.",
+      "prompt": "Ryan starts surprised, then his face tightens into a defensive look: brows pull down, jaw sets, shoulders rise slightly. The camera holds still with a slight push-in. No speaking.",
+      "firstFrame": "surprised",
+      "lastFrame": "defensive",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/gets-defensive.mp4",
+      "status": "draft"
+    }
+  ]
+}

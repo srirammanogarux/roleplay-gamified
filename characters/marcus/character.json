@@ -1,0 +1,128 @@
+{
+  "id": "marcus",
+  "name": "Marcus",
+  "role": "Boss. Runs the team; the person you ask, confess to and push back on.",
+  "frozen": true,
+  "look": "a man in his late fifties with thick silver-grey hair swept back and up from the forehead, a short neatly trimmed grey-white beard and moustache, heavy grey eyebrows that sit low and furrowed, deep-set grey-brown eyes with crow's feet, a strong straight nose, weathered lightly tanned skin with deep forehead creases. He wears a charcoal-grey pinstripe three-piece suit (jacket and waistcoat), a crisp white shirt and a dark navy tie. Broad shoulders, upright posture.",
+  "style": null,
+  "personality": "Busy, blunt and short on patience; always has a client meeting in five minutes. Respects people who get to the point, own their mistakes and bring a plan. Hates surprises more than mistakes. Softens when he hears a real reason and sees the work is covered.",
+  "voice": {
+    "id": null,
+    "model": null,
+    "settings": null,
+    "pronunciationDictionaries": [],
+    "note": "Existing Leave lines are this voice. Look the id up with --list-voices, test eleven_v4 against v-poor-b3/b5, then lock settings here."
+  },
+  "references": [
+    "flow-assets/boss-meter-calm.png",
+    "boss.png",
+    "flow-assets/boss-happy-avatar.png",
+    "img/boss-goal.png",
+    "flow-assets/boss-meter-approving.png",
+    "flow-assets/boss-meter-irritated.png",
+    "flow-assets/boss-meter-angry.png",
+    "flow-assets/boss-meter-furious.png"
+  ],
+  "styleReferences": [],
+  "existing": {
+    "faces": {
+      "calm": "flow-assets/boss-meter-calm.png",
+      "approving": "flow-assets/boss-meter-approving.png",
+      "irritated": "flow-assets/boss-meter-irritated.png",
+      "angry": "flow-assets/boss-meter-angry.png",
+      "furious": "flow-assets/boss-meter-furious.png",
+      "happy": "flow-assets/boss-happy-avatar.png",
+      "angry-close": "img/boss-goal.png",
+      "arms-crossed": "boss.png"
+    },
+    "clips": {
+      "greeting": "flow-assets/boss-intro.mp4",
+      "angry": "flow-assets/boss-angry.mp4",
+      "kickout": "flow-assets/boss-kickout.mp4",
+      "meeting-exit": "flow-assets/boss-meeting-exit.mp4"
+    }
+  },
+  "sheet": [
+    {
+      "id": "three-quarter-left",
+      "type": "still",
+      "summary": "Three-quarter view, turned to his right (our left), neutral busy expression.",
+      "prompt": "Marcus in a three-quarter view, head and body turned about 35 degrees to our left, eyes looking slightly past the camera. Neutral, busy expression: brows level, mouth closed in a flat line. Same framing and lighting as the calm meter face.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/three-quarter-left.png",
+      "status": "draft"
+    },
+    {
+      "id": "three-quarter-right",
+      "type": "still",
+      "summary": "Three-quarter view, turned to our right, neutral busy expression.",
+      "prompt": "Marcus in a three-quarter view, head and body turned about 35 degrees to our right, eyes looking slightly past the camera. Neutral, busy expression: brows level, mouth closed in a flat line. Same framing and lighting as the calm meter face.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/three-quarter-right.png",
+      "status": "draft"
+    },
+    {
+      "id": "profile-left",
+      "type": "still",
+      "summary": "Side profile facing left, reading something below frame.",
+      "prompt": "Marcus in a clean side profile facing our left, chin slightly lowered as if reading something below the frame. Calm, focused expression, mouth closed. Only head, neck and shoulders are visible.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/profile-left.png",
+      "status": "draft"
+    },
+    {
+      "id": "disappointed",
+      "type": "still",
+      "summary": "Mood face: quietly disappointed (Saying no: \"go on, I'll just do it myself\").",
+      "prompt": "Marcus facing the camera, quietly disappointed: brows raised slightly in the middle, eyelids a little lowered, mouth closed and pulled flat to one side, head tilted a few degrees. Not angry, just let down.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/disappointed.png",
+      "status": "draft"
+    },
+    {
+      "id": "relieved",
+      "type": "still",
+      "summary": "Mood face: relieved, the tension leaves his face.",
+      "prompt": "Marcus facing the camera, relieved: brows relaxed and lifted, eyes softened, a small closed-mouth half smile, shoulders dropped a little. The tension has visibly left his face.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/relieved.png",
+      "status": "draft"
+    },
+    {
+      "id": "steely",
+      "type": "still",
+      "summary": "Mood face: steely and controlled (Confessing, after the reveal).",
+      "prompt": "Marcus facing the camera, steely and controlled: jaw set, brows low and level, eyes steady and direct, mouth closed in a firm straight line. Serious but not shouting.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/steely.png",
+      "status": "draft"
+    },
+    {
+      "id": "surprised",
+      "type": "still",
+      "summary": "Mood face: caught off guard.",
+      "prompt": "Marcus facing the camera, caught off guard: brows lifted high, eyes wide, mouth closed or only slightly parted, head pulled back a touch.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/surprised.png",
+      "status": "draft"
+    },
+    {
+      "id": "sighing",
+      "type": "still",
+      "summary": "Mood face: tired sigh, eyes closed (start frame for a sigh clip).",
+      "prompt": "Marcus facing the camera mid-sigh: eyes closed, brows drawn up in the middle, cheeks slightly puffed, lips closed, shoulders dropped. Weary, not angry.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/sighing.png",
+      "status": "draft"
+    },
+    {
+      "id": "reading-phone",
+      "type": "still",
+      "summary": "Looks down at a phone held below frame (Confessing: the CFO email).",
+      "prompt": "Marcus facing the camera with his head tipped down, eyes looking down at a phone held below the bottom of the frame (the phone and his hands are NOT visible). A faint cool screen glow lights his chin. Brows starting to knit.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/reading-phone.png",
+      "status": "draft"
+    }
+  ]
+}

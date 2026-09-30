@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Asset review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #000; --panel: #111014; --panel-2: #19171f; --line: #2a2733; --text: #f4f2fa; --muted: #9c97ad;
+    --purple: #6a4ff0; --purple-soft: rgba(106, 79, 240, .16); --gold: #ffe14d; --red: #ff6b6b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.45 Urbanist, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  button, select, textarea, input { font: inherit; color: inherit; }
+  header { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 14px 24px; background: rgba(0,0,0,.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
+  header h1 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+  header h1 span { color: var(--gold); }
+  .stats { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .spacer { flex: 1; }
+  select, input[type=text] { background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
+  .btn { background: var(--panel-2); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; cursor: pointer; font-weight: 600; white-space: nowrap; transition: background .15s ease-out, border-color .15s ease-out; }
+  .btn:hover { border-color: var(--purple); }
+  .btn:active { transform: scale(.97); }
+  .btn.primary { background: var(--purple); border-color: var(--purple); color: #fff; }
+  .btn.primary:hover { background: #7b63f3; }
+  .btn:focus-visible, textarea:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; padding: 20px 24px 80px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+
+  .note { color: var(--muted); margin: 0 0 12px; max-width: 80ch; }
+  details.rules { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; margin-bottom: 20px; }
+  details.rules summary { cursor: pointer; font-weight: 700; }
+  details.rules pre { white-space: pre-wrap; color: var(--muted); font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; margin: 10px 0 0; }
+
+  h2.scene { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); margin: 28px 0 10px; font-weight: 800; }
+  .card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 14px; margin-bottom: 12px; }
+  .card.voice { grid-template-columns: 180px minmax(0, 1fr); }
+  .card.playing { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+  .media { background: #050507; border-radius: 12px; overflow: hidden; display: grid; place-items: center; min-height: 100px; align-self: start; }
+  .media video, .media img { width: 100%; height: auto; display: block; }
+  .media audio { width: 100%; }
+  .media .missing { color: var(--muted); padding: 24px 10px; text-align: center; font-size: 13px; }
+  .voice .media { background: transparent; padding: 6px 0; }
+
+  .head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .id { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .chip { font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 9px; background: var(--panel-2); border: 1px solid var(--line); color: var(--muted); }
+  .chip.approved { color: #000; background: var(--gold); border-color: var(--gold); }
+  .chip.draft { color: #fff; background: var(--purple-soft); border-color: var(--purple); }
+  .chip.redo { color: #fff; background: rgba(255,107,107,.15); border-color: var(--red); }
+  .summary { margin: 4px 0 10px; }
+  .params { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  textarea { width: 100%; min-height: 96px; resize: vertical; background: #0a090d; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 14px; line-height: 1.5; }
+  textarea[readonly] { color: var(--muted); }
+  .owner { font-size: 12px; color: var(--muted); margin: 4px 0 10px; }
+  .owner b { color: var(--text); }
+  .takes { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; font-size: 13px; }
+  .takes button { background: none; border: 1px dashed var(--line); border-radius: 8px; padding: 2px 8px; cursor: pointer; color: var(--muted); }
+  .takes button.on { border-color: var(--gold); color: var(--gold); }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .form { display: none; gap: 8px; margin-top: 10px; }
+  .form.open { display: flex; }
+  .form input { flex: 1; min-width: 0; }
+
+  aside { position: sticky; top: 84px; align-self: start; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 16px; max-height: calc(100vh - 110px); overflow: auto; }
+  aside h3 { margin: 0 0 4px; font-size: 16px; }
+  aside p { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+  .q { border-top: 1px solid var(--line); padding: 10px 0; font-size: 13px; }
+  .q .top { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+  .q .act { white-space: nowrap; }
+  .q .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .q .act { font-weight: 800; color: var(--gold); }
+  .q .state { margin-left: auto; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .q .state.pending { color: var(--purple); }
+  .q .body { color: var(--muted); margin-top: 3px; overflow-wrap: anywhere; }
+  .empty { color: var(--muted); font-size: 13px; }
+
+  #toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; background: var(--panel-2); border: 1px solid var(--purple); padding: 10px 16px; border-radius: 12px; transition: opacity .2s ease-out, transform .2s ease-out; pointer-events: none; z-index: 10; }
+  #toast.show { opacity: 1; transform: translate(-50%, 0); }
+  #toast.err { border-color: var(--red); }
+  @media (prefers-reduced-motion: reduce) { #toast, .btn { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Asset <span>review</span></h1>
+  <select id="rp" aria-label="Roleplay"></select>
+  <span class="stats" id="stats"></span>
+  <span class="spacer"></span>
+  <select id="playlist" aria-label="Voice playlist"></select>
+  <button class="btn" id="play">Play voices in order</button>
+  <button class="btn" id="refresh">Refresh</button>
+</header>
+
+<div class="layout">
+  <main id="main"></main>
+  <aside>
+    <h3>To-do queue</h3>
+    <p>Nothing here generates anything. Run <code>node tools/assets/generate.mjs <span class="rpname"></span> --queue</code> to work through it, then refresh.</p>
+    <div id="queue"></div>
+  </aside>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+let view = null;
+let playing = null;
+
+function toast(msg, err) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.className = 'show' + (err ? ' err' : '');
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => (t.className = ''), 2600);
+}
+
+async function api(url, body) {
+  const res = await fetch(url, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
+  const json = await res.json();
+  if (!res.ok) throw new Error(json.error || res.statusText);
+  return json;
+}
+
+const src = (p, v) => '/' + p.split('/').map(encodeURIComponent).join('/') + (v ? `?v=${v}` : '');
+const statusClass = (s) => (s === 'approved' ? 'approved' : s?.startsWith('redo:') ? 'redo' : 'draft');
+
+function mediaHtml(item, path, version) {
+  if (!path || !(path === item.output ? item.exists : true)) return `<div class="missing">not generated yet<br>${esc(item.output || '')}</div>`;
+  if (item.kind === 'video') return `<video src="${src(path, version)}" ${item.poster && path === item.output ? `poster="${src(item.poster)}"` : ''} muted loop playsinline preload="metadata" controls></video>`;
+  if (item.kind === 'voice') return `<audio src="${src(path, version)}" preload="none" controls></audio>`;
+  return `<img src="${src(path, version)}" alt="${esc(item.summary)}" loading="lazy">`;
+}
+
+function paramsLine(item) {
+  const p = item.params || {};
+  if (item.kind === 'voice') return `voice: ${esc(p.voice)}${p.emotion ? ` · tag ${esc(p.emotion)}` : ''} · ${esc(item.output)}`;
+  if (item.kind === 'video') return [p.aspect, `${p.fitSeconds || p.duration}s`, p.hero ? 'HERO 1080p' : p.resolution || '720p', p.crop && `crop ${p.crop}`, p.firstStill && `first: ${p.firstStill}`, p.lastStill && `last: ${p.lastStill}`, item.output].filter(Boolean).map(esc).join(' · ');
+  return [p.aspect, p.size && `${p.size}px`, p.extract && `frame from ${p.extract.from}`, p.frozen && 'frozen original', item.output].filter(Boolean).map(esc).join(' · ');
+}
+
+function cardHtml(item) {
+  const promptEditable = item.owner === 'review' && item.prompt != null;
+  const ownerText = item.kind === 'voice' ? 'Voice text: edit here (a leading [tag] sets the emotion).'
+    : item.owner === 'paper' ? 'Prompt is owned by <b>Paper</b> until this scene has a video. Edit it on the Paper board.'
+    : 'Prompt is owned by <b>this page</b> now that the video exists.';
+  const takes = item.takes.filter((t) => t.exists);
+  return `<article class="card ${item.kind}" data-id="${esc(item.id)}">
+    <div class="media">${mediaHtml(item, item.output, item.version)}</div>
+    <div>
+      <div class="head"><span class="id">${esc(item.id)}</span><span class="chip">${esc(item.kind)}</span><span class="chip ${statusClass(item.status)}" title="${esc(item.status)}">${esc(item.status.length > 40 ? item.status.slice(0, 40) + '…' : item.status)}</span></div>
+      <div class="summary">${esc(item.summary)}</div>
+      <div class="params">${paramsLine(item)}</div>
+      ${takes.length ? `<div class="takes"><button class="on" data-take="main">current</button>${takes.map((t) => `<button data-take="${t.take}" title="${esc(t.note || '')}">take ${t.take}</button>`).join('')}</div>` : ''}
+      ${item.prompt != null ? `<textarea aria-label="Prompt for ${esc(item.id)}" ${promptEditable ? '' : 'readonly'}>${esc(item.prompt)}</textarea>` : '<div class="owner">No prompt: this still is a frame taken from the existing clip.</div>'}
+      ${item.prompt != null ? `<div class="owner">${ownerText}</div>` : ''}
+      <div class="actions">
+        ${item.params?.frozen ? '' : '<button class="btn" data-open="redo">Redo</button>'}
+        ${promptEditable ? '<button class="btn" data-act="improve-prompt">Improve prompt</button>' : ''}
+        <button class="btn" data-open="replace">Replace</button>
+        <button class="btn" data-open="add-scene">Add scene after</button>
+      </div>
+      <div class="form" data-form="redo"><input type="text" placeholder="What should change? e.g. his tie turned blue, keep it navy"><button class="btn primary" data-act="redo">Add to queue</button></div>
+      <div class="form" data-form="replace"><input type="text" placeholder="Describe the new thing that replaces this"><button class="btn primary" data-act="replace">Add to queue</button></div>
+      <div class="form" data-form="add-scene"><input type="text" placeholder="Describe the new scene to add after this one"><button class="btn primary" data-act="add-scene">Add to queue</button></div>
+    </div>
+  </article>`;
+}
+
+function queueHtml(q) {
+  if (!q.length) return '<div class="empty">Empty. Actions you take on the left land here.</div>';
+  return [...q].reverse().map((e) => `<div class="q" data-n="${e.n}">
+    <div class="top"><span class="n">#${e.n}</span><span class="act">${esc(e.action)}</span><span class="id">${esc(e.itemId || `after ${e.after}`)}</span><span class="state ${esc(e.state)}">${esc(e.state)}</span></div>
+    <div class="body">${esc(e.note || e.description || (e.action === 'improve-prompt' ? 'prompt updated in the spec; a new take will be made' : ''))}${e.result ? `<br>→ ${esc(e.result)}` : ''}${e.error ? `<br>error: ${esc(e.error)}` : ''}</div>
+  </div>`).join('');
+}
+
+function render() {
+  const approved = view.items.filter((i) => i.status === 'approved').length;
+  const pending = view.queue.filter((e) => e.state === 'pending').length;
+  $('#stats').textContent = `${view.items.length} items · ${approved} approved · ${pending} queued`;
+  document.querySelectorAll('.rpname').forEach((el) => (el.textContent = view.id));
+  let html = `${view.note ? `<p class="note">${esc(view.note)}</p>` : ''}
+    <details class="rules"><summary>Shared rules added to every prompt</summary><pre>${esc(view.rules.video)}\n\n${esc(view.rules.still)}\n\nCharacter sheets: ${esc(view.rules.sheet)}</pre></details>`;
+  let scene = null;
+  for (const item of view.items) {
+    if (item.scene !== scene) { scene = item.scene; html += `<h2 class="scene">${esc(scene)}</h2>`; }
+    html += cardHtml(item);
+  }
+  $('#main').innerHTML = html;
+  $('#queue').innerHTML = queueHtml(view.queue);
+  const lists = Object.keys(view.playlists);
+  $('#playlist').innerHTML = (lists.length ? lists : ['all']).map((k) => `<option value="${esc(k)}">${esc(k === 'all' ? 'all voices' : `${k} path`)}</option>`).join('');
+  $('#playlist').hidden = $('#play').hidden = !view.items.some((i) => i.kind === 'voice');
+  document.querySelectorAll('.card video').forEach((v) => inView.observe(v));
+}
+
+// Clips play while on screen and pause when scrolled away, so a long board stays light.
+const inView = new IntersectionObserver((entries) => {
+  for (const e of entries) e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause();
+}, { threshold: 0.25 });
+
+async function load(rp) {
+  view = await api(`/api/roleplay/${encodeURIComponent(rp)}`);
+  history.replaceState(null, '', `?rp=${encodeURIComponent(rp)}`);
+  render();
+}
+
+async function queue(body) {
+  try {
+    const { entry, view: v } = await api(`/api/roleplay/${encodeURIComponent(view.id)}/queue`, body);
+    const y = scrollY;
+    view = v;
+    render();
+    scrollTo(0, y);
+    toast(`Queued #${entry.n}: ${entry.action}`);
+  } catch (err) {
+    toast(err.message, true);
+  }
+}
+
+$('#main').addEventListener('click', (ev) => {
+  const card = ev.target.closest('.card');
+  if (!card) return;
+  const id = card.dataset.id;
+  const item = view.items.find((i) => i.id === id);
+  const open = ev.target.closest('[data-open]');
+  if (open) {
+    card.querySelectorAll('.form').forEach((f) => f.classList.toggle('open', f.dataset.form === open.dataset.open && !f.classList.contains('open')));
+    card.querySelector(`.form[data-form="${open.dataset.open}"].open input`)?.focus();
+    return;
+  }
+  const takeBtn = ev.target.closest('[data-take]');
+  if (takeBtn) {
+    const t = takeBtn.dataset.take === 'main' ? null : item.takes.find((x) => String(x.take) === takeBtn.dataset.take);
+    card.querySelector('.media').innerHTML = mediaHtml(item, t ? t.path : item.output, t ? t.version : item.version);
+    card.querySelector('.media video') && inView.observe(card.querySelector('.media video'));
+    card.querySelectorAll('[data-take]').forEach((b) => b.classList.toggle('on', b === takeBtn));
+    return;
+  }
+  const act = ev.target.closest('[data-act]')?.dataset.act;
+  if (!act) return;
+  if (act === 'improve-prompt') return queue({ action: act, itemId: id, prompt: card.querySelector('textarea').value });
+  const text = card.querySelector(`.form[data-form="${act}"] input`).value.trim();
+  if (!text) return toast(act === 'redo' ? 'Say what should change.' : 'Describe it first.', true);
+  queue(act === 'redo' ? { action: act, itemId: id, note: text } : { action: act, itemId: id, description: text });
+});
+
+$('#main').addEventListener('keydown', (ev) => {
+  if (ev.key === 'Enter' && ev.target.matches('.form input')) ev.target.nextElementSibling.click();
+});
+
+// Voices in order: one path's playlist, or every voice card top to bottom.
+async function playVoices() {
+  if (playing) { playing.stop(); return; }
+  const key = $('#playlist').value;
+  const ids = view.playlists[key] || view.items.filter((i) => i.kind === 'voice').map((i) => i.id);
+  const items = ids.map((id) => view.items.find((i) => i.id === id)).filter((i) => i && i.exists);
+  const audio = new Audio();
+  let stopped = false;
+  playing = { stop: () => { stopped = true; audio.pause(); } };
+  $('#play').textContent = 'Stop';
+  for (const item of items) {
+    if (stopped) break;
+    const card = document.querySelector(`.card[data-id="${CSS.escape(item.id)}"]`);
+    card?.classList.add('playing');
+    card?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    audio.src = src(item.output, item.version);
+    await new Promise((resolve) => {
+      const done = () => { clearInterval(watch); resolve(); };
+      const watch = setInterval(() => stopped && done(), 200);
+      audio.onended = audio.onerror = done;
+      audio.play().catch(done);
+    });
+    card?.classList.remove('playing');
+    await new Promise((r) => setTimeout(r, 350));
+  }
+  playing = null;
+  $('#play').textContent = 'Play voices in order';
+}
+$('#play').addEventListener('click', playVoices);
+$('#refresh').addEventListener('click', () => load(view.id).then(() => toast('Refreshed')));
+$('#rp').addEventListener('change', (e) => load(e.target.value));
+
+(async () => {
+  const list = await api('/api/roleplays');
+  const want = new URLSearchParams(location.search).get('rp');
+  $('#rp').innerHTML = list.map((r) => `<option value="${esc(r.id)}">${esc(r.title)}</option>`).join('');
+  const first = list.find((r) => r.id === want) || list.find((r) => r.id !== 'characters') || list[0];
+  if (!first) { $('#main').innerHTML = '<p class="note">No roleplays yet: add media/&lt;roleplay-id&gt;/assets.json.</p>'; return; }
+  $('#rp').value = first.id;
+  load(first.id);
+})();
+</script>
+</body>
+</html>

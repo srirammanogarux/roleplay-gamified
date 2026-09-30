@@ -1,0 +1,122 @@
+{
+  "id": "elena",
+  "name": "Elena",
+  "role": "Senior leader, Marcus's boss. Small talk in the kitchen; the most important face in the project review.",
+  "look": "a woman in her late forties with medium-brown skin, a sleek chin-length dark-brown bob with a single silver streak at her left temple, dark brown eyes, defined cheekbones, thin dark eyebrows, small gold stud earrings and a composed, alert face. Lean runner's build. She wears a tailored navy blazer over a cream silk blouse with a simple round neckline and a slim gold watch.",
+  "style": null,
+  "personality": "Sharp, time-poor and hard to impress; allergic to \"how's it going\". Warms up fast to specific details and good questions, especially about running (she just finished a marathon), her dog, and the new Austin office she is opening. In meetings she cares about fixes, not blame.",
+  "voice": {
+    "id": null,
+    "model": null,
+    "settings": null,
+    "pronunciationDictionaries": [],
+    "note": "New voice: pick a clear, confident, warm-when-engaged American female voice."
+  },
+  "references": [],
+  "styleReferences": [
+    "flow-assets/boss-meter-calm.png",
+    "boss.png"
+  ],
+  "sheet": [
+    {
+      "id": "neutral",
+      "type": "still",
+      "summary": "Base reference: front bust, composed neutral face. Approve this first; every other Elena image copies it.",
+      "prompt": "Elena facing the camera, chest-up, composed and neutral: brows level, eyes attentive, mouth closed in a relaxed line, shoulders square. This is her master reference portrait: clear, evenly lit, every detail of her face, hair streak, earrings and outfit visible.",
+      "aspect": "9:16",
+      "output": "characters/elena/sheet/neutral.png",
+      "status": "draft",
+      "reference": true,
+      "base": true
+    },
+    {
+      "id": "three-quarter-left",
+      "type": "still",
+      "summary": "Three-quarter view turned to our left, neutral. Second reference.",
+      "prompt": "Elena in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, neutral composed expression, mouth closed. The silver streak at her left temple stays visible.",
+      "aspect": "9:16",
+      "output": "characters/elena/sheet/three-quarter-left.png",
+      "status": "draft",
+      "reference": true
+    },
+    {
+      "id": "bored",
+      "type": "still",
+      "summary": "Mood face: bored, attention drifting (spark low).",
+      "prompt": "Elena facing the camera, bored: eyelids half lowered, gaze drifting to the side past the camera, brows flat, mouth closed in a slight polite downturn. Polite but clearly elsewhere.",
+      "aspect": "9:16",
+      "output": "characters/elena/sheet/bored.png",
+      "status": "draft"
+    },
+    {
+      "id": "interested",
+      "type": "still",
+      "summary": "Mood face: interested, leaning in.",
+      "prompt": "Elena facing the camera, interested: head tilted slightly forward, brows lifted a little, eyes focused and bright, a small closed-mouth smile.",
+      "aspect": "9:16",
+      "output": "characters/elena/sheet/interested.png",
+      "status": "draft"
+    },
+    {
+      "id": "delighted",
+      "type": "still",
+      "summary": "Mood face: delighted, genuinely warm (spark full).",
+      "prompt": "Elena facing the camera, delighted: a wide genuine smile showing the top teeth, eyes crinkled, brows lifted, cheeks raised. Warm and open.",
+      "aspect": "9:16",
+      "output": "characters/elena/sheet/delighted.png",
+      "status": "draft"
+    },
+    {
+      "id": "greeting",
+      "type": "video",
+      "summary": "Clip: polite greeting nod, from neutral to interested.",
+      "prompt": "Elena starts neutral, then gives a small polite nod and her expression warms into a gentle closed-mouth smile. The camera slowly pushes in a little. Her mouth never opens; no speaking.",
+      "firstFrame": "neutral",
+      "lastFrame": "interested",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/elena/sheet/greeting.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "laugh",
+      "type": "video",
+      "summary": "Clip: genuine laugh, from interested to delighted.",
+      "prompt": "Elena starts interested, then breaks into a genuine silent laugh: eyes crinkle, head tips back slightly, shoulders lift once, ending on her delighted face. The camera holds steady with a very slight push-in. No speech, no lip movement shaped like words.",
+      "firstFrame": "interested",
+      "lastFrame": "delighted",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/elena/sheet/laugh.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "checks-phone",
+      "type": "video",
+      "summary": "Clip: glances down at her phone, from neutral to bored.",
+      "prompt": "Elena starts neutral, then lowers her eyes and tips her head down to glance at a phone held below the frame (the phone and her hands stay out of view), then looks back up with a bored, distracted expression. A faint cool screen glow touches her chin while she looks down. The camera stays still.",
+      "firstFrame": "neutral",
+      "lastFrame": "bored",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/elena/sheet/checks-phone.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "leaves",
+      "type": "video",
+      "summary": "Clip: turns and walks out of frame (she escaped). Ends on the empty black background.",
+      "prompt": "Elena starts on her bored face, gives a brief polite nod, then turns to our left and walks out of the frame. The camera stays still. The clip ends on the plain black background with nobody in it.",
+      "firstFrame": "bored",
+      "lastFrame": null,
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/elena/sheet/leaves.mp4",
+      "status": "draft"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# The deploy is the static app only: no tests, tooling or generation inputs.
+tests/
+tools/
+characters/
+media/*/assets.json
+media/*/queue.json
+media/*/paper-board.json
+media/asking-for-leave/stills/
+package.json
+package-lock.json
+playwright.config.mjs
+docs/
+.env*

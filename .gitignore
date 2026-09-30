@@ -10,3 +10,6 @@ node_modules/
 # test output
 test-results/
 playwright-report/
+
+# frames pulled from the existing Leave clips; remade by the asset script without keys
+media/asking-for-leave/stills/
