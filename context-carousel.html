@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>Stimuler — Roleplay Context (Story Carousel)</title>
+<script>
+  /* The roleplay file holds this roleplay's story: scenes, face-off and mission. */
+  var RP_ID = new URLSearchParams(location.search).get('roleplay') || 'asking-for-leave';
+  if (!/^[a-z0-9-]+$/.test(RP_ID)) RP_ID = 'asking-for-leave';
+  document.write('<script src="roleplays/' + RP_ID + '.js"><\/script>');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet" />
@@ -137,35 +143,35 @@
   .cloud.tail-down .puff  { left: 50%; margin-left: -8px;  bottom: -14px; }
   .cloud.tail-down .puff2 { left: 50%; margin-left: 14px;  bottom: -28px; }
 
-  /* ─── S1: calendar pulse ring ─── */
-  .cal-ring {
-    position: absolute; left: 61%; top: 7.5%; width: 37%; height: 26%; z-index: 20;
+  /* ─── Scene overlay: pulse ring around something in the shot (position per scene) ─── */
+  .focus-ring {
+    position: absolute; z-index: 20;
     border: 2.5px solid rgba(255,72,72,.9); border-radius: 14px;
     opacity: 0; pointer-events: none;
     box-shadow: 0 0 18px rgba(255,60,60,.45), inset 0 0 18px rgba(255,60,60,.25);
   }
-  .cal-ring.pulsing { animation: calPulse .83s ease-in-out 3; }
+  .focus-ring.pulsing { animation: calPulse .83s ease-in-out 3; }
   @keyframes calPulse {
     0%, 100% { opacity: 0; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.035); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cal-ring.pulsing { animation: none; opacity: .85; }
+    .focus-ring.pulsing { animation: none; opacity: .85; }
   }
 
-  /* ─── S3: night tint ─── */
+  /* ─── Scene overlay: night tint ─── */
   .night-tint {
     position: absolute; inset: 0; z-index: 10; pointer-events: none;
     background: rgba(11,20,48,.25);
   }
-  #s3 video.story { filter: brightness(.88); }
+  .tint-night video.story { filter: brightness(.88); }
 
-  /* ─── S4: stacked clips ─── */
-  #s4 video.clipA { z-index: 2; transition: opacity .3s linear; }
-  #s4 video.clipB { z-index: 1; }
+  /* ─── Two clips stitched in one scene ─── */
+  .slide video.clipA { z-index: 2; transition: opacity .3s linear; }
+  .slide video.clipB { z-index: 1; }
 
   /* ─── S5: the clash ─── */
-  #s5 { background: #0d0615; overflow: hidden; }
+  #faceoff { background: #0d0615; overflow: hidden; }
   .clash-half {
     position: absolute; top: -10%; bottom: -10%; width: 64%; z-index: 1;
     transition: transform .7s cubic-bezier(.22,.61,.36,1);
@@ -184,7 +190,7 @@
 
   /* fighters + VS share one vertical band: circle centers sit at
      calc(--clash-band + half circle), and the VS mark is centered on that line */
-  #s5 { --clash-band: 27%; --fighter-size: 132px; }
+  #faceoff { --clash-band: 27%; --fighter-size: 132px; }
   .fighter {
     position: absolute; top: var(--clash-band); z-index: 5;
     width: var(--fighter-size); text-align: center;
@@ -247,7 +253,7 @@
   @keyframes flashOut { 0% { opacity: 1; } 100% { opacity: 0; } }
 
   /* ─── S6: the goal ─── */
-  #s6 {
+  #mission {
     background:
       radial-gradient(ellipse 95% 55% at 50% 0%, rgba(154,107,255,.18) 0%, transparent 62%),
       radial-gradient(ellipse 80% 45% at 50% 105%, rgba(236,72,153,.10) 0%, transparent 60%),
@@ -379,41 +385,21 @@
     </button>
   </div>
 
-  <!-- ═══ S1: The Deadline ═══ -->
-  <div class="slide" id="s1">
-    <video class="story" src="videos/slide1_deadline_silent.mp4" preload="auto" muted playsinline></video>
-    <div class="cal-ring" id="calRing"></div>
-  </div>
+  <!-- Story scenes are built from the roleplay file -->
+  <div id="scenes" style="display:contents"></div>
 
-  <!-- ═══ S2: Work Done ═══ -->
-  <div class="slide" id="s2">
-    <video class="story" src="videos/slide2_workdone_silent.mp4" preload="auto" muted playsinline></video>
-  </div>
-
-  <!-- ═══ S3: The Ask ═══ -->
-  <div class="slide" id="s3">
-    <video class="story" src="videos/slide3_theask_silent.mp4" preload="auto" muted playsinline></video>
-    <div class="night-tint"></div>
-  </div>
-
-  <!-- ═══ S4: Entering the Cabin (two stitched clips) ═══ -->
-  <div class="slide" id="s4">
-    <video class="story clipB" src="videos/slide4_cabin_silent.mp4" preload="auto" muted playsinline></video>
-    <video class="story clipA" src="videos/slide4a_walk_silent.mp4" preload="auto" muted playsinline></video>
-  </div>
-
-  <!-- ═══ S5: The Clash (coded) ═══ -->
-  <div class="slide" id="s5">
+  <!-- ═══ Face-off (coded) ═══ -->
+  <div class="slide" id="faceoff">
     <div class="clash-half clash-left" id="clashL"></div>
     <div class="clash-half clash-right" id="clashR"></div>
 
     <div class="fighter fighter-boss" id="fighterBoss">
-      <div class="fighter-circle"><img src="img/boss-goal.png" alt="the boss" /></div>
-      <div class="fighter-name">the boss</div>
+      <div class="fighter-circle"><img class="them-img" src="" alt="" /></div>
+      <div class="fighter-name them-name"></div>
     </div>
     <div class="fighter fighter-you" id="fighterYou">
-      <div class="fighter-circle"><img src="img/you.png" alt="you" /></div>
-      <div class="fighter-name">you</div>
+      <div class="fighter-circle"><img class="you-img" src="" alt="" /></div>
+      <div class="fighter-name you-name"></div>
     </div>
 
     <div class="vs-wrap" id="vsWrap">
@@ -422,55 +408,37 @@
     </div>
 
     <div class="clash-tagline" id="clashTag">
-      <h2>YOU <span style="color:var(--yellow)">vs</span> THE BOSS</h2>
-      <p>one shot. say it right.</p>
+      <h2 id="faceoffHeadline"></h2>
+      <p id="faceoffTagline"></p>
     </div>
 
     <div class="flash" id="flash"></div>
   </div>
 
-  <!-- ═══ S6: The Goal (coded, holds) ═══ -->
-  <div class="slide" id="s6">
+  <!-- ═══ Mission (coded, holds) ═══ -->
+  <div class="slide" id="mission">
     <div class="goal-inner">
       <div class="goal-label">your mission · earn all <b>3 stars</b></div>
 
       <div class="goal-heads">
         <div>
-          <div class="goal-circle"><img src="img/boss-goal.png" alt="the boss" /></div>
-          <div class="goal-head-name">the boss</div>
+          <div class="goal-circle"><img class="them-img" src="" alt="" /></div>
+          <div class="goal-head-name them-name"></div>
         </div>
         <div class="goal-vs">vs</div>
         <div>
-          <div class="goal-circle"><img src="img/you.png" alt="you" /></div>
-          <div class="goal-head-name">you</div>
+          <div class="goal-circle"><img class="you-img" src="" alt="" /></div>
+          <div class="goal-head-name you-name"></div>
         </div>
       </div>
 
-      <div class="goal-objective" id="goalObjective">
-        Goal: Walk out with a <span class="hl">yes</span> for tomorrow off
-      </div>
+      <div class="goal-objective" id="goalObjective"></div>
 
-      <div class="star-cards">
-        <div class="star-card" id="card1">
-          <div class="shine"></div>
-          <div class="star-ico"><svg viewBox="0 0 24 24" fill="#ffe14d"><path d="m12 2 2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2Z"/></svg></div>
-          <div><h3>show your work is done</h3><p>your tasks for the week are finished</p></div>
-        </div>
-        <div class="star-card" id="card2">
-          <div class="shine"></div>
-          <div class="star-ico"><svg viewBox="0 0 24 24" fill="#ffe14d"><path d="m12 2 2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2Z"/></svg></div>
-          <div><h3>ask right</h3><p>name the day and the reason in one line</p></div>
-        </div>
-        <div class="star-card" id="card3">
-          <div class="shine"></div>
-          <div class="star-ico"><svg viewBox="0 0 24 24" fill="#ffe14d"><path d="m12 2 2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2Z"/></svg></div>
-          <div><h3>cover the gap</h3><p>offer a plan before he asks, don't argue</p></div>
-        </div>
-      </div>
+      <div class="star-cards" id="starCards"></div>
 
       <div class="goal-timer" id="goalTimer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9.5V13l2.2 2.2"/><path d="M9 2.5h6"/></svg>
-        he's rushing to a meeting, you have <b>5 minutes</b> to convince him
+        <span id="goalClock"></span>
       </div>
 
       <button class="goal-cta" id="goalCta">start session</button>
@@ -484,7 +452,7 @@
     <div class="gate-play">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72c0 .9.98 1.45 1.74.98l10.3-6.86a1.15 1.15 0 0 0 0-1.96L9.74 4.16A1.15 1.15 0 0 0 8 5.14Z"/></svg>
     </div>
-    <h1>Asking for Leave</h1>
+    <h1 id="gateTitle"></h1>
     <p>tap to begin</p>
   </div>
 
@@ -504,9 +472,47 @@ var stage = document.getElementById('stage');
 var gate = document.getElementById('gate');
 var blackout = document.getElementById('blackout');
 
-var N_SLIDES = 6;
-var slideEls = [];
-for (var i = 1; i <= N_SLIDES; i++) slideEls.push(document.getElementById('s' + i));
+/* ════════════════════════════════════════════════════════════════
+   Build the story from the roleplay file
+   ════════════════════════════════════════════════════════════════ */
+var STORY = window.ROLEPLAYS[RP_ID].story;
+var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
+
+STORY.scenes.forEach(function (sc, i) {
+  var el = document.createElement('div');
+  el.className = 'slide' + (sc.tint ? ' tint-' + sc.tint : '');
+  el.id = 's' + (i + 1);
+  var html = '';
+  if (sc.videos.length > 1) {   /* stitched: clip A plays first and fades out onto clip B */
+    html += '<video class="story clipB" src="' + sc.videos[1] + '" preload="auto" muted playsinline></video>';
+    html += '<video class="story clipA" src="' + sc.videos[0] + '" preload="auto" muted playsinline></video>';
+  } else {
+    html += '<video class="story" src="' + sc.videos[0] + '" preload="auto" muted playsinline></video>';
+  }
+  if (sc.ring) html += '<div class="focus-ring" style="' + sc.ring.style + '"></div>';
+  if (sc.tint) html += '<div class="' + sc.tint + '-tint"></div>';
+  el.innerHTML = html;
+  document.getElementById('scenes').appendChild(el);
+});
+
+var F = STORY.faceoff, M = STORY.mission;
+document.querySelectorAll('.them-img').forEach(function (im) { im.src = F.them.img; im.alt = F.them.name; });
+document.querySelectorAll('.you-img').forEach(function (im) { im.src = F.you.img; im.alt = F.you.name; });
+document.querySelectorAll('.them-name').forEach(function (n) { n.textContent = F.them.name; });
+document.querySelectorAll('.you-name').forEach(function (n) { n.textContent = F.you.name; });
+document.getElementById('faceoffHeadline').innerHTML = F.headline;
+document.getElementById('faceoffTagline').textContent = F.tagline;
+document.getElementById('goalObjective').innerHTML = M.goal;
+document.getElementById('goalClock').innerHTML = M.clock;
+document.getElementById('starCards').innerHTML = M.stars.map(function (st, i) {
+  return '<div class="star-card" id="card' + (i + 1) + '"><div class="shine"></div>' +
+    '<div class="star-ico"><svg viewBox="0 0 24 24" fill="#ffe14d"><path d="m12 2 2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2Z"/></svg></div>' +
+    '<div><h3>' + esc(st.title) + '</h3><p>' + esc(st.sub) + '</p></div></div>';
+}).join('');
+document.getElementById('gateTitle').textContent = STORY.title;
+
+var slideEls = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+var N_SLIDES = slideEls.length;
 
 /* progress segments */
 var progressEl = document.getElementById('progress');
@@ -759,117 +765,62 @@ function setProgressStatic(idx) {
   });
 }
 
-/* slide definitions: duration (s), holds, start() */
-var SLIDES = [
+/* A scene's sound cues, from the roleplay file. Cues with an id can be
+   stopped later by another cue ({ stop: id }); silence stops everything. */
+function runCue(c, beds) {
+  var bed = null;
+  if (c.hum) bed = startHum(c.hum.level, c.hum.freq);
+  else if (c.pad) bed = startPad(c.pad.freqs, c.pad.level);
+  else if (c.ticks) bed = startInterval(sfxTick, c.ticks, false);
+  else if (c.heartbeat) bed = startInterval(sfxHeartbeat, c.heartbeat, true);
+  else if (c.pen) bed = startInterval(function () { if (Math.random() < 0.8) sfxPenTick(); }, 110, true);
+  else if (c.whoosh) sfxWhoosh();
+  else if (c.creak) sfxCreak();
+  else if (c.chime) sfxChime(c.chime);
+  else if (c.footstep) sfxFootstep();
+  else if (c.door) sfxDoorPush();
+  else if (c.stop) { if (beds[c.stop]) beds[c.stop].stop(!!c.hard); }
+  else if (c.silence) stopAllAudio(true);
+  if (bed && c.id) beds[c.id] = bed;
+}
 
-  /* ── S1 · The Deadline ─────────────────────────────────────── */
-  { dur: 8.0, start: function () {
-      var el = slideEls[0], v = el.querySelector('video');
-      resetVideo(v); playVideo(v);
-      var hum = startHum(0.05, 280);
-      var tick = startInterval(sfxTick, 1000, false);
-      at(0.4, function () {
-        showNarrator(el, 'Your boss is generally serious & he has to hand off a client project tomorrow');
-      });
-      at(0.5, function () {
-        var ring = document.getElementById('calRing');
-        ring.classList.remove('pulsing'); void ring.offsetWidth;
-        ring.classList.add('pulsing');
-        if (RM) at(2.5, function () { ring.style.opacity = 0; });
-      });
-      at(4.0, function () {
-        sfxWhoosh();
-        showCloud(el, {
-          text: 'client handoff tomorrow... are we even ready?',
-          tail: 'br',
-          style: 'left:7%; top:24%;'
-        });
-      });
-      at(7.5, function () { hum.stop(false); tick.stop(true); });
-  }},
-
-  /* ── S2 · Work Done ────────────────────────────────────────── */
-  { dur: 8.0, start: function () {
-      var el = slideEls[1], v = el.querySelector('video');
-      resetVideo(v); playVideo(v);
-      var pad = startPad([196, 247, 294], 0.05);
-      at(0.4, function () {
-        showNarrator(el, "You've finished every task on your plate for the week");
-      });
-      at(0.8, sfxCreak);
-      at(3.5, function () {
-        sfxChime(660);
-        showCloud(el, {
-          text: 'finally, all done for the week.',
-          tail: 'bl',
-          style: 'right:7%; top:26%;'
-        });
-      });
-      at(7.5, function () { pad.stop(false); });
-  }},
-
-  /* ── S3 · The Ask (night tint, ends in dead silence) ───────── */
-  { dur: 9.0, start: function () {
-      var el = slideEls[2], v = el.querySelector('video');
-      resetVideo(v); playVideo(v);
-      var tone = startHum(0.035, 180);
-      var hb;
-      at(0.4, function () {
-        showNarrator(el, 'You need tomorrow off. Asking him is the hard part');
-      });
-      at(0.5, function () { hb = startInterval(sfxHeartbeat, 1200, true); });
-      at(5.5, function () {
-        /* NO chime — lands in the uneasy quiet */
-        showCloud(el, {
-          text: 'i need tomorrow off... but how do i even ask him?',
-          tail: 'bl',
-          style: 'right:6%; top:20%;'
-        });
-      });
-      at(7.0, function () { stopAllAudio(true); }); /* HARD stop — held breath */
-  }},
-
-  /* ── S4 · Entering the Cabin (A→B stitch, the stare) ───────── */
-  { dur: 14.0, start: function () {
-      var el = slideEls[3];
+/* One story scene: its video (or two stitched clips), narrator, thought cloud, ring and sound. */
+function sceneSlide(sc, el) {
+  return { dur: sc.dur, start: function () {
+    var beds = {};
+    if (sc.stitchAt) {
       var A = el.querySelector('.clipA'), B = el.querySelector('.clipB');
       A.style.opacity = 1; A.style.display = 'block';
       resetVideo(A); resetVideo(B);
       playVideo(A);
-      var hall = startHum(0.04, 240);
-      at(0.4, function () {
-        showNarrator(el, 'That evening, you walk to his cabin to ask him face to face');
-      });
-      [0.8, 1.6, 2.4, 3.2].forEach(function (t) { at(t, sfxFootstep); });
-
-      /* THE STITCH at 5.7s: door-open frames on both clips */
-      at(5.7, function () {
+      at(sc.stitchAt, function () {
         playVideo(B);
-        sfxDoorPush();
-        hall.stop(false);
         A.style.opacity = 0;                 /* 0.3s css transition */
         at(0.35, function () { A.style.display = 'none'; });
       });
-      var office, pen;
-      at(6.0, function () {
-        office = startHum(0.03, 320);
-        pen = startInterval(function () { if (Math.random() < 0.8) sfxPenTick(); }, 110, true);
-      });
+    } else {
+      var v = el.querySelector('video');
+      resetVideo(v); playVideo(v);
+    }
+    (sc.sound || []).forEach(function (c) {
+      if (c.at === 0) runCue(c, beds);
+      else at(c.at, function () { runCue(c, beds); });
+    });
+    if (sc.narrator) at(sc.narrator.at, function () { showNarrator(el, sc.narrator.text); });
+    if (sc.ring) at(sc.ring.at, function () {
+      var ring = el.querySelector('.focus-ring');
+      ring.classList.remove('pulsing'); void ring.offsetWidth;
+      ring.classList.add('pulsing');
+      if (RM) at(2.5, function () { ring.style.opacity = 0; });
+    });
+    if (sc.cloud) at(sc.cloud.at, function () { showCloud(el, sc.cloud); });
+  }};
+}
 
-      /* ~10.2 ANCHOR — his eyes land: ALL audio stops dead */
-      at(10.2, function () { stopAllAudio(true); });
+/* slide definitions: duration (s), holds, start() */
+var SLIDES = STORY.scenes.map(function (sc, i) { return sceneSlide(sc, slideEls[i]); }).concat([
 
-      at(12.0, function () {
-        /* silent, typewriter only — POV shot, so the thought is yours */
-        showCloud(el, {
-          text: 'okay... here goes.',
-          tail: 'down',
-          style: 'left:50%; transform-origin:center; margin-left:-80px; bottom:22%;'
-        });
-      });
-  }},
-
-  /* ── S5 · The Clash (coded, the only loud slide) ───────────── */
+  /* ── Face-off (coded, the only loud slide) ──────────────────── */
   { dur: 10.0, start: function () {
       var L = document.getElementById('clashL'), R = document.getElementById('clashR');
       var FB = document.getElementById('fighterBoss'), FY = document.getElementById('fighterYou');
@@ -894,14 +845,14 @@ var SLIDES = [
       at(6.5, function () { if (rumble) rumble.stop(false); });
   }},
 
-  /* ── S6 · The Goal (holds for CTA) ─────────────────────────── */
+  /* ── Mission (holds for CTA) ────────────────────────────────── */
   { dur: 10.0, hold: true, start: function () {
       var obj = document.getElementById('goalObjective');
       var tmr = document.getElementById('goalTimer');
       var c1 = document.getElementById('card1'), c2 = document.getElementById('card2'), c3 = document.getElementById('card3');
       var cta = document.getElementById('goalCta');
       [obj, tmr, c1, c2, c3, cta].forEach(function (x) { x.classList.remove('in'); });
-      var iv = slideEls[5].querySelector('video'); resetVideo(iv); playVideo(iv);
+      var iv = document.getElementById('mission').querySelector('video'); resetVideo(iv); playVideo(iv);
 
       at(0.5, function () { obj.classList.add('in'); });
       at(0.9, function () { tmr.classList.add('in'); });
@@ -910,17 +861,11 @@ var SLIDES = [
       at(5.4, function () { c3.classList.add('in'); sfxChime(783.99); });  /* so */
       at(7.6, function () { cta.classList.add('in'); sfxSwell(); });
   }}
-];
+]);
 
 /* transition map: type used when ENTERING slide i (from i-1) */
-var TRANSITIONS = [
-  null,
-  { type: 'crossfade', dur: 400 },   /* S1→S2 tense → calm */
-  { type: 'fadedark',  dur: 400 },   /* S2→S3 day → night worry */
-  { type: 'fade',      dur: 300 },   /* S3→S4 silence carries */
-  { type: 'hardcut',   dur: 0   },   /* S4→S5 the jolt */
-  { type: 'crossfade', dur: 400 }    /* S5→S6 chaos → calm */
-];
+var TRANSITIONS = STORY.scenes.map(function (sc) { return sc.transition || null; })
+  .concat([F.transition, M.transition]);
 
 function startSlide(i) {
   current = i;
@@ -977,7 +922,7 @@ function goTo(i, transition) {
 }
 
 function advance() {
-  if (current >= N_SLIDES - 1) return;          /* S6 holds */
+  if (current >= N_SLIDES - 1) return;          /* the mission holds */
   goTo(current + 1, TRANSITIONS[current + 1]);
 }
 

@@ -129,6 +129,50 @@
   .conv-back:active { transform: scale(.92); }
   .conv-back svg { width: 17px; height: 17px; }
 
+  /* ─── Presenter chips: pick which path plays (stakeholder demos) ───
+     Wide screens: a panel beside the app. Phones: behind a small "Demo" button. */
+  .demo-btn {
+    position: absolute; top: 8px; right: 12px; z-index: 40;
+    display: none; height: 26px; padding: 0 11px; border-radius: 100px;
+    border: 1px solid rgba(255,255,255,.16); background: rgba(20,16,36,.82); color: #cfd0d6;
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+  .demo-btn:active { transform: scale(.95); }
+  .demo-chips {
+    position: absolute; top: 42px; right: 12px; z-index: 40; width: 232px;
+    display: none; flex-direction: column; gap: 8px;
+    background: rgba(15,15,20,.94); border: 1px solid rgba(255,255,255,.1);
+    padding: 12px; border-radius: 16px;
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  }
+  .demo-on .demo-btn { display: block; }
+  .demo-on.demo-open .demo-chips { display: flex; }
+  @media (min-width: 1080px) {
+    /* room beside the 520px app: the panel sits outside it, always open */
+    .demo-on .demo-btn { display: none; }
+    .demo-chips { position: fixed; top: auto; bottom: 24px; right: auto; left: calc(50% + 284px); }
+    .demo-on .demo-chips { display: flex; }
+  }
+  .dc-label { color: #7c5cff; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; font-family: 'Inter', sans-serif; }
+  .dc-row { display: flex; gap: 8px; }
+  .demo-chip {
+    border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.05); color: #cfd0d6;
+    border-radius: 100px; padding: 8px 15px; font-size: 13px; font-weight: 600; cursor: pointer; text-align: left;
+    font-family: 'Inter', sans-serif; transition: border-color .18s ease, background .18s ease;
+  }
+  .demo-chip:hover { border-color: rgba(124,92,255,.55); }
+  .demo-chip.active { background: #6a4ff0; border-color: #6a4ff0; color: #fff; }
+  .demo-pb {
+    width: 34px; height: 34px; border-radius: 50%; flex: none; padding: 0;
+    border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); color: #fff;
+    font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+  .demo-pb:hover { border-color: rgba(124,92,255,.6); }
+  .demo-pb:active { transform: scale(.92); }
+
   /* ─── Toast ─── */
   .toast {
     position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%) translateY(14px);
@@ -182,14 +226,32 @@
       <iframe id="conv-frame" class="conv-frame" title="Conversation flow" allow="autoplay"></iframe>
     </div>
 
+    <!-- Presenter chips: choose the path; the mic is still tapped by hand -->
+    <button class="demo-btn" id="demoBtn" type="button">Demo</button>
+    <div class="demo-chips" id="demoChips">
+      <div class="dc-row">
+        <button class="demo-pb" id="pbPrev" type="button" title="Previous line">⏮</button>
+        <button class="demo-pb" id="pbToggle" type="button" data-paused="0" title="Pause / Play">⏸</button>
+        <button class="demo-pb" id="pbNext" type="button" title="Next line">⏭</button>
+        <button class="demo-pb" id="pbRestart" type="button" title="Restart">↻</button>
+      </div>
+      <span class="dc-label">Demo path</span>
+      <div id="demoPaths" style="display:contents"></div>
+    </div>
+
   </div>
 </div>
 
 
+<script src="roleplays/asking-for-leave.js"></script>
 <script>
 /* ─── Topic data ───────────────────────────────────────────── */
-var TOPICS = [
-  { id: 'rude-boss',     label: 'Asking for leave to a<br>rude boss', img: 'av-rude-boss.png',     bg: '#746344', live: true },
+/* Playable roleplays come first, from their roleplay files; the rest are locked placeholders. */
+var ROLEPLAY_ORDER = ['asking-for-leave'];
+var TOPICS = ROLEPLAY_ORDER.map(function (id) {
+  var t = ROLEPLAYS[id].topic;
+  return { id: id, label: t.label, img: t.avatar, bg: t.bg, live: true };
+}).concat([
   { id: 'movies',        label: 'Movies',                              img: 'av-movies.png',         bg: '#746a44' },
   { id: 'hobbies',       label: 'Hobbies',                             img: 'av-hobbies.png',        bg: '#444a74' },
   { id: 'salary',        label: 'Salary Negotiating<br>with manager',  img: 'av-salary.png',         bg: '#746344' },
@@ -205,7 +267,7 @@ var TOPICS = [
   { id: 'alignment',     label: 'Alignment with<br>company values',    img: 'av-alignment.png',      bg: '#445f74' },
   { id: 'sports',        label: 'Sports',                              img: 'av-sports.png',         bg: '#746144' },
   { id: 'family',        label: 'Family',                              img: 'av-family.png',         bg: '#445f74' }
-];
+].map(function (t) { t.img = 'flow-assets/' + t.img; return t; }));
 
 function buildTopics() {
   var html = '';
@@ -214,7 +276,7 @@ function buildTopics() {
       '<div class="topic-row ' + (t.live ? '' : 'is-locked') + '" onclick="openScenario(\'' + t.id + '\')">' +
         '<div class="ava">' +
           '<div class="ava-ring"></div>' +
-          '<div class="ava-inner" style="background:' + t.bg + '"><img src="flow-assets/' + t.img + '" alt="" /></div>' +
+          '<div class="ava-inner" style="background:' + t.bg + '"><img src="' + t.img + '" alt="" /></div>' +
         '</div>' +
         '<div class="topic-label">' + t.label + '</div>' +
       '</div>';
@@ -246,6 +308,52 @@ function navBack() {
   var prev = document.querySelector('.view.v-behind');
   if (prev) { prev.classList.remove('v-behind'); prev.classList.add('v-active'); }
   if (cur && cur !== prev) { cur.classList.remove('v-active'); }
+  showDemoChips(false);
+}
+
+/* ─── Presenter chips ─── */
+var currentRoleplay = null;
+var shell = document.querySelector('.phone-shell');
+function showDemoChips(show) {
+  shell.classList.toggle('demo-on', !!show);
+  if (!show) shell.classList.remove('demo-open');
+}
+function convPost(msg) {
+  var f = document.getElementById('conv-frame');
+  if (f && f.contentWindow) f.contentWindow.postMessage(msg, '*');
+}
+function setPlaybackUI(paused) {
+  var t = document.getElementById('pbToggle');
+  t.dataset.paused = paused ? '1' : '0';
+  t.textContent = paused ? '▶' : '⏸';
+}
+function markChip(id) {
+  document.querySelectorAll('.demo-chip').forEach(function (x) { x.classList.toggle('active', x.dataset.id === id); });
+}
+function buildDemoChips(roleplay) {
+  document.getElementById('demoPaths').innerHTML = roleplay.conversation.paths.map(function (p) {
+    return '<button class="demo-chip" type="button" data-id="' + p.id + '">' + p.title + '</button>';
+  }).join('');
+  document.querySelectorAll('.demo-chip').forEach(function (b) {
+    b.addEventListener('click', function () {
+      convPost({ type: 'playPath', id: b.dataset.id });
+      markChip(b.dataset.id);
+      setPlaybackUI(false);   /* a fresh path always starts playing */
+      shell.classList.remove('demo-open');
+    });
+  });
+}
+function wireDemoControls() {
+  document.getElementById('demoBtn').addEventListener('click', function () { shell.classList.toggle('demo-open'); });
+  var pbToggle = document.getElementById('pbToggle');
+  pbToggle.addEventListener('click', function () {
+    var nowPaused = pbToggle.dataset.paused !== '1';
+    convPost({ type: nowPaused ? 'pause' : 'resume' });
+    setPlaybackUI(nowPaused);
+  });
+  document.getElementById('pbRestart').addEventListener('click', function () { convPost({ type: 'restart' }); setPlaybackUI(false); });
+  document.getElementById('pbPrev').addEventListener('click', function () { convPost({ type: 'step', dir: -1 }); setPlaybackUI(true); });
+  document.getElementById('pbNext').addEventListener('click', function () { convPost({ type: 'step', dir: 1 }); setPlaybackUI(true); });
 }
 
 /* ─── Messages from the embedded screens ─── */
@@ -253,14 +361,16 @@ window.addEventListener('message', function (e) {
   if (!e.data) return;
   if (e.data.type === 'back') navBack();
   if (e.data.type === 'startSession') startConversation();  /* carousel CTA */
+  if (e.data.type === 'pathStarted') markChip(e.data.id);
 });
 
 /* ─── Tap a topic ─── */
 function openScenario(id) {
-  if (id === 'rude-boss') {
+  if (window.ROLEPLAYS[id]) {
+    currentRoleplay = id;
     /* (re)load the story carousel so it always opens fresh at its tap-to-start gate */
     var cf = document.getElementById('ctx-frame');
-    if (cf) cf.src = 'context-carousel.html?embed=1&t=' + Date.now(); /* cache-bust while iterating */
+    if (cf) cf.src = 'context-carousel.html?embed=1&roleplay=' + id + '&t=' + Date.now(); /* cache-bust while iterating */
     navTo('context');
   } else if (id === 'introduction') {
     showToast('Introduction — let\'s get to know you');
@@ -272,11 +382,16 @@ function openScenario(id) {
 /* ─── Context screen CTA → play the conversation flow ─── */
 function startConversation() {
   var f = document.getElementById('conv-frame');
-  if (f) { f.src = 'roleplay-conversation.html?embed=1&t=' + Date.now(); } /* (re)load fresh; cache-busted */
+  if (f) { f.src = 'roleplay-conversation.html?embed=1&roleplay=' + currentRoleplay + '&t=' + Date.now(); } /* (re)load fresh; cache-busted */
   navTo('conversation');
+  buildDemoChips(ROLEPLAYS[currentRoleplay]);
+  markChip(ROLEPLAYS[currentRoleplay].conversation.defaultPath);   /* it auto-plays */
+  setPlaybackUI(false);
+  showDemoChips(true);
 }
 
 buildTopics();
+wireDemoControls();
 </script>
 </body>
 </html>

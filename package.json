@@ -1,0 +1,11 @@
+{
+  "name": "roleplay-gamified",
+  "private": true,
+  "scripts": {
+    "serve": "node tests/serve.mjs",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}

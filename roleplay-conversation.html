@@ -7,6 +7,10 @@
   if (window.self !== window.top || location.search.indexOf('embed') >= 0) {
     document.documentElement.classList.add('embed');
   }
+  /* The roleplay file holds this roleplay's words, rules and asset paths. */
+  var RP_ID = new URLSearchParams(location.search).get('roleplay') || 'asking-for-leave';
+  if (!/^[a-z0-9-]+$/.test(RP_ID)) RP_ID = 'asking-for-leave';
+  document.write('<script src="roleplays/' + RP_ID + '.js"><\/script>');
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -2070,11 +2074,11 @@ body {
   html.embed .controls { display:none; }
   html.embed .back-btn { cursor: pointer; }
 </style>
-<style id="case-mode">
-  /* Rude-boss CASE MODE: retire café dev-controls + mic, add the case picker */
+<style id="path-mode">
+  /* PATH MODE: retire café dev-controls + mic, add the path picker */
   .controls { display: none !important; }
 
-  #casePicker {
+  #pathPicker {
     position: absolute; inset: 0; z-index: 60;
     background:
       radial-gradient(ellipse 90% 48% at 50% 4%, rgba(124,92,255,.16), transparent 60%),
@@ -2084,7 +2088,7 @@ body {
     padding: 0 22px; gap: 11px;
     opacity: 0; pointer-events: none; transition: opacity .3s ease;
   }
-  #casePicker.show { opacity: 1; pointer-events: auto; }
+  #pathPicker.show { opacity: 1; pointer-events: auto; }
   .cp-eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase; color: #7c5cff; text-align: center; }
   .cp-title { font-size: 22px; font-weight: 700; color: #fff; text-align: center; margin: 4px 0 16px; }
   .cp-card {
@@ -2121,23 +2125,23 @@ body {
   }
   .outcome-again:active { transform: scale(.98); }
 
-  /* Standalone case chips (below the phone). Hidden when embedded — parent provides its own. */
-  .case-chips {
+  /* Standalone path chips (below the phone). Hidden when embedded — parent provides its own. */
+  .path-chips {
     display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: center;
     padding: 6px 12px; max-width: 560px; margin: 4px auto 0;
   }
-  .case-chips .cc-label { width: 100%; text-align: center; color: #7c5cff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
-  .case-chip {
+  .path-chips .cc-label { width: 100%; text-align: center; color: #7c5cff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+  .path-chip {
     border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.05); color: #cfd0d6;
     border-radius: 100px; padding: 9px 16px; font-size: 13.5px; font-weight: 600; cursor: pointer;
     font-family: inherit; transition: all .18s ease;
   }
-  .case-chip:hover { border-color: rgba(124,92,255,.55); }
-  .case-chip.active { background: #6a4ff0; border-color: #6a4ff0; color: #fff; }
-  html.embed .case-chips { display: none !important; }
+  .path-chip:hover { border-color: rgba(124,92,255,.55); }
+  .path-chip.active { background: #6a4ff0; border-color: #6a4ff0; color: #fff; }
+  html.embed .path-chips { display: none !important; }
 
   /* Roleplay transcript extras: mood lines, guide chips, Sarah coach */
-  .case-mood { font-size: 11.5px; color: #8c8598; font-style: italic; margin: -8px 0 0 53px; max-width: 80%; }
+  .path-mood { font-size: 11.5px; color: #8c8598; font-style: italic; margin: -8px 0 0 53px; max-width: 80%; }
   .anno-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; margin: -7px 2px 0; }
   .anno-chip { font-size: 11.5px; font-weight: 600; padding: 4px 9px; border-radius: 999px; line-height: 1.3; }
   .anno-chip.ok { color: #fbbf24; background: rgba(251,191,36,.12); border: 1px solid rgba(251,191,36,.42); }
@@ -2153,12 +2157,12 @@ body {
   .sarah-coach .sc-av img { width: 100%; height: 100%; object-fit: cover; }
   .sarah-coach .sc-name { font-weight: 700; font-size: 12.5px; color: #b9a7ff; display: block; margin-bottom: 2px; }
   .sarah-coach .sc-body p { font-size: 13.5px; color: #ece6f4; line-height: 1.5; }
-  .case-replay {
+  .path-replay {
     align-self: center; margin: 8px auto 2px; border: 1px solid rgba(255,255,255,.18);
     background: rgba(255,255,255,.06); color: #fff; border-radius: 100px;
     padding: 9px 18px; font-size: 13.5px; font-weight: 600; cursor: pointer; font-family: inherit;
   }
-  .case-replay:active { transform: scale(.97); }
+  .path-replay:active { transform: scale(.97); }
 
   /* Off-track intro: the chat's boss avatar lifts to centre, cross-fades to video, returns */
   .intro-stage {
@@ -2215,11 +2219,11 @@ body {
   .screen.angry .progress-fill.purple { background: linear-gradient(90deg,#b91c1c,#ef4444) !important; }
   .mode-label.angry { color: #ff5a5a !important; }
 
-  /* ─── Anger meter (replaces the progress bar in case mode) ───
+  /* ─── Anger meter (replaces the progress bar in path mode) ───
      fixed boss face at the left = gauge head, fill grows toward the flame */
   .anger-meter { display: none; align-items: center; gap: 9px; min-width: 0; }
-  .case-ui .progress-bar { display: none; }
-  .case-ui .anger-meter { display: flex; }
+  .path-ui .progress-bar { display: none; }
+  .path-ui .anger-meter { display: flex; }
 
   .am-face {
     width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
@@ -2299,9 +2303,9 @@ body {
     100% { transform: translate(var(--dx, 0px), -36px) scale(1.05) rotate(var(--rot, 0deg)); opacity: 0; }
   }
 
-  /* chat avatars retired in case mode: the boss lives in the meter gauge head */
-  .case-ui .boss-av { display: none; }
-  .case-ui .bubble-row.bot { gap: 0; }
+  /* chat avatars retired in path mode: the boss lives in the meter gauge head */
+  .path-ui .boss-av { display: none; }
+  .path-ui .bubble-row.bot { gap: 0; }
 
   /* ─── 5-minute meeting timer — a fluid section inside the meter row ─── */
   .timer-chip {
@@ -2954,7 +2958,7 @@ function addBubble({ kind = 'bot', html, tools = [], extraClass = '', id = '' })
   if (kind === 'bot') {
     const av = document.createElement('div');
     av.className = 'boss-av';
-    av.innerHTML = '<img src="boss.png" alt="">';
+    av.innerHTML = `<img src="${CONV.avatar}" alt="">`;
     row.appendChild(av);
   }
   row.appendChild(bubble);
@@ -2971,7 +2975,7 @@ async function addBotMessage({ html, tools = [], id = '', loadingMs = 1100 }) {
   // typing indicator first
   const typingRow = document.createElement('div');
   typingRow.className = 'bubble-row bot bot-typing-row';
-  typingRow.innerHTML = `<div class="boss-av"><img src="boss.png" alt=""></div><div class="bubble bot-typing"><span></span><span></span><span></span></div>`;
+  typingRow.innerHTML = `<div class="boss-av"><img src="${CONV.avatar}" alt=""></div><div class="bubble bot-typing"><span></span><span></span><span></span></div>`;
   chat.appendChild(typingRow);
   scrollChat();
   // Reposition Sarah while typing row is in flow (it's the latest bot row now)
@@ -3019,7 +3023,7 @@ function setProgress(percent) {
   }
 }
 
-/* ─── Anger meter (case mode) ───
+/* ─── Anger meter (path mode) ───
    One state variable drives everything: fill, zone color, arrow, boss face,
    screen vignette, danger heartbeat. Anger snaps up fast, cools down slowly. */
 let ANGER = 8;
@@ -3031,16 +3035,16 @@ function amSetFace(name) {
   const img = document.getElementById('amFaceImg');
   const face = document.getElementById('amFace');
   if (!img || !face) return;
-  const src = 'flow-assets/boss-meter-' + name + '.png';
+  const src = CONV.meter.faces.replace('{face}', name);
   if (img.getAttribute('src') !== src) {
     img.setAttribute('src', src);
     face.classList.remove('pop'); void face.offsetWidth; face.classList.add('pop');
   }
 }
-/* ─── 5-minute meeting timer (case mode) ───
-   Runs silently from 5:00. Peeks for ~2.6s at case start, returns for the
+/* ─── Meeting clock (path mode) ───
+   Runs silently from 5:00. Peeks for ~2.6s at path start, returns for the
    final minute, goes urgent at 0:20, and at 0:00 the boss takes over with
-   his meeting-exit video → TIME'S UP results. Scripted cases can jump the
+   his meeting-exit video → TIME'S UP results. Scripted paths can jump the
    clock with a per-turn `timeJump` (seconds remaining). */
 /* Interaction sounds removed by request — inert stubs keep the hook sites quiet.
    (Real audio returns with the recorded boss lines.) */
@@ -3051,7 +3055,7 @@ function sfxWhooshDown() {} function sfxStampImpact() {} function sfxDong() {}
 function sfxSwell() {} function sfxHeartbeatStart() {} function sfxHeartbeatStop() {}
 function sfxTickLoop() {} function sfxTickStop() {} function sfxStopLoops() {}
 
-let TIMER_REMAIN = 300, TIMER_INT = null;
+let TIMER_REMAIN = 0, TIMER_INT = null;
 let timerChipEl = null, timerNumEl = null;
 function buildTimerBanner() {           /* (chip lives inside the anger meter row) */
   if (timerChipEl) return;
@@ -3077,29 +3081,29 @@ function timerRender() {
   if (urgent && !wasUrgent) sfxTickLoop(500);     /* urgent: tempo doubles */
 }
 function timerSet(s) { TIMER_REMAIN = s; timerRender(); }
-function stopCaseTimer() { clearInterval(TIMER_INT); TIMER_INT = null; sfxTickStop(); }
+function stopPathTimer() { clearInterval(TIMER_INT); TIMER_INT = null; sfxTickStop(); }
 function hideTimerBanner() { if (timerChipEl) timerChipEl.classList.remove('show', 'urgent'); sfxTickStop(); }
-function startCaseTimer() {
+function startPathTimer() {
   buildTimerBanner();
-  stopCaseTimer();
-  timerSet(300);
+  stopPathTimer();
+  timerSet(CONV.clock.seconds);
   TIMER_INT = setInterval(() => {
     if (PAUSED || stepActive) return;
     TIMER_REMAIN--;
     timerRender();
-    if (TIMER_REMAIN <= 0) { stopCaseTimer(); runTimeout(currentCase); }
+    if (TIMER_REMAIN <= 0) { stopPathTimer(); runTimeout(currentPath); }
   }, 1000);
 }
 async function runTimeout(c) {
-  CASE_GEN++;                       /* abort whatever the script was doing */
+  PATH_GEN++;                       /* abort whatever the script was doing */
   stopAudio();
   if (typeof stopMicWave === 'function') stopMicWave();
   if (typeof micPill !== 'undefined' && micPill) micPill.className = 'mic-pill';
   hideTimerBanner();
   sfxStopLoops();
   document.querySelectorAll('.bot-typing-row').forEach(el => el.remove());   /* clear any typing the aborted script left behind */
-  const exitTurn = { text: `i've got to run to my meeting. we'll pick this up later.` };
-  await playAvatarIntro(exitTurn, { src: 'flow-assets/boss-meeting-exit.mp4', poster: 'flow-assets/boss-meeting-exit-poster.jpg', hold: 4.6, caption: `I've got a meeting.` });
+  const exit = CONV.clock.exit;
+  await playAvatarIntro({ text: exit.line }, exit);
   setTimeout(() => { if (c) showResults(c); }, 900);
 }
 
@@ -4116,7 +4120,7 @@ sceneJumps.querySelectorAll('button').forEach(b => {
 window.addEventListener('load', () => {
   // Initial tab indicator position
   setActiveTab('grammar');
-  setTimeout(initCaseMode, 300);   /* rude-boss case mode (was: runFlow café demo) */
+  setTimeout(initPathMode, 300);   /* path mode (was: runFlow café demo) */
 });
 
 // Re-position Sarah if window resizes mid-scene (rare)
@@ -4148,44 +4152,17 @@ sarahImg.addEventListener('load', () => {
 });
 
 /* ════════════════════════════════════════════════════════════
-   RUDE-BOSS — CASE MODE
-   A picker of 3 scenarios; each plays as a scripted demo.
-   Goals → stars:  ★0 show work done · ★1 ask right (day + reason) · ★2 cover the gap (offer the plan)
-   Continuity: the story carousel establishes the user's work IS done,
-   it's the evening before tomorrow's big client handoff, the boss has
-   a client meeting in 5 minutes, and the user wants tomorrow off.
-   (Audio intentionally absent until the copy is signed off.)
+   PATH MODE
+   Plays one scripted path of the roleplay. Everything roleplay-specific
+   (lines, meter values, stars, the character's videos, the clock) comes
+   from the roleplay file loaded in <head>.
    ════════════════════════════════════════════════════════════ */
-const BOSS_OPENING = `hey make it quick. i've got a client meeting in 5 minutes. i hope your tasks are done? tomorrow we have a big day to nail!`;
-
-const CASES = [
-  {
-    id: 'poor', title: 'Poor response', tag: 'Fumbles the ask, argues, walks out with nothing', stars: 0, outcome: 'fail',
-    turns: [
-      { who: 'boss', text: BOSS_OPENING, mood: `busy, short on patience`, morph: 'greeting', anger: 14, audio: 'voice/v-opening.mp3' },
-      { who: 'user', text: `sir, actually... i wanted to talk about something. it's <span class="underline-y">kind of</span> important. i mean, if you have time.`, anger: 30, uaudio: 'voice/v-poor-u1.mp3', chips: [{ miss: true, label: `ignored his question, buried the ask` }], feedback: {
-        grammar: { wrong: `it's <span class="err">kind of</span> important.`, right: `it's <span class="fix">important</span>.`, reason: `"kind of" softens your message until it disappears. if it matters, say it matters.` },
-        pronunciation: { quote: `i wanted to talk about <span class="err">something</span>.`, words: ['something', 'important'] },
-        vocabulary: { wrong: `talk about <span class="err">something</span>`, right: `ask <span class="fix">for a day off</span>`, from: `talk about something`, to: `ask for a day off` },
-        content: { points: [ { ok: false, text: `He asked if your work is done. Answer that first.` }, { ok: false, text: `You hinted instead of asking. Say what you want.` } ] }
-      } },
-      { who: 'boss', text: `i asked about your tasks. is it done or not? i've got a client meeting to attend in sometime.`, mood: `pressed, patience thinning`, anger: 48, audio: 'voice/v-poor-b2.mp3' },
-      { who: 'user', text: `yes yes, it's done. so... <span class="underline-y">can i not come in</span> tomorrow? i have some personal work.`, tag: `this angers the boss`, anger: 74, uaudio: 'voice/v-poor-u2.mp3', chips: [{ miss: true, label: `asked for the client day with no reason` }], feedback: {
-        grammar: { wrong: `<span class="err">can i not come in</span> tomorrow?`, right: `<span class="fix">could i take tomorrow off</span>?`, reason: `"can i not come in" sounds like dodging work. ask for the day directly.` },
-        pronunciation: { quote: `i have some <span class="err">personal</span> work.`, words: ['personal', 'tomorrow'] },
-        vocabulary: { wrong: `some <span class="err">personal work</span>`, right: `a <span class="fix">family commitment</span>`, from: `personal work`, to: `family commitment` },
-        content: { points: [ { ok: false, text: `On the day of a client handoff, "personal work" sounds like an excuse.` }, { ok: false, text: `Give a reason he can respect, then show the day is covered.` } ] }
-      } },
-      { who: 'boss', text: `are you kidding me! tomorrow we have the client handoff and you want to vanish for "personal work"? no. you'll be at your desk.`, mood: `furious, done being patient`, morph: 'angry', caption: `Tomorrow, what???`, anger: 86, audio: 'voice/v-poor-b3.mp3' },
-      { who: 'user', text: `but sir, my work is finished! why does it even matter if i'm here?`, anger: 92, uaudio: 'voice/v-poor-u3.mp3', chips: [{ miss: true, label: `argued instead of helping him say yes` }] },
-      { who: 'boss', text: `because tomorrow has to go perfectly. that's why. give me one reason i can defend to the client.`, mood: `cold, final warning`, anger: 90, audio: 'voice/v-poor-b4.mp3' },
-      { who: 'user', text: `i just... really need the day, sir. i can't tell you everything.`, anger: 97, uaudio: 'voice/v-poor-u4.mp3', chips: [{ miss: true, label: `no reason, no plan, no trust` }] },
-      { who: 'boss', text: `then the answer is no. we're done here. be at your desk tomorrow.`, mood: `shuts it down`, morph: 'kickout', anger: 100, audio: 'voice/v-poor-b5.mp3' },
-    ],
-  },
-];
+const ROLEPLAY = window.ROLEPLAYS[RP_ID];
+const CONV = ROLEPLAY.conversation;
+const OPENING = CONV.opening;
+const PATHS = CONV.paths;
 const slotsArr = Array.from(document.querySelectorAll('#starsTray .star-slot'));
-let CASE_GEN = 0;
+let PATH_GEN = 0;
 let liveTurnIndex = 0, stepActive = false, stepIndex = 0;
 let pickerEl = null;
 
@@ -4193,11 +4170,11 @@ function buildPicker() {
   if (pickerEl) return;
   const scr = document.querySelector('.screen');
   pickerEl = document.createElement('div');
-  pickerEl.id = 'casePicker';
+  pickerEl.id = 'pathPicker';
   pickerEl.innerHTML =
-    `<div class="cp-eyebrow">Asking for leave · Rude boss</div>` +
+    `<div class="cp-eyebrow">${CONV.eyebrow}</div>` +
     `<div class="cp-title">Choose how it plays out</div>` +
-    CASES.map((c, i) =>
+    PATHS.map((c, i) =>
       `<button class="cp-card" data-i="${i}">` +
         `<div class="cp-card-title">${c.title}</div>` +
         `<div class="cp-card-tag">${c.tag}</div>` +
@@ -4205,18 +4182,18 @@ function buildPicker() {
     ).join('');
   scr.appendChild(pickerEl);
   pickerEl.querySelectorAll('.cp-card').forEach(btn => {
-    btn.addEventListener('click', () => playCase(CASES[parseInt(btn.dataset.i, 10)]));
+    btn.addEventListener('click', () => playPath(PATHS[parseInt(btn.dataset.i, 10)]));
   });
 }
 
-function resetCase() {
+function resetPath() {
   chat.innerHTML = '';
   slotsArr.forEach(s => s.classList.remove('filled', 'landing', 'anticipating'));
   const r = document.getElementById('resultsScreen');
   if (r) r.classList.remove('show', 'play');
   if (introStage) { introStage.classList.remove('active', 'dim'); if (introVid) introVid.pause(); }
   const amf0 = document.getElementById('amFace'); if (amf0) amf0.style.visibility = '';
-  stopCaseTimer(); hideTimerBanner(); sfxStopLoops();
+  stopPathTimer(); hideTimerBanner(); sfxStopLoops();
   if (typeof micPill !== 'undefined' && micPill) micPill.className = 'mic-pill';
   if (typeof stopMicWave === 'function') stopMicWave();
   stopAudio();
@@ -4229,12 +4206,11 @@ function resetCase() {
   if (starsInfoBdEl) starsInfoBdEl.classList.remove('show');
   if (hintLauncherEl) { hintLauncherEl.remove(); hintLauncherEl = null; }
   if (hintStageEl) { const v = hintStageEl.querySelector('.hint-vid'); if (v) v.pause(); hintStageEl.remove(); hintStageEl = null; }
-  if (hintMicHandler && typeof micPill !== 'undefined' && micPill) { micPill.removeEventListener('click', hintMicHandler); hintMicHandler = null; }
   document.querySelectorAll('.bubble.draft').forEach(d => { const r = d.closest('.bubble-row'); if (r) r.remove(); });
-  setAnger(8);
+  setAnger(CONV.meter.start);
   setProgress(6);
 }
-function showPicker() { resetCase(); if (pickerEl) pickerEl.classList.add('show'); }
+function showPicker() { resetPath(); if (pickerEl) pickerEl.classList.add('show'); }
 function hidePicker() { if (pickerEl) pickerEl.classList.remove('show'); }
 
 function fillStar(i) {
@@ -4246,7 +4222,7 @@ function fillStar(i) {
 
 function renderMood(mood) {
   const m = document.createElement('div');
-  m.className = 'case-mood';
+  m.className = 'path-mood';
   m.textContent = mood;
   chat.appendChild(m);
 }
@@ -4318,7 +4294,7 @@ async function userMicRecord(dead, voiceSrc) {
     micTip(false);
     micPill.classList.remove('idle'); micPill.classList.add('expanded');
     startMicWave(); sfxMicStart();
-    if (voiceSrc) playBossAudio('flow-assets/' + voiceSrc);   /* not awaited — the tap decides */
+    if (voiceSrc) playBossAudio(voiceSrc);   /* not awaited — the tap decides */
 
     const action = await awaitMicTap(dead, 'record');
     stopAudio(); stopMicWave();
@@ -4348,6 +4324,7 @@ function playBossAudio(src) {
     const a = new Audio(src);
     currentAudio = a;
     a.addEventListener('ended', finish);
+    a.addEventListener('error', () => setTimeout(finish, 1200));   /* missing file: a short beat, then move on */
     let fb = setTimeout(finish, 16000);
     a.addEventListener('loadedmetadata', () => {
       if (isFinite(a.duration) && a.duration > 0) { clearTimeout(fb); fb = setTimeout(finish, (a.duration * 1000) / SPEED + 1000); }
@@ -4386,10 +4363,10 @@ function setAngryMode(on) {
   if (ml) { ml.classList.toggle('angry', on); ml.textContent = on ? 'Angry mode' : 'Conversation mode'; }
 }
 
-function endCase(c) {
-  stopCaseTimer(); hideTimerBanner();
-  // capstone: bring up the results screen with this case's star count
-  setTimeout(() => { if (currentCase === c) showResults(c); }, 1300);
+function endPath(c) {
+  stopPathTimer(); hideTimerBanner();
+  // capstone: bring up the results screen with this path's star count
+  setTimeout(() => { if (currentPath === c) showResults(c); }, 1300);
 }
 
 function showResults(c) {
@@ -4411,14 +4388,15 @@ function showResults(c) {
   if (stamp) stamp.innerHTML = timeout ? "TIME'S<br>UP" : 'MISSION<br>FAILED';
   const av = r.querySelector('#r-avatar-img');
   if (av) {
-    const happy = c.id === 'perfect';
-    av.src = fail ? 'flow-assets/boss-meter-furious.png' : (happy ? 'flow-assets/boss-happy-avatar.png' : 'boss.png');
+    const happy = !fail && !timeout && c.stars === 3;
+    const faces = ROLEPLAY.results.faces;
+    av.src = fail ? faces.fail : (happy ? faces.win : faces.neutral);
     av.classList.toggle('happy', happy);
   }
   const cta = r.querySelector('.r-cta');
   if (cta) {
     cta.textContent = (fail || timeout) ? 'Try again' : 'See Detailed Feedback';
-    cta.onclick = (fail || timeout) ? () => { r.classList.remove('show', 'play', 'fail', 'timesup'); playCase(c); } : null;
+    cta.onclick = (fail || timeout) ? () => { r.classList.remove('show', 'play', 'fail', 'timesup'); playPath(c); } : null;
   }
   r.classList.add('show');
   sfxStopLoops();
@@ -4455,7 +4433,7 @@ function showResults(c) {
 }
 
 /* ─── Guided-response hint flow (Sarah) ─── */
-let hintLauncherEl = null, hintStageEl = null, hintMicHandler = null;
+let hintLauncherEl = null, hintStageEl = null;
 function buildHintUI() {
   const scr = document.querySelector('.screen');
   if (!scr) return;
@@ -4463,31 +4441,17 @@ function buildHintUI() {
   if (!hintLauncherEl) {
     hintLauncherEl = document.createElement('div');
     hintLauncherEl.className = 'hint-launcher';
-    hintLauncherEl.innerHTML = `<div class="hl-tip">Tap for guided response</div><div class="hl-avatar"><div class="hl-img"><img src="flow-assets/av-introduction.png" alt=""></div><span class="hl-bulb">💡</span></div>`;
+    hintLauncherEl.innerHTML = `<div class="hl-tip">Tap for guided response</div><div class="hl-avatar"><div class="hl-img"><img src="${CONV.hint.avatar}" alt=""></div><span class="hl-bulb">💡</span></div>`;
     micArea.appendChild(hintLauncherEl);
   }
   if (!hintStageEl) {
     hintStageEl = document.createElement('div');
     hintStageEl.className = 'hint-stage';
-    hintStageEl.innerHTML = `<div class="hint-circle"><video class="hint-vid" muted playsinline loop poster="flow-assets/sarah-hint-poster.jpg"></video></div><div class="hint-label">Sarah hint</div><div class="hint-card"><div class="hint-text"></div></div><button class="hint-cta">got it, my turn</button>`;
+    hintStageEl.innerHTML = `<div class="hint-circle"><video class="hint-vid" muted playsinline loop poster="${CONV.hint.poster}"></video></div><div class="hint-label">Sarah hint</div><div class="hint-card"><div class="hint-text"></div></div><button class="hint-cta">got it, my turn</button>`;
     scr.appendChild(hintStageEl);
   }
 }
-async function micRecordOnly(voiceSrc) {
-  micPill.classList.remove('idle'); micPill.classList.add('expanded');
-  startMicWave(); sfxMicStart();
-  if (voiceSrc) { await playBossAudio('flow-assets/' + voiceSrc); }
-  else { await wait(2200); }
-  await tapAt(micPill.querySelector('.pill-confirm'));
-  stopMicWave(); sfxMicConfirm();
-  micPill.classList.remove('expanded'); micPill.classList.add('submitting');
-  await wait(360);
-  micPill.classList.add('tick-only');
-  await wait(220);
-  micPill.classList.remove('submitting', 'tick-only'); micPill.classList.add('gone');
-  await wait(220); micPill.className = 'mic-pill';
-}
-function runGuidedHint(turn) {
+function runGuidedHint(turn, dead) {
   return new Promise(resolve => {
     buildHintUI();
     micPill.className = 'mic-pill idle visible';
@@ -4497,7 +4461,7 @@ function runGuidedHint(turn) {
       hintLauncherEl.removeEventListener('click', onLauncher);
       hideHintLauncher();
       const vid = hintStageEl.querySelector('.hint-vid');
-      vid.src = 'flow-assets/sarah-hint.mp4';
+      vid.src = CONV.hint.video;
       hintStageEl.querySelector('.hint-text').textContent = turn.hintText;
       hintStageEl.classList.add('show');
       try { vid.currentTime = 0; } catch (e) {}
@@ -4508,20 +4472,14 @@ function runGuidedHint(turn) {
         hintStageEl.classList.remove('show'); vid.pause();
         /* Sarah coaches the MOVE, not the words — no read-aloud draft.
            The user finds their own line and speaks it. */
-        micPill.className = 'mic-pill idle visible';
-        let spoken = false;
-        const onMic = async () => {
-          if (spoken) return; spoken = true;
-          micPill.removeEventListener('click', onMic); hintMicHandler = null;
-          await micRecordOnly(turn.uaudio);
+        (async () => {
+          await userMicRecord(dead, turn.uaudio); if (dead()) return;
           const rb = addBubble({ kind: 'user', html: turn.response, tools: ['speaker-solid'] });
           scrollChat();
-          flyStars(rb.bubble, turn.stars || [], turn.card || `Asked right: the day and the reason`);
+          flyStars(rb.bubble, turn.stars || [], turn.card || CONV.hint.card);
           await wait(2600);
           resolve();
-        };
-        hintMicHandler = onMic;
-        micPill.addEventListener('click', onMic);
+        })();
       };
       cta.addEventListener('click', onCta);
     };
@@ -4533,7 +4491,7 @@ function hideHintLauncher() { if (hintLauncherEl) hintLauncherEl.classList.remov
 
 /* ─── Step scrubber: render the conversation statically up to a turn ─── */
 function renderUpTo(c, idx) {
-  CASE_GEN++;                 // abort any running auto-play
+  PATH_GEN++;                 // abort any running auto-play
   PAUSED = false;
   stopAudio();
   if (typeof stopMicWave === 'function') stopMicWave();
@@ -4544,9 +4502,8 @@ function renderUpTo(c, idx) {
   sfxStopLoops();
   if (hintLauncherEl) { hintLauncherEl.remove(); hintLauncherEl = null; }
   if (hintStageEl) { const hv = hintStageEl.querySelector('.hint-vid'); if (hv) hv.pause(); hintStageEl.remove(); hintStageEl = null; }
-  if (hintMicHandler && typeof micPill !== 'undefined' && micPill) { micPill.removeEventListener('click', hintMicHandler); hintMicHandler = null; }
   if (typeof micPill !== 'undefined' && micPill) micPill.className = 'mic-pill';
-  let anger = 8;
+  let anger = CONV.meter.start;
   for (let i = 0; i <= idx && i < c.turns.length; i++) {
     const turn = c.turns[i];
     if (!turn || turn.who === 'sarah') continue;
@@ -4578,7 +4535,7 @@ function renderUpTo(c, idx) {
   scrollChat();
 }
 function stepTo(dir) {
-  const c = currentCase;
+  const c = currentPath;
   if (!c) return;
   let i = (stepActive ? stepIndex : liveTurnIndex) + dir;
   // skip Sarah turns
@@ -4588,23 +4545,24 @@ function stepTo(dir) {
   renderUpTo(c, i);
 }
 function resumeFromStep() {
-  if (!currentCase) return;
+  if (!currentPath) return;
   const from = stepIndex + 1;
-  if (from >= currentCase.turns.length) return;   // already at the end
-  playCase(currentCase, from, true);              // continue live, keep the rendered chat
+  if (from >= currentPath.turns.length) return;   // already at the end
+  playPath(currentPath, from, true);              // continue live, keep the rendered chat
 }
 
-function playCase(c, fromIndex, keepChat) {
-  const myGen = ++CASE_GEN;
-  const dead = () => myGen !== CASE_GEN;
+function playPath(c, fromIndex, keepChat) {
+  const myGen = ++PATH_GEN;
+  const dead = () => myGen !== PATH_GEN;
   const start = fromIndex || 0;
-  currentCase = c;
+  currentPath = c;
   PAUSED = false;
   stepActive = false;
-  selectChip(CASES.indexOf(c));
+  selectChip(PATHS.indexOf(c));
+  tellHost({ type: 'pathStarted', id: c.id });
   hidePicker();
-  if (!keepChat) resetCase();
-  if (!keepChat) startCaseTimer();
+  if (!keepChat) resetPath();
+  if (!keepChat) startPathTimer();
   (async () => {
     if (!keepChat) { await wait(550); if (dead()) return; }
     let prog = Math.max(8, Math.round((start / c.turns.length) * 100));
@@ -4619,7 +4577,7 @@ function playCase(c, fromIndex, keepChat) {
       // pre-beat: a natural pause before this person responds
       await wait(turn.who === 'boss' ? 850 : 650); if (dead()) return;
       if (turn.who === 'hint') {
-        await runGuidedHint(turn); if (dead()) return;
+        await runGuidedHint(turn, dead); if (dead()) return;
         if (typeof turn.anger === 'number') setAnger(turn.anger, { flash: turn.flash });
         prog = Math.min(96, prog + step); setProgress(prog);
         await wait(1000); if (dead()) return;
@@ -4628,12 +4586,7 @@ function playCase(c, fromIndex, keepChat) {
       if (turn.who === 'boss') {
         if (turn.morph) {
           // gauge head lifts to centre, plays a takeover video, returns
-          const MORPHS = {
-            greeting: { caption: `Hello there!` },
-            angry:    { src: 'flow-assets/boss-angry.mp4', poster: 'flow-assets/boss-angry-poster.jpg', hold: 2.0, caption: `Tomorrow?!` },
-            kickout:  { src: 'flow-assets/boss-kickout.mp4', poster: 'flow-assets/boss-kickout-poster.jpg', hold: 4.6, caption: `We're done here.` }
-          };
-          const opts = Object.assign({}, MORPHS[turn.morph] || MORPHS.greeting);
+          const opts = Object.assign({}, CONV.moments[turn.morph] || CONV.moments.greeting);
           if (turn.caption) opts.caption = turn.caption;   /* per-turn caption override */
           await playAvatarIntro(turn, opts); if (dead()) return;
         } else {
@@ -4643,7 +4596,7 @@ function playCase(c, fromIndex, keepChat) {
         }
         scrollChat();
         if (typeof turn.anger === 'number') { await wait(350); if (dead()) return; setAnger(turn.anger, { flash: turn.flash }); }
-        if (turn.audio) { await playBossAudio('flow-assets/' + turn.audio); if (dead()) return; }   // wait for him to finish speaking
+        if (turn.audio) { await playBossAudio(turn.audio); if (dead()) return; }   // wait for him to finish speaking
       } else {
         // mic interaction: user speaks, taps to stop, then the message appears
         await userMicRecord(dead, turn.uaudio); if (dead()) return;
@@ -4686,35 +4639,40 @@ function playCase(c, fromIndex, keepChat) {
       await wait(turn.who === 'user' ? 900 : (turn.audio ? 300 : 1200));
       if (dead()) return;
     }
+    if (c.outcome === 'timeout') {
+      /* the words ran out before the clock did: let the last seconds tick away */
+      if (TIMER_REMAIN > 5) timerSet(5);
+      return;
+    }
     setProgress(100);
     await wait(360); if (dead()) return;
-    endCase(c);
+    endPath(c);
   })();
 }
 
-let currentCase = null;
+let currentPath = null;
 let chipsEl = null;
 
 function buildChips() {
   if (chipsEl) return;
   chipsEl = document.createElement('div');
-  chipsEl.className = 'case-chips';
-  chipsEl.innerHTML = '<div class="cc-label">Demo case</div>' +
-    CASES.map((c, i) => `<button class="case-chip" data-i="${i}">${c.title}</button>`).join('');
+  chipsEl.className = 'path-chips';
+  chipsEl.innerHTML = '<div class="cc-label">Demo path</div>' +
+    PATHS.map((c, i) => `<button class="path-chip" data-i="${i}">${c.title}</button>`).join('');
   document.body.appendChild(chipsEl);
-  chipsEl.querySelectorAll('.case-chip').forEach(btn => {
-    btn.addEventListener('click', () => playCase(CASES[parseInt(btn.dataset.i, 10)]));
+  chipsEl.querySelectorAll('.path-chip').forEach(btn => {
+    btn.addEventListener('click', () => playPath(PATHS[parseInt(btn.dataset.i, 10)]));
   });
 }
 function selectChip(i) {
   if (!chipsEl) return;
-  chipsEl.querySelectorAll('.case-chip').forEach((b, idx) => b.classList.toggle('active', idx === i));
+  chipsEl.querySelectorAll('.path-chip').forEach((b, idx) => b.classList.toggle('active', idx === i));
 }
 function showIdle() {
-  resetCase();
-  addBubble({ kind: 'bot', html: BOSS_OPENING, tools: ['translate', 'speaker-solid'], id: 'msg-greeting' });
+  resetPath();
+  addBubble({ kind: 'bot', html: OPENING, tools: ['translate', 'speaker-solid'], id: 'msg-greeting' });
   setProgress(8);
-  setAnger(12);
+  setAnger(CONV.meter.idle);
   scrollChat();
 }
 /* ─── Off-track intro: the chat's boss avatar lifts to centre, plays a greeting, returns ─── */
@@ -4727,13 +4685,13 @@ function buildIntro() {
   introMorph.className = 'intro-morph';
   introFace = document.createElement('img');
   introFace.className = 'intro-face';
-  introFace.src = 'boss.png';
+  introFace.src = CONV.avatar;
   introVid = document.createElement('video');
   introVid.className = 'intro-vid';
   introVid.muted = true; introVid.setAttribute('muted', ''); introVid.setAttribute('playsinline', '');
   introVid.playsInline = true; introVid.preload = 'auto';
-  introVid.poster = 'flow-assets/boss-intro-poster.jpg';
-  introVid.src = 'flow-assets/boss-intro.mp4';
+  introVid.poster = CONV.moments.greeting.poster;
+  introVid.src = CONV.moments.greeting.src;
   introVid.style.opacity = '0';
   introMorph.appendChild(introFace);
   introMorph.appendChild(introVid);
@@ -4753,7 +4711,7 @@ function playVideoUntil(t) {
     const poll = () => {
       if (PAUSED) { introVid.pause(); setTimeout(poll, 60); return; }   /* pause works during the video too */
       if (introVid.paused && !introVid.ended) introVid.play().catch(() => {});  /* never restart at end → no loop */
-      if (introVid.currentTime >= t || introVid.ended) { resolve(); return; }
+      if (introVid.currentTime >= t || introVid.ended || introVid.error) { resolve(); return; }
       setTimeout(poll, 60);
     };
     poll();
@@ -4761,16 +4719,16 @@ function playVideoUntil(t) {
 }
 async function playAvatarIntro(turn, opts) {
   opts = opts || {};
-  const myGen = CASE_GEN;   /* bail out cleanly if the case is aborted mid-morph */
-  const bailed = () => myGen !== CASE_GEN;
-  const vsrc = opts.src || 'flow-assets/boss-intro.mp4';
-  const vposter = opts.poster || 'flow-assets/boss-intro-poster.jpg';
+  const myGen = PATH_GEN;   /* bail out cleanly if the path is aborted mid-morph */
+  const bailed = () => myGen !== PATH_GEN;
+  const vsrc = opts.src || CONV.moments.greeting.src;
+  const vposter = opts.poster || CONV.moments.greeting.poster;
   buildIntro();
   if (introVid.getAttribute('src') !== vsrc) { introVid.setAttribute('src', vsrc); introVid.poster = vposter; introVid.load(); }
   // 1. first typing row so the avatar sits at its resting position
   const typingRow = document.createElement('div');
   typingRow.className = 'bubble-row bot bot-typing-row';
-  typingRow.innerHTML = `<div class="boss-av"><img src="boss.png" alt=""></div><div class="bubble bot-typing"><span></span><span></span><span></span></div>`;
+  typingRow.innerHTML = `<div class="boss-av"><img src="${CONV.avatar}" alt=""></div><div class="bubble bot-typing"><span></span><span></span><span></span></div>`;
   chat.appendChild(typingRow); scrollChat();
   await wait(700);
   if (bailed()) { typingRow.remove(); return; }
@@ -4969,8 +4927,28 @@ function wireFeedbackSheet() {
   if (handle) handle.addEventListener('click', closeFeedbackSheet);
 }
 
-function initCaseMode() {
-  document.body.classList.add('case-ui');   /* header shows the anger meter instead of the progress bar */
+/* The host page (index.html) drives paths from the presenter chips */
+window.addEventListener('message', (e) => {
+  const d = e.data || {};
+  if (d.type === 'playPath') {
+    const c = PATHS.find(x => x.id === d.id);
+    if (c) playPath(c);
+  } else if (d.type === 'pause') {
+    PAUSED = true;
+  } else if (d.type === 'resume') {
+    if (stepActive) resumeFromStep();   // play onward from where you scrubbed to
+    else PAUSED = false;
+  } else if (d.type === 'step') {
+    stepTo(d.dir);
+  } else if (d.type === 'restart') {
+    PAUSED = false;
+    if (currentPath) playPath(currentPath);
+  }
+});
+function tellHost(msg) { if (window.self !== window.top) window.parent.postMessage(msg, '*'); }
+
+function initPathMode() {
+  document.body.classList.add('path-ui');   /* header shows the anger meter instead of the progress bar */
   if (typeof micPill !== 'undefined' && micPill) { micPill.style.display = ''; micPill.className = 'mic-pill'; }
   wireFeedbackSheet();
   buildChips();
@@ -5001,10 +4979,10 @@ function initCaseMode() {
       showIdle();
     });
   }
-  // auto-start the poor-response sequence; presenter can switch via the chips anytime
+  // auto-start the default path; the presenter can switch with the chips anytime
   showIdle();
-  const firstCase = CASES.find(x => x.id === 'poor') || CASES[0];
-  setTimeout(() => { if (!currentCase) playCase(firstCase); }, 450);
+  const firstPath = PATHS.find(x => x.id === CONV.defaultPath) || PATHS[0];
+  setTimeout(() => { if (!currentPath) playPath(firstPath); }, 450);
 }
 
 </script>
