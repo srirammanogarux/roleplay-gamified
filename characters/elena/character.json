@@ -67,6 +67,24 @@
       "status": "draft"
     },
     {
+      "id": "skeptical",
+      "type": "still",
+      "summary": "Mood face: skeptical, \"Is that right?\" (project review).",
+      "prompt": "Elena facing the camera, skeptical and questioning: one eyebrow raised slightly, eyes narrowed a touch and fixed on the camera, head tilted a few degrees, mouth closed in a neutral line. Waiting for an answer, not hostile.",
+      "aspect": "9:16",
+      "output": "characters/elena/sheet/skeptical.png",
+      "status": "draft"
+    },
+    {
+      "id": "disapproving",
+      "type": "still",
+      "summary": "Mood face: coolly disapproving, she has turned against you (project review loss).",
+      "prompt": "Elena facing the camera, coolly disapproving: brows lowered and drawn slightly together, eyes steady and unimpressed, mouth closed and pressed flat, chin lifted a little. Controlled, never shouting.",
+      "aspect": "9:16",
+      "output": "characters/elena/sheet/disapproving.png",
+      "status": "draft"
+    },
+    {
       "id": "greeting",
       "type": "video",
       "summary": "Clip: polite greeting nod, from neutral to interested.",

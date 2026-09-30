@@ -44,6 +44,15 @@
   },
   "sheet": [
     {
+      "id": "calm",
+      "type": "still",
+      "summary": "Base frame for his clips: the existing calm meter face, redrawn at sheet framing (9:16, head in the centre square).",
+      "prompt": "Marcus facing the camera, chest-up, calm and busy: exactly the expression of the calm meter face (brows level with a slight furrow, eyes steady, mouth closed in a flat line, shoulders square). Same head size and position as the calm meter face when cropped square. Nothing about his face, hair or suit changes.",
+      "aspect": "9:16",
+      "output": "characters/marcus/sheet/calm.png",
+      "status": "draft"
+    },
+    {
       "id": "three-quarter-left",
       "type": "still",
       "summary": "Three-quarter view, turned to his right (our left), neutral busy expression.",
@@ -82,7 +91,7 @@
     {
       "id": "relieved",
       "type": "still",
-      "summary": "Mood face: relieved, the tension leaves his face.",
+      "summary": "Mood face: relieved, the tension leaves his face (Saying no: you offer Monday noon; Confessing: you bring the fix).",
       "prompt": "Marcus facing the camera, relieved: brows relaxed and lifted, eyes softened, a small closed-mouth half smile, shoulders dropped a little. The tension has visibly left his face.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/relieved.png",
@@ -100,7 +109,7 @@
     {
       "id": "surprised",
       "type": "still",
-      "summary": "Mood face: caught off guard.",
+      "summary": "Mood face: caught off guard (Confessing: the moment you tell him).",
       "prompt": "Marcus facing the camera, caught off guard: brows lifted high, eyes wide, mouth closed or only slightly parted, head pulled back a touch.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/surprised.png",
@@ -109,7 +118,7 @@
     {
       "id": "sighing",
       "type": "still",
-      "summary": "Mood face: tired sigh, eyes closed (start frame for a sigh clip).",
+      "summary": "Mood face: tired sigh, eyes closed (end frame of the sigh clip).",
       "prompt": "Marcus facing the camera mid-sigh: eyes closed, brows drawn up in the middle, cheeks slightly puffed, lips closed, shoulders dropped. Weary, not angry.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/sighing.png",
@@ -122,6 +131,84 @@
       "prompt": "Marcus facing the camera with his head tipped down, eyes looking down at a phone held below the bottom of the frame (the phone and his hands are NOT visible). A faint cool screen glow lights his chin. Brows starting to knit.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/reading-phone.png",
+      "status": "draft"
+    },
+    {
+      "id": "sigh",
+      "type": "video",
+      "summary": "Clip (Saying no): a long weary sigh, from calm to sighing.",
+      "prompt": "Marcus starts calm, then closes his eyes and lets out a long, slow, silent sigh: his chest rises and falls, his shoulders drop and his brows draw up in the middle, ending on his weary sighing face. The camera holds still with a very slight push-in. His mouth stays closed; no speaking.",
+      "firstFrame": "calm",
+      "lastFrame": "sighing",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/marcus/sheet/sigh.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "guilt-trip",
+      "type": "video",
+      "summary": "Clip (Saying no): \"Go on, I'll just do it myself\", from calm to disappointed.",
+      "prompt": "Marcus starts calm, then his gaze drops away from the camera for a beat, his head tilts a few degrees and his mouth pulls flat to one side, ending on his quietly disappointed face. Not angry, just let down. The camera holds still. His mouth stays closed; no speaking.",
+      "firstFrame": "calm",
+      "lastFrame": "disappointed",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/marcus/sheet/guilt-trip.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "relief",
+      "type": "video",
+      "summary": "Clip (Saying no): you offer an alternative, from calm to relieved.",
+      "prompt": "Marcus starts calm and slightly tense, then his brows lift and relax, his shoulders drop and a small closed-mouth half smile appears, ending on his relieved face. The camera eases back a little. His mouth stays closed; no speaking.",
+      "firstFrame": "calm",
+      "lastFrame": "relieved",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/marcus/sheet/relief.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "reads-phone",
+      "type": "video",
+      "summary": "Clip (Confessing): the CFO email lands, from calm to reading the phone.",
+      "prompt": "Marcus starts calm, then his eyes and head tip down towards a phone held below the bottom of the frame (the phone and his hands are never visible). A faint cool screen glow rises on his chin and his brows start to knit, ending on the reading-phone frame. The camera stays still. No speaking.",
+      "firstFrame": "calm",
+      "lastFrame": "reading-phone",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/marcus/sheet/reads-phone.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "goes-steely",
+      "type": "video",
+      "summary": "Clip (Confessing): the news sinks in, from surprised to steely.",
+      "prompt": "Marcus starts caught off guard, then his face settles: his brows come down level, his jaw sets and his eyes fix steadily on the camera, ending on his steely face. Serious, not shouting. A slow, slight push-in. His mouth stays closed; no speaking.",
+      "firstFrame": "surprised",
+      "lastFrame": "steely",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/marcus/sheet/goes-steely.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "exhale",
+      "type": "video",
+      "summary": "Clip (Confessing): you owned it and brought the fix, from steely to relieved.",
+      "prompt": "Marcus starts steely, then lets out a slow silent breath through his nose: his jaw unclenches, his brows relax and his shoulders drop, ending on his relieved face. The camera eases back a little. His mouth stays closed; no speaking.",
+      "firstFrame": "steely",
+      "lastFrame": "relieved",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/marcus/sheet/exhale.mp4",
       "status": "draft"
     }
   ]

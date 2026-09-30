@@ -1,0 +1,310 @@
+{
+  "roleplay": "characters",
+  "note": "Driven by the main agent through the Paper MCP. cardId = Paper node id of the scene card. prompt/status = what Paper showed at the last sync. Each card is a frame named after its itemId; its text children are named item-id, summary, prompt and status (\"Status: Draft\" means draft).",
+  "paperFile": "01M115D40KNA1X9ZGFMJJKZBT9",
+  "paperPage": "p-Y-1",
+  "syncedAt": null,
+  "cards": [
+    {
+      "cardId": "2XT7-1",
+      "itemId": "elena-sheet/neutral",
+      "summary": "Base reference: front bust, composed neutral face. Approve this first; every other Elena image copies it.",
+      "prompt": "Elena facing the camera, chest-up, composed and neutral: brows level, eyes attentive, mouth closed in a relaxed line, shoulders square. This is her master reference portrait: clear, evenly lit, every detail of her face, hair streak, earrings and outfit visible.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XTQ-1",
+      "itemId": "elena-sheet/three-quarter-left",
+      "summary": "Three-quarter view turned to our left, neutral. Second reference.",
+      "prompt": "Elena in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, neutral composed expression, mouth closed. The silver streak at her left temple stays visible.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XU9-1",
+      "itemId": "elena-sheet/bored",
+      "summary": "Mood face: bored, attention drifting (spark low).",
+      "prompt": "Elena facing the camera, bored: eyelids half lowered, gaze drifting to the side past the camera, brows flat, mouth closed in a slight polite downturn. Polite but clearly elsewhere.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XUS-1",
+      "itemId": "elena-sheet/interested",
+      "summary": "Mood face: interested, leaning in.",
+      "prompt": "Elena facing the camera, interested: head tilted slightly forward, brows lifted a little, eyes focused and bright, a small closed-mouth smile.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XVB-1",
+      "itemId": "elena-sheet/delighted",
+      "summary": "Mood face: delighted, genuinely warm (spark full).",
+      "prompt": "Elena facing the camera, delighted: a wide genuine smile showing the top teeth, eyes crinkled, brows lifted, cheeks raised. Warm and open.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XVU-1",
+      "itemId": "elena-sheet/skeptical",
+      "summary": "Mood face: skeptical, \"Is that right?\" (project review).",
+      "prompt": "Elena facing the camera, skeptical and questioning: one eyebrow raised slightly, eyes narrowed a touch and fixed on the camera, head tilted a few degrees, mouth closed in a neutral line. Waiting for an answer, not hostile.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XWD-1",
+      "itemId": "elena-sheet/disapproving",
+      "summary": "Mood face: coolly disapproving, she has turned against you (project review loss).",
+      "prompt": "Elena facing the camera, coolly disapproving: brows lowered and drawn slightly together, eyes steady and unimpressed, mouth closed and pressed flat, chin lifted a little. Controlled, never shouting.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XWW-1",
+      "itemId": "elena-sheet/greeting",
+      "summary": "Clip: polite greeting nod, from neutral to interested.",
+      "prompt": "Elena starts neutral, then gives a small polite nod and her expression warms into a gentle closed-mouth smile. The camera slowly pushes in a little. Her mouth never opens; no speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XXG-1",
+      "itemId": "elena-sheet/laugh",
+      "summary": "Clip: genuine laugh, from interested to delighted.",
+      "prompt": "Elena starts interested, then breaks into a genuine silent laugh: eyes crinkle, head tips back slightly, shoulders lift once, ending on her delighted face. The camera holds steady with a very slight push-in. No speech, no lip movement shaped like words.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XY0-1",
+      "itemId": "elena-sheet/checks-phone",
+      "summary": "Clip: glances down at her phone, from neutral to bored.",
+      "prompt": "Elena starts neutral, then lowers her eyes and tips her head down to glance at a phone held below the frame (the phone and her hands stay out of view), then looks back up with a bored, distracted expression. A faint cool screen glow touches her chin while she looks down. The camera stays still.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XYK-1",
+      "itemId": "elena-sheet/leaves",
+      "summary": "Clip: turns and walks out of frame (she escaped). Ends on the empty black background.",
+      "prompt": "Elena starts on her bored face, gives a brief polite nod, then turns to our left and walks out of the frame. The camera stays still. The clip ends on the plain black background with nobody in it.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2Y7M-1",
+      "itemId": "ryan-sheet/neutral",
+      "summary": "Base reference: front bust, relaxed neutral face. Approve this first; every other Ryan image copies it.",
+      "prompt": "Ryan facing the camera, chest-up, relaxed and neutral: brows level, eyes friendly, mouth closed, shoulders loose. This is his master reference portrait: clear, evenly lit, every detail of his hair, stubble and shirt visible.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2Y85-1",
+      "itemId": "ryan-sheet/three-quarter-left",
+      "summary": "Three-quarter view turned to our left, neutral. Second reference.",
+      "prompt": "Ryan in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, relaxed neutral expression, mouth closed.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2Y8O-1",
+      "itemId": "ryan-sheet/casual-grin",
+      "summary": "Mood face: easy lopsided grin, everything is fine.",
+      "prompt": "Ryan facing the camera with his easy lopsided grin, closed mouth, one corner higher, eyebrows relaxed, eyes friendly.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2Y97-1",
+      "itemId": "ryan-sheet/smug",
+      "summary": "Mood face: smug after shifting the blame.",
+      "prompt": "Ryan facing the camera, smug: one eyebrow slightly raised, eyes half-lidded, a small self-satisfied closed-mouth smirk, chin lifted a little.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2Y9Q-1",
+      "itemId": "ryan-sheet/surprised",
+      "summary": "Mood face: caught off guard when you answer back.",
+      "prompt": "Ryan facing the camera, caught off guard: eyebrows jump up, eyes wide, mouth closed or slightly parted, head pulled back a touch.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2YA9-1",
+      "itemId": "ryan-sheet/defensive",
+      "summary": "Mood face: defensive, tense.",
+      "prompt": "Ryan facing the camera, defensive: brows pulled together and down, eyes narrowed, jaw tight, mouth closed in a tense line, shoulders raised slightly.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2YAS-1",
+      "itemId": "ryan-sheet/sheepish",
+      "summary": "Mood face: caught out, sheepish.",
+      "prompt": "Ryan facing the camera, sheepish: eyes glancing down and away, brows raised in the middle, an awkward closed-mouth half smile, neck slightly flushed.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2YBB-1",
+      "itemId": "ryan-sheet/annoyed",
+      "summary": "Mood face: quietly annoyed.",
+      "prompt": "Ryan facing the camera, quietly annoyed: brows lowered, eyes rolled slightly to the side, lips pressed together, cheek muscles tight.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2YBU-1",
+      "itemId": "ryan-sheet/leans-back",
+      "summary": "Clip: leans back, casual, from neutral to casual grin.",
+      "prompt": "Ryan starts neutral, then leans back slightly as if into a chair and settles into his easy lopsided grin. The camera eases back a little. No speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2YCE-1",
+      "itemId": "ryan-sheet/shifts-blame",
+      "summary": "Clip: glances sideways at you and settles smug.",
+      "prompt": "Ryan starts with his casual grin, flicks his eyes sideways towards our right (towards the player) for a beat, then looks back with a smug smirk. Hands stay out of frame. The camera pushes in slightly. No speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2YCY-1",
+      "itemId": "ryan-sheet/caught-out",
+      "summary": "Clip: the facts land, from smug to sheepish.",
+      "prompt": "Ryan starts smug, then his smirk fades, his eyebrows lift, and he looks down and away into a sheepish expression. The camera holds still. No speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2YDI-1",
+      "itemId": "ryan-sheet/gets-defensive",
+      "summary": "Clip: tenses up, from surprised to defensive.",
+      "prompt": "Ryan starts surprised, then his face tightens into a defensive look: brows pull down, jaw sets, shoulders rise slightly. The camera holds still with a slight push-in. No speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WFD-1",
+      "itemId": "marcus-sheet/calm",
+      "summary": "Base frame for his clips: the existing calm meter face, redrawn at sheet framing (9:16, head in the centre square).",
+      "prompt": "Marcus facing the camera, chest-up, calm and busy: exactly the expression of the calm meter face (brows level with a slight furrow, eyes steady, mouth closed in a flat line, shoulders square). Same head size and position as the calm meter face when cropped square. Nothing about his face, hair or suit changes.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WNT-1",
+      "itemId": "marcus-sheet/three-quarter-left",
+      "summary": "Three-quarter view, turned to his right (our left), neutral busy expression.",
+      "prompt": "Marcus in a three-quarter view, head and body turned about 35 degrees to our left, eyes looking slightly past the camera. Neutral, busy expression: brows level, mouth closed in a flat line. Same framing and lighting as the calm meter face.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WOC-1",
+      "itemId": "marcus-sheet/three-quarter-right",
+      "summary": "Three-quarter view, turned to our right, neutral busy expression.",
+      "prompt": "Marcus in a three-quarter view, head and body turned about 35 degrees to our right, eyes looking slightly past the camera. Neutral, busy expression: brows level, mouth closed in a flat line. Same framing and lighting as the calm meter face.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WOV-1",
+      "itemId": "marcus-sheet/profile-left",
+      "summary": "Side profile facing left, reading something below frame.",
+      "prompt": "Marcus in a clean side profile facing our left, chin slightly lowered as if reading something below the frame. Calm, focused expression, mouth closed. Only head, neck and shoulders are visible.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WPE-1",
+      "itemId": "marcus-sheet/disappointed",
+      "summary": "Mood face: quietly disappointed (Saying no: \"go on, I'll just do it myself\").",
+      "prompt": "Marcus facing the camera, quietly disappointed: brows raised slightly in the middle, eyelids a little lowered, mouth closed and pulled flat to one side, head tilted a few degrees. Not angry, just let down.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WPX-1",
+      "itemId": "marcus-sheet/relieved",
+      "summary": "Mood face: relieved, the tension leaves his face (Saying no: you offer Monday noon; Confessing: you bring the fix).",
+      "prompt": "Marcus facing the camera, relieved: brows relaxed and lifted, eyes softened, a small closed-mouth half smile, shoulders dropped a little. The tension has visibly left his face.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WQG-1",
+      "itemId": "marcus-sheet/steely",
+      "summary": "Mood face: steely and controlled (Confessing, after the reveal).",
+      "prompt": "Marcus facing the camera, steely and controlled: jaw set, brows low and level, eyes steady and direct, mouth closed in a firm straight line. Serious but not shouting.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WQZ-1",
+      "itemId": "marcus-sheet/surprised",
+      "summary": "Mood face: caught off guard (Confessing: the moment you tell him).",
+      "prompt": "Marcus facing the camera, caught off guard: brows lifted high, eyes wide, mouth closed or only slightly parted, head pulled back a touch.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WRI-1",
+      "itemId": "marcus-sheet/sighing",
+      "summary": "Mood face: tired sigh, eyes closed (end frame of the sigh clip).",
+      "prompt": "Marcus facing the camera mid-sigh: eyes closed, brows drawn up in the middle, cheeks slightly puffed, lips closed, shoulders dropped. Weary, not angry.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2WS1-1",
+      "itemId": "marcus-sheet/reading-phone",
+      "summary": "Looks down at a phone held below frame (Confessing: the CFO email).",
+      "prompt": "Marcus facing the camera with his head tipped down, eyes looking down at a phone held below the bottom of the frame (the phone and his hands are NOT visible). A faint cool screen glow lights his chin. Brows starting to knit.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2X0N-1",
+      "itemId": "marcus-sheet/sigh",
+      "summary": "Clip (Saying no): a long weary sigh, from calm to sighing.",
+      "prompt": "Marcus starts calm, then closes his eyes and lets out a long, slow, silent sigh: his chest rises and falls, his shoulders drop and his brows draw up in the middle, ending on his weary sighing face. The camera holds still with a very slight push-in. His mouth stays closed; no speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2X1H-1",
+      "itemId": "marcus-sheet/guilt-trip",
+      "summary": "Clip (Saying no): \"Go on, I'll just do it myself\", from calm to disappointed.",
+      "prompt": "Marcus starts calm, then his gaze drops away from the camera for a beat, his head tilts a few degrees and his mouth pulls flat to one side, ending on his quietly disappointed face. Not angry, just let down. The camera holds still. His mouth stays closed; no speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2X21-1",
+      "itemId": "marcus-sheet/relief",
+      "summary": "Clip (Saying no): you offer an alternative, from calm to relieved.",
+      "prompt": "Marcus starts calm and slightly tense, then his brows lift and relax, his shoulders drop and a small closed-mouth half smile appears, ending on his relieved face. The camera eases back a little. His mouth stays closed; no speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2X2L-1",
+      "itemId": "marcus-sheet/reads-phone",
+      "summary": "Clip (Confessing): the CFO email lands, from calm to reading the phone.",
+      "prompt": "Marcus starts calm, then his eyes and head tip down towards a phone held below the bottom of the frame (the phone and his hands are never visible). A faint cool screen glow rises on his chin and his brows start to knit, ending on the reading-phone frame. The camera stays still. No speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2X35-1",
+      "itemId": "marcus-sheet/goes-steely",
+      "summary": "Clip (Confessing): the news sinks in, from surprised to steely.",
+      "prompt": "Marcus starts caught off guard, then his face settles: his brows come down level, his jaw sets and his eyes fix steadily on the camera, ending on his steely face. Serious, not shouting. A slow, slight push-in. His mouth stays closed; no speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2X3P-1",
+      "itemId": "marcus-sheet/exhale",
+      "summary": "Clip (Confessing): you owned it and brought the fix, from steely to relieved.",
+      "prompt": "Marcus starts steely, then lets out a slow silent breath through his nose: his jaw unclenches, his brows relax and his shoulders drop, ending on his relieved face. The camera eases back a little. His mouth stays closed; no speaking.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XEK-1",
+      "itemId": "sarah-sheet/front-neutral",
+      "summary": "Front bust, soft neutral smile, at sheet framing (9:16). Her 9:16 base; the hint poster is only 480px square.",
+      "prompt": "Sarah facing the camera, chest-up, arms relaxed at her sides and out of frame, a soft closed-mouth smile, eyes bright and attentive.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XF3-1",
+      "itemId": "sarah-sheet/three-quarter-left",
+      "summary": "Three-quarter view turned to our left, friendly.",
+      "prompt": "Sarah in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, soft closed-mouth smile. Hair falls naturally over her far shoulder.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XFM-1",
+      "itemId": "sarah-sheet/concerned",
+      "summary": "Mood face: concerned for you (you are about to lose).",
+      "prompt": "Sarah facing the camera, concerned and caring: brows drawn up in the middle, eyes wide and soft, lips pressed together gently, head tilted slightly. Worried for the player, not scared.",
+      "status": "draft"
+    },
+    {
+      "cardId": "2XG5-1",
+      "itemId": "sarah-sheet/encouraging",
+      "summary": "Mood face: encouraging, \"you've got this\" (as she gives the hint).",
+      "prompt": "Sarah facing the camera, encouraging: bright eyes, eyebrows lifted, a warm wide closed-mouth smile, a small confident nod of the head.",
+      "status": "draft"
+    }
+  ]
+}

@@ -33,7 +33,7 @@
     {
       "id": "front-neutral",
       "type": "still",
-      "summary": "Front bust, hands down, soft neutral smile (the base frame for her clips).",
+      "summary": "Front bust, soft neutral smile, at sheet framing (9:16). Her 9:16 base; the hint poster is only 480px square.",
       "prompt": "Sarah facing the camera, chest-up, arms relaxed at her sides and out of frame, a soft closed-mouth smile, eyes bright and attentive.",
       "aspect": "9:16",
       "output": "characters/sarah/sheet/front-neutral.png",
@@ -60,28 +60,10 @@
     {
       "id": "encouraging",
       "type": "still",
-      "summary": "Mood face: encouraging, \"you've got this\".",
+      "summary": "Mood face: encouraging, \"you've got this\" (as she gives the hint).",
       "prompt": "Sarah facing the camera, encouraging: bright eyes, eyebrows lifted, a warm wide closed-mouth smile, a small confident nod of the head.",
       "aspect": "9:16",
       "output": "characters/sarah/sheet/encouraging.png",
-      "status": "draft"
-    },
-    {
-      "id": "thinking",
-      "type": "still",
-      "summary": "Mood face: thinking of the right tip.",
-      "prompt": "Sarah facing the camera, thinking: eyes glancing up and to one side, one eyebrow slightly raised, lips pushed a little to one side. Hands are out of frame.",
-      "aspect": "9:16",
-      "output": "characters/sarah/sheet/thinking.png",
-      "status": "draft"
-    },
-    {
-      "id": "celebrating",
-      "type": "still",
-      "summary": "Mood face: proud of you after a win.",
-      "prompt": "Sarah facing the camera, delighted and proud: eyes crinkled with joy, a big open smile showing the top teeth, eyebrows high. Hands are out of frame.",
-      "aspect": "9:16",
-      "output": "characters/sarah/sheet/celebrating.png",
       "status": "draft"
     }
   ]
