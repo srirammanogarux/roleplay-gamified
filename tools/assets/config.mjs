@@ -35,7 +35,7 @@ export const ELEVENLABS = {
 };
 
 // The player has no character folder: one voice everywhere.
-export const PLAYER_VOICE = { id: null, model: null, settings: null, pronunciationDictionaries: [] };
+export const PLAYER_VOICE = { id: 'Xdk5eWaS3lO6Yz2HBOBv', model: 'eleven_v4', settings: { stability: 0.5, similarity_boost: 0.75, style: 0, use_speaker_boost: true, speed: 1 }, pronunciationDictionaries: [] }; // Gabriel Blanco, picked 2026-10-07 (closest to Leave's player)
 
 // Every voice line is normalised to this after synthesis (the existing Leave lines sit at about -17 to -20 LUFS).
 export const LOUDNESS = { I: -16, TP: -1.5, LRA: 11, sampleRate: 44100, bitrate: '128k', channels: 1 };
@@ -67,7 +67,8 @@ export const VIDEO_RULES = [
   'STRICT RULES FOR THIS CLIP (apply to every frame):',
   '1. No text anywhere: no letters, numbers, words, signs, labels, logos, captions, subtitles, watermarks or UI. Screens, papers, calendars and door signs are blank or abstract. The app draws all text on top.',
   '2. Move the camera, not the face: motion comes from slow, smooth camera moves (gentle push-in, pull-back, pan or parallax). Faces stay stable and on-model; expressions change slowly and only as described. No warping, morphing, flicker or jitter in eyes, mouths, teeth or facial features.',
-  '3. No talking: mouths stay closed or still. Nobody speaks, lip-syncs or mouths words. Any sound is thrown away.',
+  '3. No talking: mouths stay closed or still. Nobody speaks, lip-syncs or mouths words.',
+  'Audio: distant keyboard clicks and the soft hum of an air conditioner in an office. No voices, no dialogue, no music.',
   '4. Hands stay out of close-ups: in any chest-up or tighter framing, hands stay below the frame. In wider shots hands are relaxed, simple, correctly formed with five fingers, and never the focus.',
   '5. Start exactly on the provided first frame and end exactly on the provided last frame. Keep the same characters, outfits, set, lighting and colours throughout. One continuous shot: no cuts, no transitions, no flashes, no zoom blur.',
   '6. Everyone wears office clothes as described in their character notes. No outfit changes.',

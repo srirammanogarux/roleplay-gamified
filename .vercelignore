@@ -1,7 +1,7 @@
 # The deploy is the static app only: no tests, tooling or generation inputs.
 tests/
 tools/
-characters/
+characters/*/character.json
 media/*/assets.json
 media/*/queue.json
 media/*/paper-board.json
@@ -11,3 +11,8 @@ package-lock.json
 playwright.config.mjs
 docs/
 .env*
+
+# working files: plans, review shots, old takes
+.context/
+roleplays/*/setup.md
+**/*.take*

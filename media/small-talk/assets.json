@@ -1,0 +1,893 @@
+{
+  "roleplay": "small-talk",
+  "title": "Small talk",
+  "note": "Ryan version; everything draft. Story: Ryan has just moved to the player's team. Four scenes, each a prompted start still, a prompted end still and one 8 s Veo clip retimed to 6 s (params.fitSeconds); story 1 (he carries in a box of his desk things with his medal on top, sets it down two desks away and hangs the medal on his monitor) is the hero shot (1080p); story 2 he takes an empty mug to the kitchen and the player follows; story 3 his phone lights up on the counter; story 4 he presses brew and glances over. No readable text anywhere: the medal, the ribbon and the box are plain objects, the kitchen has no clock, and his phone screen is only a blank glow. The dog photo is the one still that never goes into a video: card-dog-photo is drawn by the app inside the story-3 lock-screen card. The player is the faceless purple silhouette from Leave; stills that show it pass img/you.png as the first style reference, and every still passes flow-assets/boss-meter-calm.png for Marcus's drawing style. Later stills pass an earlier still as a third reference so the office and kitchen stay the same; the story 1 and 2 stills use the Pro image model (params.model: pro) because Flash kept refusing (IMAGE_OTHER) or drawing Ryan twice. Ryan's meter faces and moments live on his character sheet (item ryan-sheet). The phone-buzz card is drawn by the app. Voice ids follow the roleplay file: opening and coffee-ready are shared; guided-u1/guided-t2 are reused by Time's up; awkward-t5 is also the meter's lose line. The old draft stills are in .context/old-stills/small-talk/ (Elena) and .context/old-stills/small-talk-qa/ (Ryan, before the move-to-team story).",
+  "characters": [
+    "ryan",
+    "sarah"
+  ],
+  "playlists": {
+    "awkward": [
+      "opening",
+      "awkward-u1",
+      "awkward-t2",
+      "awkward-u2",
+      "awkward-t3",
+      "awkward-t4",
+      "awkward-u3",
+      "awkward-t5"
+    ],
+    "guided": [
+      "opening",
+      "guided-u1",
+      "guided-t2",
+      "guided-u2",
+      "guided-t3",
+      "guided-u3",
+      "hint",
+      "guided-u4",
+      "guided-t4",
+      "guided-u5",
+      "guided-t5",
+      "guided-u6",
+      "guided-t6"
+    ],
+    "perfect": [
+      "opening",
+      "perfect-u1",
+      "perfect-t2",
+      "perfect-u2",
+      "perfect-t3",
+      "perfect-t4",
+      "perfect-u3",
+      "perfect-t5",
+      "perfect-u4",
+      "perfect-t6"
+    ],
+    "timesup": [
+      "opening",
+      "guided-u1",
+      "guided-t2",
+      "timesup-u2",
+      "timesup-t3",
+      "timesup-u3",
+      "timesup-t4",
+      "timesup-u4",
+      "coffee-ready"
+    ]
+  },
+  "items": [
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "topic-avatar",
+      "scene": "topics",
+      "summary": "Topic tile avatar on the topics list (also his circle on the face-off): Ryan, friendly and easy, half looking up from his phone.",
+      "prompt": "Ryan, the coworker, chest-up and centred against a plain pure black background, facing the camera with his easy, friendly lopsided grin, mouth closed, eyebrows relaxed, his eyes just lifting to the camera as if he has looked up from his phone and is only half listening: approachable, a little elsewhere. Light-blue oxford shirt with the top button open and the sleeves rolled. Hands below the frame. Square framing, face centred.",
+      "params": {
+        "aspect": "1:1",
+        "size": 440
+      },
+      "output": "media/small-talk/stills/topic-avatar.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-1-monday-start",
+      "scene": "story 1 · he moves in",
+      "summary": "Start frame of story-1-monday: from the player's seat, Ryan arrives at the bare desk two desks away, carrying a cardboard box of his desk things with his half-marathon medal lying on top.",
+      "prompt": "A bright open-plan office on a high floor, Monday morning just before nine: light-wood desks with dark monitors, grey mesh chairs, a few potted plants, tall floor-to-ceiling windows on the left with a soft city skyline and cool sunlight laying pale stripes across the desks and the grey carpet, and, further back in the right-hand wall, an open doorway to the office kitchen. Medium shot from the player's seat. In the left foreground, softly out of focus, the back of the head and one shoulder of the player, a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn like the purple figure in the first style reference image (no face, no hair, no skin; the shirt is a simple darker-purple shape). Filling the centre and right of the frame, a short way ahead: Ryan's new desk, a light-wood desk with one dark monitor facing the camera and a grey mesh chair. The desk is completely bare: nothing on it but the monitor. Ryan has just arrived from the aisle on the right and stands at the near right corner of the desk, three-quarter view, seen from the knees up, holding in both arms against his chest a plain brown cardboard box with open flaps holding a few desk things (a small succulent, a plain white mug, a notebook). Lying on top of the things in the box: a round bronze-gold race medal on a wide teal-and-orange striped ribbon, with only a small embossed running-figure shape on it. Easy, cheerful face, mouth closed, eyes on the empty desk. The box, medal and ribbon have no printing, labels or writing. All screens are plain dark. No other people. Hands are simple, five fingers, small in the frame. The ceiling and upper windows fill the top fifth of the frame, calm and simple, for the app's narrator text; the picture runs right to the top edge with no white band or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png"
+        ],
+        "model": "pro"
+      },
+      "output": "media/small-talk/stills/story-1-monday-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-1-monday-end",
+      "scene": "story 1 · he moves in",
+      "summary": "End frame of story-1-monday: same framing, a touch closer; the box sits open on Ryan's new desk and his medal hangs from the top right corner of his monitor. Ryan stands beside it, pleased.",
+      "prompt": "The same office, camera position and framing as the third style reference image, a touch closer, a few seconds later. Keep the office, light, desk, monitor, chair and the player exactly as there. What has changed: the box now sits open on the desk to the left of the monitor, and the medal now hangs by its striped ribbon from the top right corner of the monitor, clearly visible against the dark screen, catching a small glint of sun. Ryan stands just right of the desk, three-quarter view, seen from the knees up, both hands empty and lowering, with an easy, pleased closed-mouth half smile, eyes on the medal. Ryan appears only once. There is exactly one box and one medal. The box, medal and ribbon have no printing, labels or writing. All screens are plain dark. No other people. Hands are simple, five fingers, small in the frame. The ceiling and upper windows fill the top fifth of the frame, calm and simple, for the app's narrator text; the picture runs right to the top edge with no white band or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png",
+          "media/small-talk/stills/story-1-monday-start.png"
+        ],
+        "model": "pro"
+      },
+      "output": "media/small-talk/stills/story-1-monday-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "draft",
+      "id": "story-1-monday",
+      "scene": "story 1 · he moves in",
+      "summary": "Hero shot. Monday, 8:52 AM: Ryan, who just moved to the player's team, carries in a cardboard box of his desk things with his half-marathon medal on top, sets it down at the desk two away and hangs the medal on his monitor. The app rings the box (the move), then the medal.",
+      "prompt": "A bright open-plan office on a high floor, Monday morning just before nine: light-wood desks with dark monitors, grey mesh chairs, a few potted plants, tall floor-to-ceiling windows on the left with a soft city skyline and cool sunlight laying pale stripes across the desks and the grey carpet, and, further back in the right-hand wall, an open doorway to the office kitchen. In the left foreground, softly out of focus, the back of the head and one shoulder of the player, a smooth, faceless, deep-purple silhouette with a thin lighter-purple rim outline, exactly as in the first and last frames. Filling the centre and right: Ryan's new desk, two desks away, bare at first: a light-wood desk with one dark monitor and a grey mesh chair. Ryan holds a plain brown cardboard box with open flaps holding a few desk things (a small succulent, a plain white mug, a notebook), with a round bronze-gold race medal on a wide teal-and-orange striped ribbon, with only a small embossed running-figure shape on it lying on top. Action, second by second: 0-3 s, Ryan sets the box down on the desk to the left of the monitor. 3-5 s, he lifts the medal out of the box by its ribbon. 5-8 s, he hangs it over the top right corner of the dark monitor; it sways gently and catches a glint of sunlight, and he steps back with an easy, pleased half smile. Ryan's mouth stays closed the whole time. His hands stay relaxed and simple and are never the focus. Sunlight stripes lie still across the desks; dust motes drift. Camera: a slow, steady push-in from the player's seat towards the desk; no cuts.",
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "1080p",
+        "hero": true,
+        "firstStill": "story-1-monday-start",
+        "lastStill": "story-1-monday-end"
+      },
+      "output": "media/small-talk/videos/story-1-monday.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-2-desk-start",
+      "scene": "story 2 · he heads for coffee",
+      "summary": "Start frame of story-2-desk: same framing as the end of story 1; Ryan at his new desk, the medal on his monitor, holds the empty white mug he just took out of the box and looks towards the kitchen doorway.",
+      "prompt": "The same office, camera position and framing as the third style reference image. Keep the office, light, desk, monitor, chair, box, medal and the player exactly as there. What has changed: Ryan now lifts a plain white mug out of the open box with one hand, already half turned to his right, towards the aisle and the kitchen doorway. Relaxed face, mouth closed. Ryan appears only once. There is exactly one box and one medal. The box, medal and ribbon have no printing, labels or writing. All screens are plain dark. No other people. Hands are simple, five fingers, small in the frame. The ceiling and upper windows fill the top fifth of the frame, calm and simple, for the app's narrator text; the picture runs right to the top edge with no white band or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png",
+          "media/small-talk/stills/story-1-monday-end.png"
+        ],
+        "model": "pro"
+      },
+      "output": "media/small-talk/stills/story-2-desk-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-2-desk-end",
+      "scene": "story 2 · he heads for coffee",
+      "summary": "End frame of story-2-desk: same framing; Ryan's desk (box, medal) in the foreground, Ryan far back stepping into the kitchen doorway with his mug, and the player standing up with their own mug to follow.",
+      "prompt": "The same office and morning light as the third style reference image, the same camera position and framing, a few seconds later. On the left of the frame, Ryan's desk, now empty of people: the open box beside the dark monitor and the medal on its striped ribbon hanging from the monitor's top right corner. Ryan is no longer at the desk: he is far down the aisle, stepping through the kitchen doorway, small in the frame, seen from behind, a plain white mug in one hand. In the left foreground, the player, a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn like the purple figure in the first style reference image (no face, no hair, no skin; the shirt is a simple darker-purple shape), now standing up beside their own desk, seen from behind, a plain white mug held low in one hand, turned towards the kitchen doorway. Ryan appears only once. There is exactly one box and one medal. The box, medal and ribbon have no printing, labels or writing. All screens are plain dark. No other people. Hands are simple, five fingers, small in the frame. The ceiling and upper windows fill the top fifth of the frame, calm and simple, for the app's narrator text; the picture runs right to the top edge with no white band or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png",
+          "media/small-talk/stills/story-2-desk-start.png"
+        ],
+        "model": "pro"
+      },
+      "output": "media/small-talk/stills/story-2-desk-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "draft",
+      "id": "story-2-desk",
+      "scene": "story 2 · he heads for coffee",
+      "summary": "Ryan grabs an empty mug out of his box and heads for the office kitchen; the player stands up with their own mug and follows. Nobody has really talked yet.",
+      "prompt": "A bright open-plan office on a high floor, Monday morning just before nine: light-wood desks with dark monitors, grey mesh chairs, a few potted plants, tall floor-to-ceiling windows on the left with a soft city skyline and cool sunlight laying pale stripes across the desks and the grey carpet, and, further back in the right-hand wall, an open doorway to the office kitchen. In the left foreground, the player, a smooth, faceless, deep-purple silhouette with a thin lighter-purple rim outline, exactly as in the first and last frames. Ryan's new desk: the open cardboard box beside the dark monitor and his race medal hanging by its teal-and-orange striped ribbon from the monitor's top right corner. Action, second by second: 0-2 s, Ryan lifts an empty plain white mug out of the box and turns towards the aisle. 2-5 s, he walks off past the desks towards the open kitchen doorway at the back right, at an easy pace, seen from behind; the player's head turns to follow him. 5-8 s, the player stands up holding their own plain white mug, and Ryan steps through the kitchen doorway. Ryan's mouth stays closed the whole time. Hands stay relaxed and simple and are never the focus. The medal sways very slightly on the monitor. Camera: steady, with only a very slight push-in; no cuts.",
+      "characters": [],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-2-desk-start",
+        "lastStill": "story-2-desk-end"
+      },
+      "output": "media/small-talk/videos/story-2-desk.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-3-kitchen-start",
+      "scene": "story 3 · his phone lights up",
+      "summary": "Start frame of story-3-kitchen: over the player's shoulder from the kitchen doorway, Ryan at the espresso machine setting his empty mug under the spout, his phone face-up and dark on the counter.",
+      "prompt": "Medium shot from the doorway of the office kitchen of the same office as the other roleplays: pale cream walls, a long light-oak counter with plain white cabinets below it and plain white wall cabinets above it along the back wall, a tall window on the left letting in bright, cool Monday-morning sunlight that falls in soft diagonal shafts across the counter and the pale grey floor tiles, a small potted plant on the windowsill, and on the counter right of centre a large brushed-silver espresso machine with one big round brew button on its front and a small round indicator light (no screen, no display, no dials with numbers, no icons, no brand name), with a short stack of plain white cups on top of it. No wall clock anywhere. Shot over the player's left shoulder: in the left foreground, softly out of focus, the back of the head and one shoulder of the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn exactly like the faceless purple figure in the first style reference image, which IS the player, so copy that figure as well as its style (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines). In the middle ground on the right, Ryan stands at the espresso machine in three-quarter view, facing it, seen from the knees up, setting his empty plain white mug under the spout. On the counter in front of him, in the lower middle of the frame and clearly visible, a black smartphone lies face-up, its screen dark. Relaxed, easy posture; mouth closed; eyes on the machine. Hands are relaxed, simple, correctly formed with five fingers and small in the frame. Keep the top fifth of the frame calm (ceiling or upper wall only) for the app's narrator text; the picture still runs right to the top edge, with no white band, margin or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/small-talk/stills/story-3-kitchen-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-3-kitchen-end",
+      "scene": "story 3 · his phone lights up",
+      "summary": "End frame of story-3-kitchen: a little closer; his phone on the counter glows (blank) and Ryan glances down at it with a small fond smile, hands resting on the counter away from it. The app draws the dog photo on top.",
+      "prompt": "The same kitchen and camera direction as the third style reference image, a little closer, as after a slow push-in: the office kitchen of the same office as the other roleplays: pale cream walls, a long light-oak counter with plain white cabinets below it and plain white wall cabinets above it along the back wall, a tall window on the left letting in bright, cool Monday-morning sunlight that falls in soft diagonal shafts across the counter and the pale grey floor tiles, a small potted plant on the windowsill, and on the counter right of centre a large brushed-silver espresso machine with one big round brew button on its front and a small round indicator light (no screen, no display, no dials with numbers, no icons, no brand name), with a short stack of plain white cups on top of it. No wall clock anywhere. The player's shoulder is a soft dark purple shape at the left edge of the frame. In the lower middle of the frame the black smartphone lies face-up on the counter, untouched, its screen lit with a soft, blank, warm glow (no text, no icons, no clock, no picture: just light). Ryan, waist-up at the machine in three-quarter view, has dropped his eyes to the glowing phone, and a small fond closed-mouth smile has started at one corner of his mouth. Both his hands rest flat on the counter edge, well away from the phone. The empty plain white mug sits under the spout. The third style reference image is the start frame of this scene: keep exactly the same kitchen, window, counter, cabinets, espresso machine and morning light. Keep the top fifth of the frame calm (ceiling or upper wall only) for the app's narrator text; the picture still runs right to the top edge, with no white band, margin or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png",
+          "media/small-talk/stills/story-3-kitchen-start.png"
+        ]
+      },
+      "output": "media/small-talk/stills/story-3-kitchen-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "draft",
+      "id": "story-3-kitchen",
+      "scene": "story 3 · his phone lights up",
+      "summary": "In the kitchen, Ryan sets his mug under the machine and his phone lights up on the counter. The video only shows a blank glow; the app rings the phone and draws his lock-screen photo (Pickle, his dog) as a card on top.",
+      "prompt": "Inside the office kitchen of the same office as the other roleplays: pale cream walls, a long light-oak counter with plain white cabinets below it and plain white wall cabinets above it along the back wall, a tall window on the left letting in bright, cool Monday-morning sunlight that falls in soft diagonal shafts across the counter and the pale grey floor tiles, a small potted plant on the windowsill, and on the counter right of centre a large brushed-silver espresso machine with one big round brew button on its front and a small round indicator light (no screen, no display, no dials with numbers, no icons, no brand name), with a short stack of plain white cups on top of it. No wall clock anywhere. Shot over the player's left shoulder: in the left foreground, softly out of focus, the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, exactly as in the first and last frames (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines). Ryan stands at the espresso machine in three-quarter view; on the counter in front of him a black smartphone lies face-up, its screen dark. Action, second by second: 0-2 s, Ryan sets the empty plain white mug under the spout and rests his hands on the counter edge. 2-4 s, the phone on the counter lights up with a soft, blank, warm glow: no text, no icons, no clock, no picture, just light. 4-8 s, Ryan's eyes drop to the glowing phone and a small fond smile starts at one corner of his mouth; he does not touch or pick up the phone. His mouth stays closed. Camera: a slow push-in over the player's shoulder towards Ryan and the phone; no cuts.",
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-3-kitchen-start",
+        "lastStill": "story-3-kitchen-end"
+      },
+      "output": "media/small-talk/videos/story-3-kitchen.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "card-dog-photo",
+      "scene": "story 3 · his lock screen (app card)",
+      "summary": "The photo on Ryan's lock screen, drawn by the app inside the story-3 lock-screen card (never baked into the video): Pickle, his scruffy rescue terrier, in a yellow raincoat.",
+      "prompt": "A portrait illustration that fills the whole frame edge to edge, like a phone wallpaper photo, with no phone, no frame, no border and no user interface: a small scruffy rescue terrier mix with a wiry grey-and-tan coat, one ear up and one ear flopped over, bright dark eyes and a happy open-mouthed pant, sitting on a park path in a little bright-yellow raincoat with the hood down. A soft green park and a few autumn trees behind, gently out of focus, in soft morning light. The dog sits in the lower two thirds of the frame; the top third is calm sky and treetops, because the app draws the lock-screen time there. No text, no numbers, no clock, no icons, no tag on the collar.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/small-talk/stills/card-dog-photo.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-4-brew-start",
+      "scene": "story 4 · ninety seconds",
+      "summary": "Start frame of story-4-brew: over the player's shoulder, Ryan at the espresso machine with his hand on the big round brew button; phone dark again.",
+      "prompt": "Waist-up medium shot over the player's left shoulder in the office kitchen of the same office as the other roleplays: pale cream walls, a long light-oak counter with plain white cabinets below it and plain white wall cabinets above it along the back wall, a tall window on the left letting in bright, cool Monday-morning sunlight that falls in soft diagonal shafts across the counter and the pale grey floor tiles, a small potted plant on the windowsill, and on the counter right of centre a large brushed-silver espresso machine with one big round brew button on its front and a small round indicator light (no screen, no display, no dials with numbers, no icons, no brand name), with a short stack of plain white cups on top of it. No wall clock anywhere. In the left foreground, the back of the head and one shoulder of the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn exactly like the faceless purple figure in the first style reference image, which IS the player, so copy that figure as well as its style (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines), softly out of focus. In the middle ground on the right, Ryan stands at the espresso machine in three-quarter view, facing it; his right hand rests lightly on its big round brew button (relaxed, simple, five fingers, small in the frame). The empty plain white mug sits under the spout. The black smartphone lies face-up on the counter beside him, its screen dark again. Nothing else on the counter: no trays, tampers or other gadgets. Easy, neutral face, mouth closed, eyes on the machine. The third style reference image is the start frame of this scene: keep exactly the same kitchen, window, counter, cabinets, espresso machine and morning light. Keep the top fifth of the frame calm (ceiling or upper wall only) for the app's narrator text; the picture still runs right to the top edge, with no white band, margin or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png",
+          "media/small-talk/stills/story-3-kitchen-start.png"
+        ]
+      },
+      "output": "media/small-talk/stills/story-4-brew-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-4-brew-end",
+      "scene": "story 4 · ninety seconds",
+      "summary": "End frame of story-4-brew: closer, chest-up, Ryan glances over at the player with a friendly, half-distracted grin while his coffee pours.",
+      "prompt": "A much closer chest-up shot over the same shoulder, pushed in on Ryan, in the office kitchen of the same office as the other roleplays: pale cream walls, a long light-oak counter with plain white cabinets below it and plain white wall cabinets above it along the back wall, a tall window on the left letting in bright, cool Monday-morning sunlight that falls in soft diagonal shafts across the counter and the pale grey floor tiles, a small potted plant on the windowsill, and on the counter right of centre a large brushed-silver espresso machine with one big round brew button on its front and a small round indicator light (no screen, no display, no dials with numbers, no icons, no brand name), with a short stack of plain white cups on top of it. No wall clock anywhere. The player's faceless deep-purple silhouette is a soft dark shape at the left edge of the frame. Ryan, chest-up, has turned his head and shoulders towards the camera and glances over at the player with a friendly, slightly distracted look: his easy lopsided closed-mouth half grin, eyebrows lifted a touch, as if he has only just noticed someone is there. His hands are below the frame. Behind him the espresso machine's small round light glows, a thin stream of coffee pours into the plain white mug and a little steam rises. The third style reference image shows this kitchen from further back: keep the same window, cabinets, espresso machine and morning light, but frame Ryan much closer, chest-up, his head and shoulders filling the right two thirds of the frame, the espresso machine partly visible behind him, his mouth closed. Keep the top fifth of the frame calm (ceiling or upper wall only) for the app's narrator text; the picture still runs right to the top edge, with no white band, margin or border.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png",
+          "media/small-talk/stills/story-3-kitchen-start.png"
+        ]
+      },
+      "output": "media/small-talk/stills/story-4-brew-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "draft",
+      "id": "story-4-brew",
+      "scene": "story 4 · ninety seconds",
+      "summary": "Ryan presses brew; the machine starts and his coffee begins to pour (90 seconds). He glances over at you with an easy half grin: say something.",
+      "prompt": "Inside the office kitchen of the same office as the other roleplays: pale cream walls, a long light-oak counter with plain white cabinets below it and plain white wall cabinets above it along the back wall, a tall window on the left letting in bright, cool Monday-morning sunlight that falls in soft diagonal shafts across the counter and the pale grey floor tiles, a small potted plant on the windowsill, and on the counter right of centre a large brushed-silver espresso machine with one big round brew button on its front and a small round indicator light (no screen, no display, no dials with numbers, no icons, no brand name), with a short stack of plain white cups on top of it. No wall clock anywhere. Shot over the player's left shoulder: in the left foreground, the back of the head and one shoulder of the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, exactly as in the first and last frames (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines), softly out of focus. Ryan stands at the espresso machine, the black smartphone face-up and dark on the counter beside him. Action, second by second: 0-1 s, Ryan presses the big round brew button and the machine's small round light glows. 1-3 s, the machine starts: a thin stream of coffee pours into the plain white mug and steam begins to rise; he lowers his hand out of the frame. 3-5 s, he turns his head and shoulders towards the camera and glances over at the player. 5-8 s, he holds the glance with an easy, friendly, slightly distracted lopsided half grin, eyebrows lifting a touch, as if waiting to see if you'll say something. His mouth stays closed throughout. Camera: a slow push-in over the player's shoulder, from a waist-up medium shot to chest-up on Ryan, the player's shoulder sliding towards the left edge; once the framing is chest-up, his hands stay below the frame. No cuts.",
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-4-brew-start",
+        "lastStill": "story-4-brew-end"
+      },
+      "output": "media/small-talk/videos/story-4-brew.mp4"
+    },
+    {
+      "id": "ryan-sheet",
+      "kind": "character-sheet",
+      "scene": "conversation · Ryan",
+      "summary": "Ryan's meter faces (bored/neutral/interested/delighted, also the results faces), the casual-grin face his greeting ends on, and his four small-talk moments (greeting, laugh, checks-phone, leaves). They live in characters/ryan/character.json; this item only references them. Same units as media/characters/assets.json; edit them there.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "character": "ryan",
+        "entries": [
+          "neutral",
+          "bored",
+          "interested",
+          "delighted",
+          "casual-grin",
+          "greeting",
+          "laugh",
+          "checks-phone",
+          "leaves"
+        ]
+      },
+      "output": null,
+      "status": "draft"
+    },
+    {
+      "id": "opening",
+      "kind": "voice",
+      "scene": "voices · shared",
+      "summary": "Ryan, turn 1: friendly, on autopilot.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "hey, morning. guess we're desk neighbors now. how was your weekend?"
+      },
+      "output": "media/small-talk/voice/opening.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "awkward-u1",
+      "kind": "voice",
+      "scene": "voices · Awkward path",
+      "summary": "Player, turn 2: answered \"fine\", then \"how's it going\".",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yeah, it was fine. i was just sitting in home. how's it going?"
+      },
+      "output": "media/small-talk/voice/awkward-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "awkward-t2",
+      "kind": "voice",
+      "scene": "voices · Awkward path",
+      "summary": "Ryan, turn 3: friendly, on autopilot, eyes on the machine.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "ha, good, good. can't complain."
+      },
+      "output": "media/small-talk/voice/awkward-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "awkward-u2",
+      "kind": "voice",
+      "scene": "voices · Awkward path",
+      "summary": "Player, turn 4: the weather: nothing to answer.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "the weather is so cold today, no? i almost didn't came to office."
+      },
+      "output": "media/small-talk/voice/awkward-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "awkward-t3",
+      "kind": "voice",
+      "scene": "voices · Awkward path",
+      "summary": "Ryan, turn 5: polite, half listening.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "yeah, it's chilly out there."
+      },
+      "output": "media/small-talk/voice/awkward-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "awkward-t4",
+      "kind": "voice",
+      "scene": "voices · Awkward path",
+      "summary": "Ryan, turn 6: reading his phone, drifting off.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "oh, sorry, one sec. it's my old team."
+      },
+      "output": "media/small-talk/voice/awkward-t4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "awkward-u3",
+      "kind": "voice",
+      "scene": "voices · Awkward path",
+      "summary": "Player, turn 7: talked over his phone with a generic question.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "so you are working here since long time?"
+      },
+      "output": "media/small-talk/voice/awkward-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "awkward-t5",
+      "kind": "voice",
+      "scene": "voices · Awkward path",
+      "summary": "Ryan, turn 8: friendly, already gone.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "anyway, i should get back to it."
+      },
+      "output": "media/small-talk/voice/awkward-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u1",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 2: Opened with something real.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "pretty quiet. i finally tried the taco truck that parks out front. have you been?"
+      },
+      "output": "media/small-talk/voice/guided-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t2",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Ryan, turn 3: amused, a little more awake.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "the one with the green awning? every friday. get the brisket."
+      },
+      "output": "media/small-talk/voice/guided-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u2",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 4: drifted into a generic \"busy week?\".",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "okay, nice. so... busy week? mondays are always the most worst."
+      },
+      "output": "media/small-talk/voice/guided-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t3",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Ryan, turn 5: distracted, reading his phone.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "always. oh, sorry, one sec. it's my old team."
+      },
+      "output": "media/small-talk/voice/guided-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u3",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 6: talked over his phone, about your own day.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yeah, me too. i have meeting after meeting whole day, it's so boring."
+      },
+      "output": "media/small-talk/voice/guided-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "hint",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Sarah's hint (turn 7).",
+      "prompt": null,
+      "characters": [
+        "sarah"
+      ],
+      "params": {
+        "voice": "sarah",
+        "text": "don't fill the silence with your week. ask about something you saw, like the medal on his monitor."
+      },
+      "output": "media/small-talk/voice/hint.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u4",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player says the line after Sarah's hint (turn 7): Found a topic he cares about.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "sorry, before you go. is that a half-marathon medal on your monitor?"
+      },
+      "output": "media/small-talk/voice/guided-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t4",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Ryan, turn 8: looks up from his phone, grinning.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "oh man, you saw that? yeah, my first half marathon. yesterday. my sister said i had to bring it in.",
+        "emotion": "[laughs]"
+      },
+      "output": "media/small-talk/voice/guided-t4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u5",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 9: the question came out in the wrong order.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "that's huge, congrats. how much time you took to finish?"
+      },
+      "output": "media/small-talk/voice/guided-u5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t5",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Ryan, turn 10: laughing a little, one eye on the coffee.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "two hours, four minutes. and i took the stairs sideways this morning."
+      },
+      "output": "media/small-talk/voice/guided-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u6",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 11: said goodbye with no hook.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "ha, that's amazing. okay, take rest for your legs!"
+      },
+      "output": "media/small-talk/voice/guided-u6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t6",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Ryan, turn 12: friendly, already heading back to his desk.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "ha, thanks. good chatting. have a good one."
+      },
+      "output": "media/small-talk/voice/guided-t6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u1",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 2: Found a topic he cares about.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "quiet, honestly. but i'm guessing yours wasn't. is that a half-marathon medal on your monitor?"
+      },
+      "output": "media/small-talk/voice/perfect-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t2",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Ryan, turn 3: surprised, warming up fast.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "ha, you noticed! yeah, my first one, yesterday. my sister made me bring it in."
+      },
+      "output": "media/small-talk/voice/perfect-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u2",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 4: keeps the conversation going.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "that's huge. and the dog on your lock screen, the one in the yellow raincoat, is he yours?"
+      },
+      "output": "media/small-talk/voice/perfect-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t3",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Ryan, turn 5: laughing, delighted.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "ha! that's pickle. rescue terrier. he ran one mile with me in training, then sat down and refused to move.",
+        "emotion": "[laughs]"
+      },
+      "output": "media/small-talk/voice/perfect-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t4",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Ryan, turn 6: reading his phone, apologetic.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "oh, sorry, one sec. it's my old team."
+      },
+      "output": "media/small-talk/voice/perfect-t4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u3",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 7: waited out his phone, then came back with a real question.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "no worries. i saw you carry that box in. did you just move to our team?"
+      },
+      "output": "media/small-talk/voice/perfect-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t5",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Ryan, turn 8: animated, leaning in.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "yep, day one. i asked to move over for the new projects. but honestly, i don't know anyone on this side of the floor yet."
+      },
+      "output": "media/small-talk/voice/perfect-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u4",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 9: Left with a hook.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i've been meaning to start running. i'd love to hear how you trained for it, if you ever have 20 minutes."
+      },
+      "output": "media/small-talk/voice/perfect-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t6",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Ryan, turn 10: delighted, means it.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "let's grab lunch thursday. i'll tell you every mistake i made, and you can tell me who's who around here."
+      },
+      "output": "media/small-talk/voice/perfect-t6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u2",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 4: talked about your work, asked him nothing.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yeah, i go there when marcus keeps me late. i am handling the client forecast since last month, and it has like twelve tabs, and..."
+      },
+      "output": "media/small-talk/voice/timesup-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-t3",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Ryan, turn 5: polite, then reading his phone.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "sounds intense. oh, sorry, one sec. it's my old team."
+      },
+      "output": "media/small-talk/voice/timesup-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u3",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 6: still about you: your laptop.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "no problem. and on top of that, my laptop is so much slow today. it took ten minutes to start."
+      },
+      "output": "media/small-talk/voice/timesup-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-t4",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Ryan, turn 7: polite, watching his coffee pour.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "ugh, the worst. probably the update."
+      },
+      "output": "media/small-talk/voice/timesup-t4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u4",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 8: spent the last seconds on the coffee machine.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes! and this machine is more slower than my laptop, no?"
+      },
+      "output": "media/small-talk/voice/timesup-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "coffee-ready",
+      "kind": "voice",
+      "scene": "voices · shared",
+      "summary": "Ryan, when the coffee clock runs out (any path): friendly goodbye.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "that's my coffee. good talking to you."
+      },
+      "output": "media/small-talk/voice/coffee-ready.mp3",
+      "status": "draft"
+    }
+  ]
+}

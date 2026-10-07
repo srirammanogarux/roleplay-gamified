@@ -214,7 +214,7 @@ async function makeUnit(unit, units, target, cache) {
       let dots = 0;
       const bytes = await generateVideo({
         model: v.model, prompt: composePrompt(unit, units, cache),
-        firstFrame: await frame(unit.params.firstStill, 'first'), lastFrame: await frame(unit.params.lastStill, 'last'),
+        firstFrame: await frame(unit.params.firstStill, 'first'), lastFrame: v.firstFrameOnly ? undefined : await frame(unit.params.lastStill, 'last'),
         references: unit.params.references, aspect: v.aspect, duration: v.duration, resolution: v.resolution,
         onPoll: () => process.stdout.write(++dots % 6 ? '.' : ' still rendering '),
       });

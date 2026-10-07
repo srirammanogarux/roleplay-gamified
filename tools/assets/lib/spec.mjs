@@ -102,7 +102,7 @@ export function expandUnits(rp, spec = loadSpec(rp), cache = new Map()) {
           aspect: e.aspect || (e.type === 'video' ? '9:16' : '1:1'),
           sheet: true,
           ...(e.type === 'video'
-            ? { duration: e.duration || 8, resolution: e.resolution, hero: !!e.hero, firstStill: sub(e.firstFrame), lastStill: sub(e.lastFrame), crop: e.crop, fitSeconds: e.fitSeconds }
+            ? { duration: e.duration || 8, resolution: e.resolution, hero: !!e.hero, firstStill: sub(e.firstFrame), lastStill: sub(e.lastFrame), crop: e.crop, fitSeconds: e.fitSeconds, model: e.model }
             : { size: e.size, model: e.model }),
         },
         output: e.output,
@@ -187,7 +187,12 @@ export function videoSettings(unit) {
     notes.push(`Veo needs 8s for ${needs8.join(', ')}: generating 8s${p.fitSeconds ? `, retimed to ${p.fitSeconds}s` : ` (set params.fitSeconds to retime to ${duration}s)`}`);
     duration = 8;
   }
-  return { hero, resolution, duration, model: hero ? MODELS.videoHero : MODELS.video, aspect: p.aspect || '9:16', notes };
+  // A clip can name its own model. Veo 2 makes no sound (so Veo 3's audio filter can't refuse it), but takes only a first frame.
+  if (p.model?.startsWith('veo-2')) {
+    notes.push('Veo 2 fallback: no sound, first frame only, 720p');
+    return { hero, resolution: undefined, duration, model: p.model, aspect: p.aspect || '9:16', notes, firstFrameOnly: true };
+  }
+  return { hero, resolution, duration, model: p.model || (hero ? MODELS.videoHero : MODELS.video), aspect: p.aspect || '9:16', notes };
 }
 
 // Problems that stop a unit being generated right now. `blocked` stops it; `warnings` are printed.

@@ -2207,6 +2207,10 @@ body {
     background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.32);
     border-radius: 999px; padding: 5px 10px;
   }
+  /* the "this costs you…" tag sits on the button row, next to the feedback button, on one line */
+  .rp-new .bubble:has(.anger-tag-inline) { max-width: 92%; }
+  .rp-new .bubble-tools:has(.anger-tag-inline) { flex-wrap: nowrap; }
+  .rp-new .anger-tag-inline { white-space: nowrap; font-size: 10.5px; padding: 6px 10px; gap: 3px; line-height: 1; flex-shrink: 0; }
   .angry-edge {
     position: absolute; inset: 0; z-index: 8; pointer-events: none; opacity: 0;
     transition: opacity .9s ease;
@@ -2218,6 +2222,68 @@ body {
   .screen.angry .angry-edge { opacity: 1; }
   .screen.angry .progress-fill.purple { background: linear-gradient(90deg,#b91c1c,#ef4444) !important; }
   .mode-label.angry { color: #ff5a5a !important; }
+  /* small talk: losing him reads as an awkward, flat silence, not an alarm */
+  .screen.stale.mood-grey .angry-edge {
+    opacity: 1;
+    background: radial-gradient(125% 80% at 50% 50%, rgba(20,20,24,0) 40%, rgba(70,72,80,.45) 100%), rgba(30,30,34,.22);
+    box-shadow: inset 0 0 70px rgba(110,112,122,.35), inset 0 0 130px rgba(40,40,46,.45);
+  }
+  .screen.stale.mood-grey .chat { filter: saturate(.35); transition: filter .9s ease; }
+  .mode-label.stale { color: #9aa0a6 !important; }
+  /* ── small talk going flat: five ways to show it (?mood=dim|cold|drift|lids|zzz|grey), on top of Ryan's bored face ── */
+  /* dim: the lights go down around the talk; colours stay, older lines fade back */
+  .screen.stale.mood-dim .angry-edge { opacity: 1 !important; background: radial-gradient(90% 62% at 50% 55%, rgba(0,0,0,0) 30%, rgba(4,2,10,.86) 100%); box-shadow: none; }
+  .screen.stale.mood-dim .chat .bubble-row:not(:last-child) { opacity: .42 !important; transition: opacity 1s ease; }
+  .mode-label.stale.mood-dim { color: #b9b3d6 !important; }
+  /* cold: the cold shoulder, a frosty blue creeping in from the edges; his bar turns icy */
+  .screen.stale.mood-cold .angry-edge { opacity: 1 !important; background: radial-gradient(125% 85% at 50% 50%, rgba(30,70,140,0) 42%, rgba(70,140,230,.34) 100%), rgba(10,30,60,.14); box-shadow: inset 0 0 60px rgba(120,185,255,.34), inset 0 0 130px rgba(40,90,170,.32); }
+  .screen.stale.mood-cold .meter-spark .am-fill { background: linear-gradient(90deg,#3b82f6,#bfdbfe) !important; box-shadow: 0 0 12px rgba(147,197,253,.6) !important; animation: none !important; }
+  .screen.stale.mood-cold .meter-spark .am-arrow { border-top-color: #93c5fd !important; }
+  .screen.stale.mood-cold .am-face { border-color: rgba(147,197,253,.85) !important; box-shadow: 0 0 12px rgba(96,165,250,.6) !important; animation: none !important; }
+  .mode-label.stale.mood-cold { color: #8ec5ff !important; }
+  /* drift: his side of the chat drifts away and goes faint, with a status line saying what he's doing */
+  .screen.stale.mood-drift .angry-edge { opacity: 1 !important; background: radial-gradient(120% 80% at 50% 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,.5) 100%); box-shadow: none; }
+  .rp-new .screen .chat .bubble-row.bot { transition: opacity 1s ease, transform 1s ease, filter 1s ease; }
+  .screen.stale.mood-drift .chat .bubble-row.bot { opacity: .45 !important; transform: translateX(-12px) scale(.96) !important; transform-origin: left center; filter: blur(.5px) saturate(.6); }
+  .mode-label.stale.mood-drift { color: #b9b3d6 !important; }
+  .mood-status {
+    position: absolute; left: 50%; top: 104px; z-index: 9; transform: translate(-50%, -6px); opacity: 0; pointer-events: none;
+    display: flex; align-items: center; gap: 7px; white-space: nowrap;
+    font-size: 12px; font-weight: 600; font-style: italic; color: #c9c4e0;
+    background: rgba(28,24,40,.92); border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: 6px 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.45); transition: opacity .6s ease, transform .6s ease;
+  }
+  .mood-status img { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; object-position: 50% 12%; }
+  .mood-status i { display: inline-flex; gap: 3px; }
+  .mood-status i b { width: 3.5px; height: 3.5px; border-radius: 50%; background: #c9c4e0; animation: msDot 1.4s ease-in-out infinite; }
+  .mood-status i b:nth-child(2) { animation-delay: .2s; } .mood-status i b:nth-child(3) { animation-delay: .4s; }
+  @keyframes msDot { 0%, 60%, 100% { opacity: .25; } 30% { opacity: 1; } }
+  .screen.stale.mood-drift .mood-status { opacity: 1; transform: translate(-50%, 0); }
+  /* lids: heavy eyelids, dark bands close in from top and bottom and slowly breathe */
+  .mood-lid { position: absolute; left: 0; right: 0; height: 0; z-index: 3; pointer-events: none; transition: height 1.2s cubic-bezier(.4,0,.2,1); }
+  .mood-lid.top { top: 0; background: linear-gradient(180deg, rgba(0,0,0,.95) 40%, rgba(0,0,0,0)); }
+  .mood-lid.bottom { bottom: 0; background: linear-gradient(0deg, rgba(0,0,0,.95) 40%, rgba(0,0,0,0)); }
+  .screen.stale.mood-lids .mood-lid { height: 13%; animation: lidBreathe 3.6s ease-in-out 1.2s infinite; }
+  @keyframes lidBreathe { 0%, 100% { height: 13%; } 50% { height: 19%; } }
+  .screen.stale.mood-lids .angry-edge { opacity: 0 !important; }
+  .mode-label.stale.mood-lids { color: #b9b3d6 !important; }
+  /* zzz: little z's float up off his face on the bar */
+  .zzz-float { position: absolute; z-index: 9; pointer-events: none; width: 40px; height: 60px; opacity: 0; transition: opacity .5s ease; }
+  .zzz-float span { position: absolute; left: 8px; bottom: 0; font-size: 13px; font-weight: 800; color: #c9c4e0; opacity: 0; text-shadow: 0 0 8px rgba(160,150,220,.6); }
+  .screen.stale.mood-zzz .zzz-float { opacity: 1; }
+  .screen.stale.mood-zzz .zzz-float span { animation: zFloat 2.4s ease-in infinite; }
+  .zzz-float span:nth-child(2) { animation-delay: .8s !important; font-size: 16px; }
+  .zzz-float span:nth-child(3) { animation-delay: 1.6s !important; font-size: 19px; }
+  @keyframes zFloat { 0% { opacity: 0; transform: translate(0, 0) rotate(-8deg); } 20% { opacity: 1; } 100% { opacity: 0; transform: translate(26px, -46px) rotate(12deg); } }
+  .screen.stale.mood-zzz .angry-edge { opacity: 1 !important; background: radial-gradient(120% 80% at 50% 50%, rgba(0,0,0,0) 50%, rgba(10,6,24,.6) 100%); box-shadow: none; }
+  .screen.stale.mood-zzz .chat { filter: saturate(.7); transition: filter .9s ease; }
+  .mode-label.stale.mood-zzz { color: #b9b3d6 !important; }
+  .rp-new .anger-meter.danger.meter-spark .am-face { border-color: rgba(170,172,182,.7); box-shadow: 0 0 10px rgba(150,152,162,.4); animation: none; }
+  .screen.stale.mood-grey .meter-spark .am-fill { background: linear-gradient(90deg,#4b4f57,#8a8f98) !important; box-shadow: none !important; animation: none !important; }
+  .screen.stale.mood-grey .meter-spark .am-arrow { border-top-color: #8a8f98 !important; }
+  .screen.stale.mood-grey .timer-chip { background: rgba(70,72,80,.6); border-color: rgba(170,172,182,.35); animation: none; }
+  .screen.stale.mood-grey .timer-chip svg { color: #c4c7cc; }
+  .screen.stale.mood-grey .timer-chip i { color: #d4d6da; }
 
   /* ─── Anger meter (replaces the progress bar in path mode) ───
      fixed boss face at the left = gauge head, fill grows toward the flame */
@@ -2322,6 +2388,14 @@ body {
     font-variant-numeric: tabular-nums; letter-spacing: .4px; line-height: 1;
   }
   .timer-chip.urgent { background: #b91c1c; border-color: rgba(255,90,90,.6); animation: tcPulse 1s ease-in-out infinite; }
+  /* where the clock sits, so the meter keeps its full width: label (beside the mode label), float (pill under the header), mic (above the mic), row (old: in the meter row) */
+  .mode-row { display: flex; align-items: center; gap: 10px; }
+  .mode-row .timer-chip.show { margin-left: 0; }
+  .clock-float .header { z-index: 9; }
+  .clock-float .timer-chip { position: absolute; left: 50%; top: calc(100% - 4px); transform: translateX(-50%); z-index: 6; background: rgba(36,12,12,.94); box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+  .clock-float .timer-chip.show { margin-left: 0; padding: 5px 11px; }
+  .clock-mic .timer-chip { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); z-index: 6; box-shadow: 0 4px 14px rgba(0,0,0,.45); }   /* under the mic: the "tap to speak" tip sits above it */
+  .clock-mic .timer-chip.show { margin-left: 0; padding: 4px 10px; }
   @keyframes tcPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.5); } 50% { box-shadow: 0 0 0 5px rgba(239,68,68,0); } }
 
   /* Golden glow + flying star (star earned) */
@@ -2427,6 +2501,113 @@ body {
   .fb-point { font-size: 14px; line-height: 1.5; margin-bottom: 9px; color: #c4c5cc; }
   .fb-point.miss { color: #f3b0b6; }
   .fb-point.ok { color: #b6e7c4; }
+
+  /* ─── New roleplays (meter kinds other than Leave's anger) ───
+     Everything below is scoped to body.rp-new or to elements only the
+     new roleplays create, so Asking for leave renders exactly as before. */
+  .rp-new .am-face { background: #1a1726; }
+  .rp-new .am-face img { width: 100%; height: 100%; margin: 0; object-position: 50% 12%; }
+  .rp-new .am-face { transition: border-color .5s ease, box-shadow .5s ease; }
+  .rp-new .am-face .am-face-ghost { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; object-fit: cover; object-position: 50% 12%; animation: amGhostOut .4s ease forwards; }
+  .rp-new .am-face .am-face-ghost.swap { animation: amGhostSwap .5s cubic-bezier(.45,0,.2,1) forwards; }
+  .rp-new .am-face img.am-in { animation: amFaceIn .4s ease; }
+  .rp-new .am-face img.am-swap-in { animation: amFaceSwapIn .5s cubic-bezier(.45,0,.2,1); }
+  @keyframes amGhostOut { to { opacity: 0; } }
+  @keyframes amGhostSwap { to { opacity: 0; transform: translateX(-55%) scale(.9); } }
+  @keyframes amFaceIn { from { opacity: .2; } }
+  @keyframes amFaceSwapIn { from { opacity: 0; transform: translateX(55%) scale(.9); } }
+  .rp-new .am-face.ring-elena { border-color: #E9B94D; box-shadow: 0 0 10px rgba(233,185,77,.55); }
+  .rp-new .am-face.ring-ryan { border-color: #9CC3E6; box-shadow: 0 0 10px rgba(156,195,230,.55); }
+  .rp-new .anger-meter.danger .am-face { border-color: rgba(255,80,80,.85); box-shadow: 0 0 12px rgba(239,68,68,.65); }
+  /* slider: green middle zone, a knob instead of a fill */
+  .am-zone { position: absolute; top: 0; bottom: 0; background: none; border-left: 1.5px solid rgba(255,255,255,.35); border-right: 1.5px solid rgba(255,255,255,.35); }
+  .meter-slider:has(.am-knob) .am-track { box-shadow: inset 0 2px 3px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.06); }
+  .meter-slider:has(.am-knob) .am-fill { display: none; }
+  .am-knob {
+    position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%;
+    background: #34d399; border: 2px solid #0e0a1a; box-shadow: 0 0 10px rgba(52,211,153,.6);
+    transition: left .7s cubic-bezier(.45,.05,.55,.95), background .5s ease, box-shadow .5s ease;
+  }
+  .am-knob.z1 { background: #fbbf24; box-shadow: 0 0 10px rgba(251,191,36,.6); }
+  .am-knob.z2 { background: #f87171; box-shadow: 0 0 12px rgba(248,113,113,.65); }
+  .am-knob.z3 { background: #ef4444; box-shadow: 0 0 14px rgba(239,68,68,.8); }
+  .meter-slider:has(.am-knob) .am-arrow { display: none; }
+  /* spark: three topic dots */
+  .meter-spark { position: relative; }
+  .am-topics { position: absolute; left: 43px; top: calc(100% + 5px); display: flex; gap: 5px; }
+  .header:has(.am-topics) { padding-bottom: 32px; }   /* room for the topic dots, so they never sit over the chat */
+  .am-topic {
+    width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.3);
+    transition: background .4s ease, border-color .4s ease, color .4s ease, box-shadow .4s ease;
+  }
+  .am-topic svg { width: 9px; height: 9px; }
+  .am-topic.on { background: rgba(251,191,36,.18); border-color: #fbbf24; color: #fbbf24; box-shadow: 0 0 9px rgba(251,191,36,.55); animation: amFacePop .45s cubic-bezier(.2,1.3,.4,1); }
+  /* clock chip shows from the start, with an optional label or wall-clock time */
+  .rp-new .timer-chip.show { max-width: 110px; }
+  .timer-chip i + b { margin-left: 1px; }
+  .timer-chip.labelled svg { display: none; }
+  .timer-chip i { font-style: normal; font-size: 10.5px; font-weight: 700; color: #ffd0d0; text-transform: lowercase; letter-spacing: .2px; }
+
+  /* name tag above a speaker's bubble (more than one person talking) */
+  .name-tag {
+    display: flex; align-items: center; gap: 6px; margin: 2px 0 -8px 2px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .1px;
+    opacity: 0; transform: translateY(6px); animation: bubbleIn .4s forwards;
+  }
+  .name-tag img { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; object-position: 50% 12%; background: #1a1726; }
+  .intro-morph.ring-elena { box-shadow: 0 0 0 3px #43D6A0, 0 22px 60px rgba(0,0,0,.6), 0 0 46px rgba(67,214,160,.35) !important; }
+  .intro-morph.ring-ryan { box-shadow: 0 0 0 3px #9CC3E6, 0 22px 60px rgba(0,0,0,.6), 0 0 46px rgba(156,195,230,.35) !important; }
+  .rp-new .intro-morph .intro-face { object-position: 50% 14%; }
+
+  /* app-drawn event cards in the chat (never text in a video) */
+  .event-card {
+    align-self: center; width: calc(100% - 40px); max-width: 340px; margin: 4px auto;
+    background: #17161d; border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 12px 14px 13px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    opacity: 0; transform: translateY(8px); animation: bubbleIn .45s forwards;
+  }
+  .event-card .ev-head { display: flex; align-items: center; gap: 8px; }
+  .event-card .ev-icon { width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; background: rgba(255,255,255,.08); color: #e9e6f2; }
+  .event-card .ev-icon svg { width: 14px; height: 14px; }
+  .event-card .ev-title { font-size: 12px; font-weight: 800; letter-spacing: .9px; text-transform: uppercase; color: #cfcbe0; }
+  .event-card .ev-body { font-size: 14px; line-height: 1.45; color: #ece9f3; margin: 8px 0 0 34px; }
+  .event-card .ev-body b { color: #fff; }
+  .event-card.ev-pill { width: auto; max-width: 300px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.05); box-shadow: none; }
+  .event-card.ev-pill .ev-head { gap: 7px; }
+  .event-card.ev-pill .ev-icon { width: 20px; height: 20px; background: none; }
+  .event-card.ev-pill .ev-title { font-size: 12.5px; letter-spacing: 0; text-transform: none; font-weight: 700; color: #b9b5c8; }
+  .event-card.ev-pill .ev-title em { font-style: normal; font-weight: 500; color: #ece9f3; }
+  /* the handover proof card: gold edge, the messages drawn as a phone chat */
+  .event-card.proof { border: 1.5px solid rgba(233,185,77,.75); box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 22px rgba(233,185,77,.18); }
+  .event-card.proof .ev-icon { background: none; color: #E9B94D; width: 18px; }
+  .event-card.proof .ev-title { color: #E9B94D; }
+  .ev-msgs { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .ev-msg { display: flex; align-items: center; gap: 8px; }
+  .ev-msg.you { justify-content: flex-end; }
+  .ev-msg .ev-text { font-size: 13px; line-height: 1.45; padding: 9px 12px; border-radius: 12px; max-width: 82%; }
+  .ev-msg.you .ev-text { background: #3a2f8f; color: #ece9ff; }
+  .ev-msg.them .ev-text { background: #2a2930; color: #fff; }
+  .ev-msg .ev-meta { font-size: 10.5px; color: #8f8b9c; white-space: nowrap; }
+
+  /* results: every ending of a new roleplay carries its own stamp */
+  .results-screen.stamped .r-stamp {
+    display: block; color: var(--stamp, #E9B94D); border-color: var(--stamp, #E9B94D);
+    text-shadow: 0 0 26px var(--stamp-glow, rgba(233,185,77,.5));
+    box-shadow: 0 0 34px var(--stamp-glow, rgba(233,185,77,.3)), inset 0 0 22px var(--stamp-glow, rgba(233,185,77,.15));
+    white-space: normal; text-wrap: balance; width: max-content; max-width: 330px;
+    font-size: 40px; padding: 8px 18px;
+  }
+  .results-screen.stamped .r-stamp.long { font-size: 38px; }
+  .results-screen.stamped.play .r-stamp {
+    animation:
+      rStampSlam .42s cubic-bezier(.25,1.2,.4,1) 1s forwards,
+      rStampSettleNew .4s cubic-bezier(.5,.0,.2,1) 2.7s forwards;
+  }
+  @keyframes rStampSettleNew {
+    to { opacity: 1; transform: translateX(-50%) translateY(-150px) rotate(-5deg) scale(.56); }
+  }
+  .results-screen.stamped .r-avatar img.portrait { object-fit: cover; object-position: 50% 14%; transform: none; }
 </style>
 </head>
 <body>
@@ -2941,7 +3122,11 @@ function stopMicWave() {
 }
 
 /* ─── Bubble helpers ─── */
-function addBubble({ kind = 'bot', html, tools = [], extraClass = '', id = '' }) {
+function addBubble({ kind = 'bot', html, tools = [], extraClass = '', id = '', speaker = '' }) {
+  if (kind === 'bot' && speaker && typeof nameTagFor === 'function') {
+    const tag = nameTagFor(speaker);
+    if (tag) chat.appendChild(tag);
+  }
   const row = document.createElement('div');
   const rowAlignClass = (kind === 'bot') ? 'bot' : 'user';
   row.className = `bubble-row ${rowAlignClass} ${extraClass}`;
@@ -2971,7 +3156,7 @@ const ICON_SPEAKER = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9
 const ICON_AI = `<svg viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.583659" y="0.582682" width="29.1667" height="29.1667" rx="14.5833" stroke="url(#aiBorderGrad)" stroke-width="1.16667"/><g><path d="M14.917 7.66602C15.1159 7.66602 15.3067 7.74503 15.4473 7.88569C15.588 8.02634 15.667 8.2171 15.667 8.41602C15.667 8.61493 15.588 8.80569 15.4473 8.94635C15.3067 9.087 15.1159 9.16602 14.917 9.16602C14.3058 9.16615 13.7009 9.29081 13.1394 9.53241C12.5779 9.77401 12.0715 10.1275 11.6512 10.5712C11.2308 11.015 10.9052 11.5397 10.6943 12.1135C10.4834 12.6872 10.3916 13.2979 10.4245 13.9083C10.4298 14.0208 10.4095 14.1333 10.3668 14.2368L9.58602 16.1095L9.96327 16.1853C10.1947 16.2318 10.4056 16.3498 10.5661 16.5228C10.7267 16.6957 10.8288 16.9148 10.858 17.149L10.9975 18.259C11.0202 18.4404 11.1083 18.6072 11.2453 18.7282C11.3823 18.8492 11.5587 18.916 11.7415 18.916H13.042C13.3404 18.916 13.6265 19.0345 13.8375 19.2455C14.0485 19.4565 14.167 19.7426 14.167 20.041V21.166H17.167V18.1705C17.167 17.7978 17.3508 17.4678 17.6245 17.2615L17.8353 17.0913C18.4964 16.5272 18.981 15.7846 19.231 14.9523C19.2888 14.7629 19.4191 14.6041 19.5936 14.5105C19.768 14.4168 19.9723 14.3959 20.1621 14.4523C20.3519 14.5088 20.5116 14.6379 20.6065 14.8117C20.7014 14.9854 20.7238 15.1896 20.6688 15.3798C20.3188 16.5491 19.6205 17.5839 18.667 18.346V21.541C18.667 21.8394 18.5485 22.1255 18.3375 22.3365C18.1265 22.5475 17.8404 22.666 17.542 22.666H13.792C13.4937 22.666 13.2075 22.5475 12.9965 22.3365C12.7855 22.1255 12.667 21.8394 12.667 21.541V20.416H11.7415C11.1931 20.416 10.6635 20.2158 10.2524 19.8528C9.84121 19.4898 9.57678 18.9892 9.50877 18.445L9.40302 17.6028L8.84427 17.4918C8.681 17.4592 8.527 17.3908 8.39337 17.2914C8.25975 17.1921 8.14983 17.0644 8.07155 16.9175C7.99327 16.7705 7.94859 16.608 7.94071 16.4417C7.93284 16.2754 7.96197 16.1094 8.02602 15.9558L8.92077 13.8063L8.91702 13.666C8.91702 12.0747 9.54916 10.5486 10.6744 9.42338C11.7996 8.29816 13.3257 7.66602 14.917 7.66602ZM19.417 6.91602C19.5736 6.91592 19.7263 6.96483 19.8536 7.05589C19.981 7.14695 20.0767 7.27558 20.1273 7.42377L20.224 7.70727C20.449 8.36652 20.9665 8.88477 21.6265 9.10977L21.91 9.20652C22.0579 9.2572 22.1863 9.35283 22.2772 9.48004C22.368 9.60725 22.4169 9.75968 22.4169 9.91602C22.4169 10.0724 22.368 10.2248 22.2772 10.352C22.1863 10.4792 22.0579 10.5748 21.91 10.6255L21.6265 10.723C20.9665 10.948 20.449 11.4655 20.224 12.1255L20.1265 12.4083C20.0758 12.5562 19.9802 12.6845 19.853 12.7754C19.7258 12.8663 19.5734 12.9151 19.417 12.9151C19.2607 12.9151 19.1082 12.8663 18.981 12.7754C18.8538 12.6845 18.7582 12.5562 18.7075 12.4083L18.6108 12.1248C18.4997 11.7994 18.3155 11.5038 18.0724 11.2606C17.8293 11.0175 17.5337 10.8333 17.2083 10.7223L16.9248 10.6255C16.7769 10.5748 16.6485 10.4792 16.5576 10.352C16.4667 10.2248 16.4179 10.0724 16.4179 9.91602C16.4179 9.75968 16.4667 9.60725 16.5576 9.48004C16.6485 9.35283 16.7769 9.2572 16.9248 9.20652L17.2083 9.10902C17.8675 8.88402 18.3858 8.36652 18.6108 7.70652L18.7083 7.42377L18.7548 7.31427C18.8186 7.19403 18.914 7.09344 19.0307 7.02328C19.1473 6.95312 19.2809 6.91604 19.417 6.91602ZM19.417 9.31302C19.2398 9.53625 19.0378 9.73855 18.8148 9.91602C19.0383 10.0935 19.239 10.2943 19.417 10.5183C19.595 10.2948 19.7958 10.094 20.0193 9.91602C19.7963 9.73855 19.5942 9.53625 19.417 9.31302Z" fill="url(#aiFillGrad)"/></g><defs><linearGradient id="aiBorderGrad" x1="15.167" y1="1.16602" x2="15.167" y2="29.166" gradientUnits="userSpaceOnUse"><stop stop-color="#F5B252"/><stop offset="1" stop-color="#FAD643"/></linearGradient><linearGradient id="aiFillGrad" x1="15.1782" y1="6.91602" x2="15.1782" y2="22.666" gradientUnits="userSpaceOnUse"><stop stop-color="#F5B252"/><stop offset="1" stop-color="#FAD643"/></linearGradient></defs></svg>`;
 
 /* ─── Bot message with typing-buffer ─── */
-async function addBotMessage({ html, tools = [], id = '', loadingMs = 1100 }) {
+async function addBotMessage({ html, tools = [], id = '', loadingMs = 1100, speaker = '' }) {
   // typing indicator first
   const typingRow = document.createElement('div');
   typingRow.className = 'bubble-row bot bot-typing-row';
@@ -2985,7 +3170,7 @@ async function addBotMessage({ html, tools = [], id = '', loadingMs = 1100 }) {
   await wait(loadingMs);
   typingRow.remove();
   // Then the actual bubble
-  return addBubble({ kind: 'bot', html, tools, id });
+  return addBubble({ kind: 'bot', html, tools, id, speaker });
 }
 
 function buildIcon(type) {
@@ -3055,7 +3240,7 @@ function sfxWhooshDown() {} function sfxStampImpact() {} function sfxDong() {}
 function sfxSwell() {} function sfxHeartbeatStart() {} function sfxHeartbeatStop() {}
 function sfxTickLoop() {} function sfxTickStop() {} function sfxStopLoops() {}
 
-let TIMER_REMAIN = 0, TIMER_INT = null;
+let TIMER_REMAIN = 0, TIMER_INT = null, CLOCK_LIVE = false;
 let timerChipEl = null, timerNumEl = null;
 function buildTimerBanner() {           /* (chip lives inside the anger meter row) */
   if (timerChipEl) return;
@@ -3064,14 +3249,34 @@ function buildTimerBanner() {           /* (chip lives inside the anger meter ro
   timerChipEl = document.createElement('span');
   timerChipEl.className = 'timer-chip';
   timerChipEl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9.5V13l2.2 2.2"/><path d="M9 2.5h6"/></svg><b>1:00</b>';
-  meter.appendChild(timerChipEl);
+  if (!IS_LEAVE && CONV.clock.label) timerChipEl.classList.add('labelled');
+  if (!IS_LEAVE && CONV.clock.label) timerChipEl.insertBefore(Object.assign(document.createElement('i'), { textContent: CONV.clock.label }), timerChipEl.querySelector('b'));
+  placeClock(meter);
   timerNumEl = timerChipEl.querySelector('b');
+}
+/* clock spot: ?clock=label|float|mic|row on this page or the app page (default: label, next to the mode label) */
+function clockSpot() {
+  const own = new URLSearchParams(location.search).get('clock');
+  let outer = null;
+  try { outer = new URLSearchParams(window.parent.location.search).get('clock'); } catch (e) { /* not same-origin */ }
+  return own || outer || 'label';
+}
+function placeClock(meter) {
+  const spot = clockSpot();
+  document.body.classList.add('clock-' + spot);
+  if (spot === 'row') { meter.appendChild(timerChipEl); return; }
+  if (spot === 'mic') { (document.querySelector('.mic-area') || meter).appendChild(timerChipEl); return; }
+  if (spot === 'float') { (document.querySelector('.header') || meter).appendChild(timerChipEl); return; }
+  const ml = document.getElementById('modeLabel');
+  let row = ml.parentNode.classList.contains('mode-row') ? ml.parentNode : null;
+  if (!row) { row = document.createElement('div'); row.className = 'mode-row'; ml.parentNode.insertBefore(row, ml); row.appendChild(ml); }
+  row.appendChild(timerChipEl);
 }
 function timerFmt(s) { s = Math.max(0, s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
 function timerRender() {
   if (!timerChipEl) return;
-  if (timerNumEl) timerNumEl.textContent = timerFmt(TIMER_REMAIN);
-  const show = TIMER_REMAIN <= 60;
+  if (timerNumEl) timerNumEl.textContent = (!IS_LEAVE && CONV.clock.startsAt) ? wallClock(TIMER_REMAIN) : timerFmt(TIMER_REMAIN);
+  const show = IS_LEAVE ? TIMER_REMAIN <= 60 : !CONV.clock.hidden;   /* new roleplays show their clock from the start, unless it only times the ending */
   const urgent = TIMER_REMAIN <= 20;
   const wasShown = timerChipEl.classList.contains('show');
   const wasUrgent = timerChipEl.classList.contains('urgent');
@@ -3080,17 +3285,28 @@ function timerRender() {
   if (show && !wasShown) sfxTickLoop(1000);       /* final minute: the clock becomes audible */
   if (urgent && !wasUrgent) sfxTickLoop(500);     /* urgent: tempo doubles */
 }
-function timerSet(s) { TIMER_REMAIN = s; timerRender(); }
+function timerSet(s) { TIMER_REMAIN = s; timerRender(); clockEvents(); }
+/* clock.startsAt ('11:55'): show the wall clock running toward the deadline */
+function wallClock(remain) {
+  const [h, m] = CONV.clock.startsAt.split(':').map(Number);
+  const t = h * 60 + m + Math.floor((CONV.clock.seconds - Math.max(0, remain)) / 60);
+  const hh = Math.floor(t / 60) % 12 || 12;
+  return hh + ':' + String(t % 60).padStart(2, '0');
+}
 function stopPathTimer() { clearInterval(TIMER_INT); TIMER_INT = null; sfxTickStop(); }
 function hideTimerBanner() { if (timerChipEl) timerChipEl.classList.remove('show', 'urgent'); sfxTickStop(); }
 function startPathTimer() {
   buildTimerBanner();
   stopPathTimer();
   timerSet(CONV.clock.seconds);
+  CLOCK_LIVE = false;
   TIMER_INT = setInterval(() => {
     if (PAUSED || stepActive) return;
+    if (!IS_LEAVE && !CLOCK_LIVE) return;   /* new roleplays: the clock runs while it's your move */
+    if (!IS_LEAVE && currentPath && currentPath.outcome !== 'timeout' && TIMER_REMAIN <= 1) return;   /* a scripted path decides its own ending */
     TIMER_REMAIN--;
     timerRender();
+    clockEvents();
     if (TIMER_REMAIN <= 0) { stopPathTimer(); runTimeout(currentPath); }
   }, 1000);
 }
@@ -3103,18 +3319,34 @@ async function runTimeout(c) {
   sfxStopLoops();
   document.querySelectorAll('.bot-typing-row').forEach(el => el.remove());   /* clear any typing the aborted script left behind */
   const exit = CONV.clock.exit;
-  await playAvatarIntro({ text: exit.line }, exit);
-  setTimeout(() => { if (c) showResults(c); }, 900);
+  if (IS_LEAVE) {
+    await playAvatarIntro({ text: exit.line }, exit);
+    setTimeout(() => { if (c) showResults(c); }, 900);
+    return;
+  }
+  /* new roleplays: the exit can bring its own event card, speaker and voice */
+  stopDrain();
+  const myGen = PATH_GEN;
+  const speaker = exit.speaker || ROLEPLAY.character;
+  setMeterSpeaker(speaker);
+  if (exit.event && showEvent(exit.event)) await wait(1400);
+  if (myGen !== PATH_GEN) return;
+  await playAvatarIntro({ text: exit.line, speaker }, exit);
+  if (myGen !== PATH_GEN) return;
+  if (exit.audio) await playBossAudio(exit.audio);
+  if (myGen !== PATH_GEN) return;
+  setTimeout(() => { if (c && myGen === PATH_GEN) showResults(c); }, 900);
 }
 
 let amSparkInt = null;
+let AM_TIP = 8;   /* where the flames rise from: the fill tip */
 const AM_FLAME_PATH = 'M12 22c-4.4 0-8-3.1-8-7.6 0-2.9 1.6-5 3-6.7 1.2-1.4 2.2-2.6 2.2-4.2 0-.6.7-1 1.2-.6C13.6 5 15 7.7 15 10c1-.7 1.7-1.8 1.9-3 .1-.6.9-.8 1.3-.3 1.2 1.7 1.8 3.9 1.8 5.7 0 4.5-3.6 7.6-8 7.6Z';
 function amEmitSpark() {
   const track = document.querySelector('#angerMeter .am-track');
   if (!track) return;
   const s = document.createElement('div');
   s.className = 'am-spark';
-  s.style.left = 'calc(' + Math.max(6, ANGER) + '% - 7px)';
+  s.style.left = 'calc(' + Math.max(6, AM_TIP) + '% - 7px)';
   s.style.setProperty('--dx', (Math.random() * 18 - 9).toFixed(0) + 'px');
   s.style.setProperty('--rot', (Math.random() * 44 - 22).toFixed(0) + 'deg');
   const tones = ['#ef4444', '#f97316', '#fbbf24'];
@@ -3132,7 +3364,7 @@ function setAnger(v, opts = {}) {
   const rising = v > ANGER + 1;
   const falling = v < ANGER - 1;
   const big = Math.abs(v - ANGER) >= 12;
-  ANGER = v;
+  ANGER = v; AM_TIP = v;
   const z = amZone(v);
   // anger snaps (260ms), calm seeps (820ms)
   const dur = rising ? '260ms' : '820ms';
@@ -4166,6 +4398,275 @@ let PATH_GEN = 0;
 let liveTurnIndex = 0, stepActive = false, stepIndex = 0;
 let pickerEl = null;
 
+/* ─── Meter kinds and speakers ───
+   Leave keeps its anger meter and old turn format (who: 'boss', anger).
+   Every other roleplay names a meter kind (slider | trust | spark | room),
+   uses who: 'them' + speaker, and a numeric (or per-person) `meter`. */
+const METER = CONV.meter;
+const KIND = METER.kind || 'anger';
+const IS_LEAVE = KIND === 'anger';
+const isThem = t => t.who === 'boss' || t.who === 'them';
+const turnMeter = t => IS_LEAVE ? t.anger : t.meter;
+const hasMeter = t => { const v = turnMeter(t); return typeof v === 'number' || (v && typeof v === 'object'); };
+const SPEAKERS = [...new Set(PATHS.flatMap(p => p.turns.filter(t => t.who === 'them' && t.speaker).map(t => t.speaker)))];
+const MULTI = SPEAKERS.length > 1;
+const LEAD = METER.lead || SPEAKERS[0] || ROLEPLAY.character;
+const SPEAKER_STYLE = { elena: { name: 'Elena', color: '#43D6A0', ring: 'elena' }, ryan: { name: 'Ryan', color: '#9CC3E6', ring: 'ryan' }, marcus: { name: 'Marcus', color: '#cfcbe0' } };
+let METER_STATE = null;        /* number, or { elena, ryan } for the room */
+let METER_SPEAKER = LEAD;      /* whose face sits on the bar */
+let FACE_OVERRIDE = {};        /* a turn's `face`, held until the next turn */
+let TOPICS_ON = new Set();
+let EVENTS_FIRED = new Set();
+let CONFESSED = false;
+let meterFlashTimer = null;
+window.METER_VALUE = undefined;
+
+function facePattern(speaker) {
+  const f = METER.faces;
+  if (!f) return null;
+  return typeof f === 'string' ? f : (f[speaker] || f[LEAD] || Object.values(f)[0]);
+}
+function faceSrc(speaker, face) {
+  const p = facePattern(speaker);
+  return p ? p.replace('{face}', face) : CONV.avatar;
+}
+function bandFace(list, v, key) {
+  if (!list) return null;
+  for (const b of list) { if (key === 'below' ? v < b.below : v <= b.to) return b.face; }
+  return list[list.length - 1].face;
+}
+function moodFace(speaker, v) {
+  if (KIND === 'room') return bandFace((METER.moods || {})[speaker], v, 'below') || 'neutral';
+  return bandFace(METER.bands || METER.levels, v, 'to') || 'neutral';
+}
+function speakerValue(speaker) {
+  if (METER_STATE && typeof METER_STATE === 'object') return METER_STATE[speaker] != null ? METER_STATE[speaker] : METER_STATE[LEAD];
+  return METER_STATE;
+}
+function leadValue() { return speakerValue(LEAD); }
+function neutralFace(speaker) {
+  /* the calm/neutral face for name tags and the takeover's still */
+  const v = KIND === 'room' ? (METER.idle || METER.start)[speaker] : (typeof METER.idle === 'number' ? METER.idle : METER.start);
+  return faceSrc(speaker, moodFace(speaker, v));
+}
+/* how far from "good" a value sits, 0–100 — drives Leave's zone colours */
+function meterBadness(v) {
+  if (KIND === 'slider') {
+    const z = METER.zone || [35, 65];
+    const dist = v < z[0] ? z[0] - v : v > z[1] ? v - z[1] : 0;
+    return Math.min(100, dist / Math.max(z[0], 100 - z[1]) * 100);
+  }
+  return 100 - v;
+}
+function setMeterSpeaker(speaker) {
+  if (IS_LEAVE || !speaker) return;
+  METER_SPEAKER = speaker;
+  renderMeterFace();
+}
+function renderMeterFace(flash) {
+  const face = document.getElementById('amFace');
+  if (!face || METER_STATE == null) return;
+  const sp = KIND === 'room' ? METER_SPEAKER : ROLEPLAY.character;
+  face.classList.toggle('ring-elena', KIND === 'room' && sp === 'elena');
+  face.classList.toggle('ring-ryan', KIND === 'room' && sp === 'ryan');
+  const name = flash || FACE_OVERRIDE[sp] || moodFace(sp, speakerValue(sp));
+  const img = document.getElementById('amFaceImg');
+  const src = faceSrc(sp, name);
+  if (img.getAttribute('src') !== src) {
+    /* the old face fades out on top while the new one comes in; a speaker change slides like a turn of the head */
+    const swap = KIND === 'room' && face.dataset.sp && face.dataset.sp !== sp;
+    if (img.getAttribute('src')) {
+      face.querySelectorAll('.am-face-ghost').forEach(g => g.remove());
+      const ghost = img.cloneNode();
+      ghost.removeAttribute('id');
+      ghost.className = 'am-face-ghost' + (swap ? ' swap' : '');
+      ghost.addEventListener('animationend', () => ghost.remove());
+      face.appendChild(ghost);
+    }
+    img.setAttribute('src', src);
+    img.classList.remove('am-in', 'am-swap-in'); void img.offsetWidth; img.classList.add(swap ? 'am-swap-in' : 'am-in');
+  }
+  face.dataset.sp = sp;
+}
+/* Display only: draws a value on the bar without touching METER_VALUE (used by the drain). */
+function drawMeter(d) {
+  const meter = document.getElementById('angerMeter');
+  const fill = document.getElementById('amFill');
+  const arrow = document.getElementById('amArrow');
+  const knob = document.getElementById('amKnob');
+  if (!meter || !fill) return;
+  d = Math.max(0, Math.min(100, d));
+  const bad = meterBadness(d);
+  const z = amZone(bad);
+  const shown = KIND === 'slider' ? 100 - 2 * Math.abs(d - 50) : d;   /* slider: full in the middle, empty at either end */
+  fill.style.width = Math.max(6, shown) + '%';
+  fill.className = 'am-fill z' + z;
+  arrow.style.left = Math.max(6, shown) + '%';
+  arrow.className = 'am-arrow' + (z ? ' z' + z : '');
+  if (knob) { knob.style.left = d + '%'; knob.className = 'am-knob' + (z ? ' z' + z : ''); }
+  const danger = bad >= 80;
+  meter.classList.toggle('danger', danger);
+  const flames = danger && KIND === 'slider' && d > 50;   /* flames only when he's angry (slider's rude end) */
+  if (flames && !amSparkInt) { AM_TIP = d; amEmitSpark(); amSparkInt = setInterval(amEmitSpark, 520); }
+  if (!flames && amSparkInt) { clearInterval(amSparkInt); amSparkInt = null; }
+  AM_TIP = d;
+  const edge = document.querySelector('.angry-edge');
+  if (edge) edge.style.opacity = bad >= 45 ? Math.min(1, (bad - 45) / 40) : 0;
+  setAngryMode(bad >= 70);
+}
+/* Applies a scripted meter value (number, or { elena, ryan } for the room). */
+function setMeter(v, opts = {}) {
+  if (v && typeof v === 'object') {
+    const base = (METER_STATE && typeof METER_STATE === 'object') ? METER_STATE : {};
+    METER_STATE = Object.assign({}, base, v);
+  } else METER_STATE = v;
+  DRAIN_SHOWN = null;
+  window.METER_VALUE = KIND === 'room' ? METER_STATE[LEAD] : METER_STATE;
+  const d = leadValue();
+  const meter = document.getElementById('angerMeter');
+  const prev = meter ? parseFloat(meter.dataset.v || d) : d;
+  if (meter) {
+    meter.dataset.v = d;
+    if (meterBadness(d) - meterBadness(prev) >= 12) { meter.classList.remove('spike'); void meter.offsetWidth; meter.classList.add('spike'); }
+  }
+  drawMeter(d);
+  clearTimeout(meterFlashTimer);
+  if (opts.flash) {
+    renderMeterFace(opts.flash);
+    meterFlashTimer = setTimeout(() => renderMeterFace(), 2100);
+  } else renderMeterFace();
+}
+function applyMeter(v, opts) { if (IS_LEAVE) setAnger(v, opts); else setMeter(v, opts); }
+
+/* while the mic waits on you, trust/spark drains (display only, never below 1,
+   so a scripted path always ends on its scripted value) */
+let drainInt = null, DRAIN_SHOWN = null;
+function startDrain() {
+  stopDrain();
+  if (IS_LEAVE || !METER.drainPerSecond || METER.drainWhile !== 'mic-waiting') return;
+  if (METER.drainUntil === 'confessed' && CONFESSED) return;
+  if (DRAIN_SHOWN == null) DRAIN_SHOWN = leadValue();
+  drainInt = setInterval(() => {
+    if (PAUSED || stepActive) return;
+    DRAIN_SHOWN = Math.max(1, DRAIN_SHOWN - METER.drainPerSecond * 0.25 * SPEED);
+    drawMeter(DRAIN_SHOWN);
+  }, 250);
+}
+function stopDrain() { clearInterval(drainInt); drainInt = null; }
+
+/* spark: three topic dots in the meter row */
+const TOPIC_ICONS = {
+  medal: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h4l1 4-2.5 3L7 2zm10 0h-4l-1 4 2.5 3L17 2z"/><circle cx="12" cy="15" r="6"/></svg>',
+  paw: '<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6" cy="10" rx="2.2" ry="2.8"/><ellipse cx="10" cy="6" rx="2.2" ry="2.8"/><ellipse cx="14" cy="6" rx="2.2" ry="2.8"/><ellipse cx="18" cy="10" rx="2.2" ry="2.8"/><path d="M12 11c-3 0-6 4.5-6 7 0 2 2 2.5 3 2.5s2-.6 3-.6 2 .6 3 .6 3-.5 3-2.5c0-2.5-3-7-6-7z"/></svg>',
+  box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>',
+};
+function unlockTopic(id) {
+  if (!id || TOPICS_ON.has(id)) return;
+  TOPICS_ON.add(id);
+  const dot = document.querySelector(`.am-topic[data-topic="${id}"]`);
+  if (dot) dot.classList.add('on');
+}
+
+/* builds the header meter for the roleplay's kind (Leave's markup is left as is) */
+function buildMeterKind() {
+  if (IS_LEAVE) return;
+  document.body.classList.add('rp-new');
+  const meter = document.getElementById('angerMeter');
+  const track = meter.querySelector('.am-track');
+  meter.classList.add('meter-' + KIND);
+  if (METER.label) meter.title = METER.label + (METER.ends ? ` (${METER.ends.left} ← → ${METER.ends.right})` : '');
+  if (KIND === 'slider' && METER.display === 'knob' && !document.getElementById('amKnob')) {   /* the old two-ended scale, kept behind a switch */
+    const z = METER.zone || [35, 65];
+    const zone = document.createElement('div');
+    zone.className = 'am-zone'; zone.style.left = z[0] + '%'; zone.style.width = (z[1] - z[0]) + '%';
+    /* the whole bar is the scale: red at both ends, amber on the way, green where you want to be */
+    const lo = z[0] * 0.45, hi = z[1] + (100 - z[1]) * 0.55;
+    track.style.background = `linear-gradient(90deg, rgba(239,68,68,.6) 0%, rgba(251,191,36,.42) ${lo}%, rgba(52,211,153,.4) ${z[0]}%, rgba(52,211,153,.4) ${z[1]}%, rgba(251,191,36,.42) ${hi}%, rgba(239,68,68,.6) 100%)`;
+    track.insertBefore(zone, track.firstChild);
+    const knob = document.createElement('div'); knob.className = 'am-knob'; knob.id = 'amKnob';
+    track.appendChild(knob);
+  }
+  if (KIND === 'spark' && METER.topics && METER.showTopics && !meter.querySelector('.am-topics')) {
+    const dots = document.createElement('div');
+    dots.className = 'am-topics';
+    dots.innerHTML = METER.topics.map(t => `<span class="am-topic" data-topic="${t.id}" title="${t.label}">${TOPIC_ICONS[t.icon] || ''}</span>`).join('');
+    track.after(dots);
+  }
+}
+
+/* name tag (small face + name) above a speaker's bubble when more than one person talks */
+function nameTagFor(speaker) {
+  if (!MULTI || !speaker) return null;
+  const st = SPEAKER_STYLE[speaker] || { name: speaker, color: '#cfcbe0' };
+  const el = document.createElement('div');
+  el.className = 'name-tag';
+  el.style.color = st.color;
+  el.innerHTML = `<img src="${neutralFace(speaker)}" alt="">${st.name}`;
+  return el;
+}
+
+/* ─── Event cards: app-drawn, in the chat ─── */
+const EV_ICONS = {
+  car: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 11l1.6-4.4A2 2 0 0 1 8.5 5h7a2 2 0 0 1 1.9 1.6L19 11a2 2 0 0 1 2 2v4h-2v1.5a1.5 1.5 0 0 1-3 0V17H8v1.5a1.5 1.5 0 0 1-3 0V17H3v-4a2 2 0 0 1 2-2zm2.2 0h9.6l-1.1-3.4a.8.8 0 0 0-.8-.6H9.1a.8.8 0 0 0-.8.6zM6.5 15a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4zm11 0a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>',
+  phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3" stroke-linecap="round"/></svg>',
+  eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+};
+function renderEventCard(id) {
+  const ev = (CONV.events || {})[id];
+  if (!ev || ev.card === false) return null;   /* a state the reaction clip already shows */
+  const card = document.createElement('div');
+  const icon = EV_ICONS[ev.icon] || EV_ICONS.phone;
+  const short = !ev.messages && ev.body && ev.body.replace(/<[^>]*>/g, '').length < 32;
+  if (ev.messages) {
+    card.className = 'event-card proof';
+    card.innerHTML = `<div class="ev-head"><span class="ev-icon">${icon}</span><span class="ev-title">${ev.title}</span></div>` +
+      `<div class="ev-msgs">` + ev.messages.map(m => m.from === 'you'
+        ? `<div class="ev-msg you"><span class="ev-text">${m.text}</span></div>`
+        : `<div class="ev-msg them"><span class="ev-text">${m.text}</span><span class="ev-meta">${(SPEAKER_STYLE[m.from] || { name: m.from }).name} · ${(m.time || '').replace(/^\w+ /, '')}</span></div>`).join('') +
+      `</div>`;
+  } else if (short) {
+    card.className = 'event-card ev-pill';
+    card.innerHTML = `<div class="ev-head"><span class="ev-icon">${icon}</span><span class="ev-title">${ev.title} · <em>${ev.body}</em></span></div>`;
+  } else {
+    card.className = 'event-card';
+    card.innerHTML = `<div class="ev-head"><span class="ev-icon">${icon}</span><span class="ev-title">${ev.title}</span></div><div class="ev-body">${ev.body}</div>`;
+  }
+  card.dataset.event = id;
+  return card;
+}
+/* shows an event once per run; returns true if it was new */
+function showEvent(id) {
+  if (!id || EVENTS_FIRED.has(id)) return false;
+  EVENTS_FIRED.add(id);
+  const card = renderEventCard(id);
+  if (!card) return false;
+  chat.appendChild(card);
+  scrollChat();
+  return true;
+}
+async function turnEvent(turn, at, dead) {
+  if (IS_LEAVE || !turn.event || (turn.event.at || 'before') !== at) return;
+  if (showEvent(turn.event.id)) await wait(at === 'before' ? 1400 : 1100);
+}
+/* clock-timed events: conversation.clock.events ({ at: seconds left, event }) and events with `clockAt` */
+function clockEvents() {
+  if (IS_LEAVE) return;
+  const list = (CONV.clock.events || []).map(e => ({ at: e.at, id: e.event }))
+    .concat(Object.entries(CONV.events || {}).filter(([, e]) => typeof e.clockAt === 'number').map(([id, e]) => ({ at: e.clockAt, id })));
+  list.forEach(e => { if (TIMER_REMAIN <= e.at && (e.at > 0 || TIMER_REMAIN <= 0)) showEvent(e.id); });
+}
+
+/* reaction clip for a morph: the roleplay's moments first, then the speaker's character sheet */
+function momentFor(turn) {
+  const m = (CONV.moments || {})[turn.morph];
+  if (m) return Object.assign({}, m);
+  if (IS_LEAVE) return Object.assign({}, CONV.moments.greeting);
+  const sp = turn.speaker || ROLEPLAY.character;
+  const base = `characters/${sp}/sheet/${turn.morph}`;
+  return { src: base + '.mp4', poster: base + '-poster.jpg', hold: 2.0 };
+}
+
 function buildPicker() {
   if (pickerEl) return;
   const scr = document.querySelector('.screen');
@@ -4207,8 +4708,17 @@ function resetPath() {
   if (hintLauncherEl) { hintLauncherEl.remove(); hintLauncherEl = null; }
   if (hintStageEl) { const v = hintStageEl.querySelector('.hint-vid'); if (v) v.pause(); hintStageEl.remove(); hintStageEl = null; }
   document.querySelectorAll('.bubble.draft').forEach(d => { const r = d.closest('.bubble-row'); if (r) r.remove(); });
-  setAnger(CONV.meter.start);
+  if (!IS_LEAVE) resetMeterRun();
+  applyMeter(CONV.meter.start);
   setProgress(6);
+}
+/* new roleplays: clear the per-run state (topics, events, face overrides, drain) */
+function resetMeterRun() {
+  stopDrain();
+  TOPICS_ON = new Set(); EVENTS_FIRED = new Set(); FACE_OVERRIDE = {}; CONFESSED = false;
+  document.querySelectorAll('.am-topic.on').forEach(d => d.classList.remove('on'));
+  METER_STATE = null;
+  METER_SPEAKER = (PATHS[0].turns.find(t => t.who === 'them') || {}).speaker || LEAD;
 }
 function showPicker() { resetPath(); if (pickerEl) pickerEl.classList.add('show'); }
 function hidePicker() { if (pickerEl) pickerEl.classList.remove('show'); }
@@ -4264,7 +4774,16 @@ function micTip(show) {
     micPill.appendChild(t);
   } else if (!show && t) { t.remove(); }
 }
-function awaitMicTap(dead, which) {
+/* autoplay (new roleplays): your side plays itself. The mic lights up, your line plays, it sends.
+   A tap still works at any point. ?autoplay=0 on this page or the app page turns it off. */
+function autoplayOn() {
+  if (IS_LEAVE) return false;
+  const own = new URLSearchParams(location.search).get('autoplay');
+  let outer = null;
+  try { outer = new URLSearchParams(window.parent.location.search).get('autoplay'); } catch (e) { /* not same-origin */ }
+  return (own != null ? own : outer) !== '0';
+}
+function awaitMicTap(dead, which, auto) {
   return new Promise(resolve => {
     let settled = false;
     const finish = r => {
@@ -4281,22 +4800,31 @@ function awaitMicTap(dead, which) {
     };
     micPill.addEventListener('click', onClick);
     const watch = setInterval(() => { if (dead && dead()) finish('dead'); }, 180);
+    if (auto) auto.then(() => finish(dead && dead() ? 'dead' : which === 'start' ? 'start' : 'send'));
   });
 }
 
 async function userMicRecord(dead, voiceSrc) {
+  CLOCK_LIVE = true;
+  try { await userMicRecordLoop(dead, voiceSrc); } finally { CLOCK_LIVE = false; }
+}
+async function userMicRecordLoop(dead, voiceSrc) {
   for (;;) {
     micPill.className = 'mic-pill idle visible';
     micTip(true);
     scrollChat();
-    if (await awaitMicTap(dead, 'start') === 'dead') { micTip(false); return; }
+    startDrain();
+    const auto = autoplayOn();
+    const first = await awaitMicTap(dead, 'start', auto ? wait(1100) : null);
+    stopDrain();
+    if (first === 'dead') { micTip(false); return; }
 
     micTip(false);
     micPill.classList.remove('idle'); micPill.classList.add('expanded');
     startMicWave(); sfxMicStart();
-    if (voiceSrc) playBossAudio(voiceSrc);   /* not awaited — the tap decides */
+    const voiceDone = voiceSrc ? playBossAudio(voiceSrc) : null;   /* not awaited — the tap decides (or autoplay, when the line ends) */
 
-    const action = await awaitMicTap(dead, 'record');
+    const action = await awaitMicTap(dead, 'record', auto ? (voiceDone || wait(1800)).then(() => wait(350)) : null);
     stopAudio(); stopMicWave();
     if (action === 'dead') return;
     if (action === 'redo') { micPill.className = 'mic-pill'; await wait(220); continue; }
@@ -4356,11 +4884,59 @@ function showStarCard(text) {
   setTimeout(() => card.classList.add('show'), 30);
   setTimeout(() => { card.classList.remove('show'); setTimeout(() => card.remove(), 550); }, 3400);
 }
+/* how small talk shows it going flat: ?mood=dim|cold|drift|lids|zzz|grey on this page or the app page */
+function staleMood() {
+  const own = new URLSearchParams(location.search).get('mood');
+  let outer = null;
+  try { outer = new URLSearchParams(window.parent.location.search).get('mood'); } catch (e) { /* not same-origin */ }
+  return own || outer || 'drift';
+}
+let moodBuilt = false;
+function buildMoodBits(scr) {
+  if (moodBuilt || !scr) return;
+  moodBuilt = true;
+  const sp = ROLEPLAY.character;
+  const status = document.createElement('div');
+  status.className = 'mood-status';
+  status.innerHTML = `<img src="${neutralFace(sp)}" alt=""><span></span><i><b></b><b></b><b></b></i>`;
+  scr.appendChild(status);
+  ['top', 'bottom'].forEach(k => { const l = document.createElement('div'); l.className = 'mood-lid ' + k; scr.appendChild(l); });
+  const z = document.createElement('div');
+  z.className = 'zzz-float';
+  z.innerHTML = '<span>z</span><span>z</span><span>Z</span>';
+  scr.appendChild(z);
+}
+function placeMoodBits(scr) {
+  const face = document.getElementById('amFace');
+  const z = scr.querySelector('.zzz-float');
+  if (face && z) {
+    const a = face.getBoundingClientRect(), b = scr.getBoundingClientRect();
+    z.style.left = (a.right - b.left - 14) + 'px';
+    z.style.top = (a.top - b.top - 48) + 'px';
+  }
+  /* the lids close over the chat only, between the header and the mic */
+  const hd = document.querySelector('.header'), mic = document.querySelector('.mic-area');
+  const top = scr.querySelector('.mood-lid.top'), bottom = scr.querySelector('.mood-lid.bottom');
+  if (hd && top) top.style.top = (hd.getBoundingClientRect().bottom - scr.getBoundingClientRect().top) + 'px';
+  if (mic && bottom) bottom.style.bottom = (scr.getBoundingClientRect().bottom - mic.getBoundingClientRect().top) + 'px';
+  const st = scr.querySelector('.mood-status span');
+  const name = (ROLEPLAY.character || '').toLowerCase();
+  if (st) st.textContent = EVENTS_FIRED.has('phone-buzz') ? `${name} is checking his phone` : `${name} is looking at the coffee machine`;
+}
 function setAngryMode(on) {
   const scr = document.querySelector('.screen');
-  if (scr) scr.classList.toggle('angry', on);
+  const stale = !IS_LEAVE && KIND === 'spark';   /* small talk loses to awkward silence, not anger */
+  const mood = stale ? staleMood() : '';
+  if (scr) {
+    scr.classList.toggle('angry', on && !stale); scr.classList.toggle('stale', on && stale);
+    if (stale) { buildMoodBits(scr); scr.classList.add('mood-' + mood); if (on) placeMoodBits(scr); }
+  }
   const ml = document.getElementById('modeLabel');
-  if (ml) { ml.classList.toggle('angry', on); ml.textContent = on ? 'Angry mode' : 'Conversation mode'; }
+  if (ml) {
+    if (stale) ml.classList.add('mood-' + mood);
+    ml.classList.toggle('angry', on && !stale); ml.classList.toggle('stale', on && stale);
+    ml.textContent = on ? (IS_LEAVE ? 'Angry mode' : stale ? 'Awkward mode' : (METER.dangerLabel || 'Tense mode')) : 'Conversation mode';
+  }
 }
 
 function endPath(c) {
@@ -4393,6 +4969,26 @@ function showResults(c) {
     av.src = fail ? faces.fail : (happy ? faces.win : faces.neutral);
     av.classList.toggle('happy', happy);
   }
+  /* new roleplays: every ending carries its own stamp text, colour and ring face */
+  r.classList.toggle('stamped', !IS_LEAVE && !!c.stamp);
+  if (!IS_LEAVE && c.stamp) {
+    const STAMP_COLORS = { gold: ['#E9B94D', 'rgba(233,185,77,.42)'], lavender: ['#A8A1FF', 'rgba(168,161,255,.42)'], red: ['#ff4040', 'rgba(239,68,68,.5)'], amber: ['#fbbf24', 'rgba(251,191,36,.45)'] };
+    const col = STAMP_COLORS[c.stamp.color] || STAMP_COLORS.gold;
+    r.style.setProperty('--stamp', col[0]);
+    r.style.setProperty('--stamp-glow', col[1]);
+    if (stamp) {
+      stamp.innerHTML = c.stamp.text.replace(/<br\s*\/?>/gi, ' ');
+      stamp.classList.toggle('long', stamp.textContent.length > 13);
+    }
+    if (av) {
+      const faces = ROLEPLAY.results.faces || {};
+      const win = c.outcome === 'win';
+      const src = c.stamp.face || (fail ? faces.fail : (win && c.stars === 3 ? faces.win : faces.neutral)) || av.src;
+      av.src = src;
+      av.classList.toggle('portrait', /\/sheet\//.test(src));
+      av.classList.toggle('happy', !/\/sheet\//.test(src) && /happy/.test(src));
+    }
+  } else if (av) av.classList.remove('portrait');
   const cta = r.querySelector('.r-cta');
   if (cta) {
     cta.textContent = (fail || timeout) ? 'Try again' : 'See Detailed Feedback';
@@ -4415,7 +5011,7 @@ function showResults(c) {
       }, 700 + i * 650);
     }
     if (!fail) {
-      const msgs = c.turns.filter(t => t.who === 'boss' || t.who === 'user' || t.who === 'hint').length;
+      const msgs = c.turns.filter(t => isThem(t) || t.who === 'user' || t.who === 'hint').length;
       const words = c.turns.reduce((n, t) => {
         const txt = t.who === 'user' ? t.text : (t.who === 'hint' ? t.response : '');
         return n + (txt || '').replace(/<[^>]*>/g, '').split(/\s+/).filter(Boolean).length;
@@ -4452,24 +5048,32 @@ function buildHintUI() {
   }
 }
 function runGuidedHint(turn, dead) {
+  CLOCK_LIVE = true;   /* (new roleplays) the clock keeps running while Sarah helps */
   return new Promise(resolve => {
     buildHintUI();
     micPill.className = 'mic-pill idle visible';
     showHintLauncher();
     scrollChat();
+    let launched = false;
     const onLauncher = () => {
+      if (launched) return; launched = true;
       hintLauncherEl.removeEventListener('click', onLauncher);
       hideHintLauncher();
       const vid = hintStageEl.querySelector('.hint-vid');
       vid.src = CONV.hint.video;
-      hintStageEl.querySelector('.hint-text').textContent = turn.hintText;
+      hintStageEl.querySelector('.hint-text').textContent = turn.hintText || CONV.hint.text || '';
       hintStageEl.classList.add('show');
       try { vid.currentTime = 0; } catch (e) {}
       vid.play().catch(() => {});
+      const hintVoice = !IS_LEAVE && (turn.audio || CONV.hint.audio);   /* Sarah's voice (new roleplays) */
+      const hintDone = hintVoice ? playBossAudio(hintVoice) : wait(3500);
       const cta = hintStageEl.querySelector('.hint-cta');
+      let ctaDone = false;
       const onCta = () => {
+        if (ctaDone) return; ctaDone = true;
         cta.removeEventListener('click', onCta);
         hintStageEl.classList.remove('show'); vid.pause();
+        if (!IS_LEAVE) stopAudio();
         /* Sarah coaches the MOVE, not the words — no read-aloud draft.
            The user finds their own line and speaks it. */
         (async () => {
@@ -4482,8 +5086,10 @@ function runGuidedHint(turn, dead) {
         })();
       };
       cta.addEventListener('click', onCta);
+      if (autoplayOn()) hintDone.then(() => wait(700)).then(() => { if (!dead()) onCta(); });
     };
     hintLauncherEl.addEventListener('click', onLauncher);
+    if (autoplayOn()) wait(1400).then(() => { if (!dead()) onLauncher(); });
   });
 }
 function showHintLauncher() { buildHintUI(); hintLauncherEl.classList.add('show'); }
@@ -4504,17 +5110,28 @@ function renderUpTo(c, idx) {
   if (hintStageEl) { const hv = hintStageEl.querySelector('.hint-vid'); if (hv) hv.pause(); hintStageEl.remove(); hintStageEl = null; }
   if (typeof micPill !== 'undefined' && micPill) micPill.className = 'mic-pill';
   let anger = CONV.meter.start;
+  if (!IS_LEAVE) { resetMeterRun(); setMeter(CONV.meter.start); }
+  const evAt = (turn, at) => { if (!IS_LEAVE && turn.event && (turn.event.at || 'before') === at) showEvent(turn.event.id); };
   for (let i = 0; i <= idx && i < c.turns.length; i++) {
     const turn = c.turns[i];
     if (!turn || turn.who === 'sarah') continue;
-    if (typeof turn.anger === 'number') anger = turn.anger;
+    if (!IS_LEAVE) {
+      FACE_OVERRIDE = turn.face || {};
+      if (turn.speaker && turn.who === 'them') METER_SPEAKER = turn.speaker;
+      unlockTopic(turn.topic);
+      if (turn.confessed) CONFESSED = true;
+      if (typeof turn.timeJump === 'number') timerSet(turn.timeJump);
+    }
+    if (hasMeter(turn)) anger = IS_LEAVE ? turn.anger : (typeof turn.meter === 'object' ? Object.assign({}, typeof anger === 'object' ? anger : {}, turn.meter) : turn.meter);
+    evAt(turn, 'before');
     if (turn.who === 'hint') {
       addBubble({ kind: 'user', html: turn.response, tools: ['speaker-solid'] });
       if (turn.stars) turn.stars.forEach(st => { if (slotsArr[st]) slotsArr[st].classList.add('filled'); });
+      evAt(turn, 'after');
       continue;
     }
-    if (turn.who === 'boss') {
-      addBubble({ kind: 'bot', html: turn.text, tools: ['translate', 'speaker-solid'] });
+    if (isThem(turn)) {
+      addBubble({ kind: 'bot', html: turn.text, tools: ['translate', 'speaker-solid'], speaker: IS_LEAVE ? '' : turn.speaker });
     } else {
       const ub = addBubble({ kind: 'user', html: turn.text, tools: turn.feedback ? ['speaker-solid', 'bulb-gold'] : ['speaker-solid'] });
       if (turn.feedback && ub.bubble) {
@@ -4529,8 +5146,9 @@ function renderUpTo(c, idx) {
       if (turn.award && slotsArr[turn.award.star]) slotsArr[turn.award.star].classList.add('filled');
       if (typeof turn.flyStar === 'number' && slotsArr[turn.flyStar]) slotsArr[turn.flyStar].classList.add('filled');
     }
+    evAt(turn, 'after');
   }
-  setAnger(anger);
+  applyMeter(anger);
   setProgress(Math.round(((idx + 1) / c.turns.length) * 100));
   scrollChat();
 }
@@ -4572,34 +5190,46 @@ function playPath(c, fromIndex, keepChat) {
       const turn = c.turns[ti];
       liveTurnIndex = ti;
       if (dead()) return;
-      if (typeof turn.timeJump === 'number') timerSet(turn.timeJump);   /* scripted clock jump */
+      if (!IS_LEAVE) FACE_OVERRIDE = {};   /* a turn's face override holds until the next turn */
+      if (!IS_LEAVE && turn.timeJump === 0) { timerSet(0); stopPathTimer(); }   /* the scripted turn *is* the clock's exit */
+      else if (typeof turn.timeJump === 'number') timerSet(turn.timeJump);   /* scripted clock jump */
       if (turn.who === 'sarah') continue;   /* Sarah coaching removed for now */
       // pre-beat: a natural pause before this person responds
-      await wait(turn.who === 'boss' ? 850 : 650); if (dead()) return;
+      await wait(isThem(turn) ? 850 : 650); if (dead()) return;
       if (turn.who === 'hint') {
         await runGuidedHint(turn, dead); if (dead()) return;
-        if (typeof turn.anger === 'number') setAnger(turn.anger, { flash: turn.flash });
+        if (!IS_LEAVE && turn.face) FACE_OVERRIDE = turn.face;
+        if (hasMeter(turn)) applyMeter(turnMeter(turn), { flash: turn.flash });
+        if (!IS_LEAVE) { unlockTopic(turn.topic); if (turn.confessed) CONFESSED = true; }
+        await turnEvent(turn, 'after', dead); if (dead()) return;
         prog = Math.min(96, prog + step); setProgress(prog);
         await wait(1000); if (dead()) return;
         continue;
       }
-      if (turn.who === 'boss') {
+      if (isThem(turn)) {
+        setMeterSpeaker(turn.speaker);
+        await turnEvent(turn, 'before', dead); if (dead()) return;
         if (turn.morph) {
           // gauge head lifts to centre, plays a takeover video, returns
-          const opts = Object.assign({}, CONV.moments[turn.morph] || CONV.moments.greeting);
+          const opts = momentFor(turn);
           if (turn.caption) opts.caption = turn.caption;   /* per-turn caption override */
           await playAvatarIntro(turn, opts); if (dead()) return;
         } else {
-          await addBotMessage({ html: turn.text, tools: ['translate', 'speaker-solid'], loadingMs: 2000 });
+          await addBotMessage({ html: turn.text, tools: ['translate', 'speaker-solid'], loadingMs: 2000, speaker: IS_LEAVE ? '' : turn.speaker });
           if (dead()) return;
           sfxBossThud();
         }
         scrollChat();
-        if (typeof turn.anger === 'number') { await wait(350); if (dead()) return; setAnger(turn.anger, { flash: turn.flash }); }
+        if (!IS_LEAVE && turn.face) FACE_OVERRIDE = turn.face;
+        if (hasMeter(turn)) { await wait(350); if (dead()) return; applyMeter(turnMeter(turn), { flash: turn.flash }); }
+        if (!IS_LEAVE) unlockTopic(turn.topic);
         if (turn.audio) { await playBossAudio(turn.audio); if (dead()) return; }   // wait for him to finish speaking
+        await turnEvent(turn, 'after', dead); if (dead()) return;
       } else {
         // mic interaction: user speaks, taps to stop, then the message appears
+        await turnEvent(turn, 'before', dead); if (dead()) return;
         await userMicRecord(dead, turn.uaudio); if (dead()) return;
+        if (!IS_LEAVE && turn.face) FACE_OVERRIDE = turn.face;
         const ub = addBubble({ kind: 'user', html: turn.text, tools: turn.feedback ? ['speaker-solid', 'bulb-gold'] : ['speaker-solid'] });
         if (turn.feedback && ub && ub.bubble) {
           const bulb = ub.bubble.querySelector('.icon-btn.gold');
@@ -4613,7 +5243,8 @@ function playPath(c, fromIndex, keepChat) {
           (tools || ub.bubble).appendChild(tg);   // sit on the same row as the volume button
         }
         scrollChat();
-        if (typeof turn.anger === 'number') { await wait(700); if (dead()) return; setAnger(turn.anger, { flash: turn.flash }); await wait(500); if (dead()) return; }
+        if (hasMeter(turn)) { await wait(700); if (dead()) return; applyMeter(turnMeter(turn), { flash: turn.flash }); await wait(500); if (dead()) return; }
+        if (!IS_LEAVE) { unlockTopic(turn.topic); if (turn.confessed) CONFESSED = true; }
         if (turn.chips) {
           for (const ch of turn.chips) {
             if (ch.ok && typeof ch.star === 'number') { await wait(420); if (dead()) return; fillStar(ch.star); }
@@ -4633,15 +5264,17 @@ function playPath(c, fromIndex, keepChat) {
           });
           await wait(2600); if (dead()) return;
         }
+        await turnEvent(turn, 'after', dead); if (dead()) return;
       }
       prog = Math.min(96, prog + step); setProgress(prog);
       // post-beat: audio-gated boss turns already waited; otherwise let the line settle
       await wait(turn.who === 'user' ? 900 : (turn.audio ? 300 : 1200));
       if (dead()) return;
     }
-    if (c.outcome === 'timeout') {
+    if (c.outcome === 'timeout' && (IS_LEAVE || TIMER_INT)) {
       /* the words ran out before the clock did: let the last seconds tick away */
       if (TIMER_REMAIN > 5) timerSet(5);
+      CLOCK_LIVE = true;
       return;
     }
     setProgress(100);
@@ -4670,9 +5303,9 @@ function selectChip(i) {
 }
 function showIdle() {
   resetPath();
-  addBubble({ kind: 'bot', html: OPENING, tools: ['translate', 'speaker-solid'], id: 'msg-greeting' });
+  addBubble({ kind: 'bot', html: OPENING, tools: ['translate', 'speaker-solid'], id: 'msg-greeting', speaker: IS_LEAVE ? '' : METER_SPEAKER });
   setProgress(8);
-  setAnger(CONV.meter.idle);
+  applyMeter(CONV.meter.idle != null ? CONV.meter.idle : CONV.meter.start);
   scrollChat();
 }
 /* ─── Off-track intro: the chat's boss avatar lifts to centre, plays a greeting, returns ─── */
@@ -4690,8 +5323,9 @@ function buildIntro() {
   introVid.className = 'intro-vid';
   introVid.muted = true; introVid.setAttribute('muted', ''); introVid.setAttribute('playsinline', '');
   introVid.playsInline = true; introVid.preload = 'auto';
-  introVid.poster = CONV.moments.greeting.poster;
-  introVid.src = CONV.moments.greeting.src;
+  const firstMoment = CONV.moments.greeting || Object.values(CONV.moments)[0];
+  introVid.poster = firstMoment.poster;
+  introVid.src = firstMoment.src;
   introVid.style.opacity = '0';
   introMorph.appendChild(introFace);
   introMorph.appendChild(introVid);
@@ -4725,6 +5359,14 @@ async function playAvatarIntro(turn, opts) {
   const vposter = opts.poster || CONV.moments.greeting.poster;
   buildIntro();
   if (introVid.getAttribute('src') !== vsrc) { introVid.setAttribute('src', vsrc); introVid.poster = vposter; introVid.load(); }
+  const speaker = IS_LEAVE ? '' : (turn.speaker || ROLEPLAY.character);
+  if (!IS_LEAVE) {
+    /* the still is the speaker's current face on the bar; their ring colour when several people talk */
+    const meterImg = document.getElementById('amFaceImg');
+    introFace.src = (meterImg && meterImg.getAttribute('src')) || CONV.avatar;
+    introMorph.classList.toggle('ring-elena', MULTI && speaker === 'elena');
+    introMorph.classList.toggle('ring-ryan', MULTI && speaker === 'ryan');
+  }
   // 1. first typing row so the avatar sits at its resting position
   const typingRow = document.createElement('div');
   typingRow.className = 'bubble-row bot bot-typing-row';
@@ -4762,6 +5404,11 @@ async function playAvatarIntro(turn, opts) {
   await wait(740);
   // 5. hold ~2s, then scale down — pausable, no loop
   await playVideoUntil(opts.hold || 2.0);
+  if (!IS_LEAVE && introVid.error) {
+    /* missing clip: show the face picture for the same beat, never stall */
+    introFace.style.opacity = '1'; introVid.style.opacity = '0';
+    await wait((opts.hold || 2.0) * 1000);
+  }
   if (introCaption) introCaption.classList.remove('show');
   // 6. scale back into the avatar, cross-fade video → image
   introFace.style.opacity = '1'; introVid.style.opacity = '0';
@@ -4777,7 +5424,7 @@ async function playAvatarIntro(turn, opts) {
   await wait(380);
   if (bailed()) { typingRow.remove(); return; }
   typingRow.remove();
-  addBubble({ kind: 'bot', html: turn.text, tools: ['translate', 'speaker-solid'] });
+  addBubble({ kind: 'bot', html: turn.text, tools: ['translate', 'speaker-solid'], speaker });
   sfxBossThud();
   scrollChat();
 }
@@ -4894,7 +5541,10 @@ function buildStarsInfo() {
   if (!scr) return;
   starsInfoBdEl = document.createElement('div'); starsInfoBdEl.className = 'stars-info-bd';
   starsInfoEl = document.createElement('div'); starsInfoEl.className = 'stars-info';
-  starsInfoEl.innerHTML =
+  const mStars = !IS_LEAVE && ROLEPLAY.story && ROLEPLAY.story.mission && ROLEPLAY.story.mission.stars;
+  starsInfoEl.innerHTML = mStars
+    ? `<h4>Earn 3 stars</h4>` + mStars.map((st, i) => `<div class="si-row" data-i="${i}"><span class="si-star">★</span><div><b>${st.title.charAt(0).toUpperCase() + st.title.slice(1)}</b><span>${st.sub}</span></div></div>`).join('')
+    :
     `<h4>Earn 3 stars</h4>` +
     `<div class="si-row" data-i="0"><span class="si-star">★</span><div><b>Show your work is done</b><span>tell him your tasks for the week are finished</span></div></div>` +
     `<div class="si-row" data-i="1"><span class="si-star">★</span><div><b>Ask right</b><span>name the day and the reason in one line</span></div></div>` +
@@ -4949,6 +5599,7 @@ function tellHost(msg) { if (window.self !== window.top) window.parent.postMessa
 
 function initPathMode() {
   document.body.classList.add('path-ui');   /* header shows the anger meter instead of the progress bar */
+  buildMeterKind();
   if (typeof micPill !== 'undefined' && micPill) { micPill.style.display = ''; micPill.className = 'mic-pill'; }
   wireFeedbackSheet();
   buildChips();

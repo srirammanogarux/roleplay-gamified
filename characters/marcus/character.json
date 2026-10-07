@@ -7,11 +7,17 @@
   "style": null,
   "personality": "Busy, blunt and short on patience; always has a client meeting in five minutes. Respects people who get to the point, own their mistakes and bring a plan. Hates surprises more than mistakes. Softens when he hears a real reason and sees the work is covered.",
   "voice": {
-    "id": null,
-    "model": null,
-    "settings": null,
+    "id": "6FiCmD8eY5VyjOdG5Zjk",
+    "model": "eleven_v4",
+    "settings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0,
+      "use_speaker_boost": true,
+      "speed": 1
+    },
     "pronunciationDictionaries": [],
-    "note": "Existing Leave lines are this voice. Look the id up with --list-voices, test eleven_v4 against v-poor-b3/b5, then lock settings here."
+    "note": "Picked by the user on 2026-10-07: Adam (closest match to Leave's Marcus). Keep id, model and settings fixed."
   },
   "references": [
     "flow-assets/boss-meter-calm.png",
@@ -50,7 +56,7 @@
       "prompt": "Marcus facing the camera, chest-up, calm and busy: exactly the expression of the calm meter face (brows level with a slight furrow, eyes steady, mouth closed in a flat line, shoulders square). Same head size and position as the calm meter face when cropped square. Nothing about his face, hair or suit changes.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/calm.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "three-quarter-left",
@@ -59,7 +65,7 @@
       "prompt": "Marcus in a three-quarter view, head and body turned about 35 degrees to our left, eyes looking slightly past the camera. Neutral, busy expression: brows level, mouth closed in a flat line. Same framing and lighting as the calm meter face.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/three-quarter-left.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "three-quarter-right",
@@ -68,7 +74,7 @@
       "prompt": "Marcus in a three-quarter view, head and body turned about 35 degrees to our right, eyes looking slightly past the camera. Neutral, busy expression: brows level, mouth closed in a flat line. Same framing and lighting as the calm meter face.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/three-quarter-right.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "profile-left",
@@ -77,7 +83,7 @@
       "prompt": "Marcus in a clean side profile facing our left, chin slightly lowered as if reading something below the frame. Calm, focused expression, mouth closed. Only head, neck and shoulders are visible.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/profile-left.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "disappointed",
@@ -86,7 +92,7 @@
       "prompt": "Marcus facing the camera, quietly disappointed: brows raised slightly in the middle, eyelids a little lowered, mouth closed and pulled flat to one side, head tilted a few degrees. Not angry, just let down.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/disappointed.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "relieved",
@@ -95,7 +101,7 @@
       "prompt": "Marcus facing the camera, relieved: brows relaxed and lifted, eyes softened, a small closed-mouth half smile, shoulders dropped a little. The tension has visibly left his face.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/relieved.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "steely",
@@ -104,7 +110,7 @@
       "prompt": "Marcus facing the camera, steely and controlled: jaw set, brows low and level, eyes steady and direct, mouth closed in a firm straight line. Serious but not shouting.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/steely.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "surprised",
@@ -113,7 +119,7 @@
       "prompt": "Marcus facing the camera, caught off guard: brows lifted high, eyes wide, mouth closed or only slightly parted, head pulled back a touch.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/surprised.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "sighing",
@@ -122,7 +128,7 @@
       "prompt": "Marcus facing the camera mid-sigh: eyes closed, brows drawn up in the middle, cheeks slightly puffed, lips closed, shoulders dropped. Weary, not angry.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/sighing.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "reading-phone",
@@ -131,7 +137,7 @@
       "prompt": "Marcus facing the camera with his head tipped down, eyes looking down at a phone held below the bottom of the frame (the phone and his hands are NOT visible). A faint cool screen glow lights his chin. Brows starting to knit.",
       "aspect": "9:16",
       "output": "characters/marcus/sheet/reading-phone.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "sigh",

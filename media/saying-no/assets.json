@@ -1,0 +1,922 @@
+{
+  "roleplay": "saying-no",
+  "title": "Saying no to last-minute work",
+  "note": "Gate 1 draft for roleplays/saying-no.js; every item is draft. Story: 4 scenes, each a start still, an end still and one 8 s clip between them retimed to 6 s; story 3 is the hero shot (1080p). No readable text anywhere: the group chat, calendar and Uber cards are drawn by the app. The player is the faceless purple silhouette from Leave; stills that show it pass img/you.png as a reference. Reused from Leave, not listed here: the face-off circles (flow-assets/boss-meter-calm.png, img/you.png), Marcus's greeting/angry/kickout/meeting-exit clips, his meter faces and happy face, and Sarah's hint clip. Marcus's new clips and faces come from his character sheet (item marcus-sheet). Voice ids follow the roleplay file: opening, guilt-trip and clock-exit are shared lines; <path>-t<n> is Marcus, <path>-u<n> the player, hint is Sarah.",
+  "characters": [
+    "marcus",
+    "sarah"
+  ],
+  "playlists": {
+    "gave-in": [
+      "opening",
+      "gave-in-u1",
+      "gave-in-t2",
+      "gave-in-u2",
+      "gave-in-t3",
+      "gave-in-u3",
+      "guilt-trip",
+      "gave-in-u4",
+      "gave-in-t5"
+    ],
+    "got-rude": [
+      "opening",
+      "got-rude-u1",
+      "got-rude-t2",
+      "got-rude-u2",
+      "guilt-trip",
+      "got-rude-u3",
+      "got-rude-t4"
+    ],
+    "guided": [
+      "opening",
+      "guided-u1",
+      "guided-t2",
+      "guided-u2",
+      "guided-t3",
+      "guided-u3",
+      "guilt-trip",
+      "hint",
+      "guided-u4",
+      "guided-t5",
+      "guided-u5",
+      "guided-t6",
+      "guided-u6"
+    ],
+    "perfect": [
+      "opening",
+      "perfect-u1",
+      "perfect-t2",
+      "perfect-u2",
+      "guilt-trip",
+      "perfect-u3",
+      "perfect-t4",
+      "perfect-u4"
+    ],
+    "timesup": [
+      "opening",
+      "timesup-u1",
+      "timesup-t2",
+      "timesup-u2",
+      "timesup-t3",
+      "timesup-u3",
+      "guilt-trip",
+      "timesup-u4",
+      "timesup-t5",
+      "timesup-u5",
+      "clock-exit"
+    ]
+  },
+  "items": [
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "topic-avatar",
+      "scene": "topics",
+      "summary": "Topic tile avatar on the topics list: Marcus with the polite, expectant look of a boss about to ask a favour.",
+      "prompt": "Marcus, the boss, chest-up and centred against a plain pure black background, facing the camera and leaning in very slightly, with the polite, expectant look of someone about to ask a favour at the end of the day: brows raised a little in the middle, head tilted a few degrees, a small tight closed-mouth smile that does not reach his eyes. His tie is loosened a touch and his top button is still done up. His hands are below the frame. Square framing, face centred.",
+      "params": {
+        "aspect": "1:1",
+        "size": 420
+      },
+      "output": "media/saying-no/stills/topic-avatar.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-1-friday-start",
+      "scene": "story 1 · friday, 5:45",
+      "summary": "Start frame of story-1-friday: the open-plan office emptying out in low gold evening light, no one in sight.",
+      "prompt": "Interior of a modern open-plan office on a high floor: rows of light-wood desks with black monitors (screens dark or blank grey), grey mesh office chairs, a few potted plants, low grey storage cabinets, and a wall of tall floor-to-ceiling windows on the left with a soft city skyline outside. At the far end of the floor stands a glass-walled corner cabin with thin steel frames and a frosted glass door with no sign. It is Friday evening at a quarter to six: low, warm golden sunlight rakes in through the windows on the left and throws long diagonal shadows of chairs and desk legs across the grey carpet. Wide shot from standing height down the central aisle between two rows of desks, one-point perspective, the glass cabin small at the far end with a soft lamp on inside and Marcus's small, vague silhouette seated at his desk behind the frosted glass. The open floor is empty of people: chairs are pushed out at odd angles, a jacket is gone from a chair back, a cold coffee mug (plain, no print) and a closed notebook sit on the nearest desk. Most monitors are already dark; two in the middle row still glow a blank pale grey. A round wall clock with plain tick marks and no numerals hangs on a pillar on the right. Dust motes float in the light. Calm, quiet, end-of-week mood. Keep the top fifth of the frame simple (ceiling and light panels) for the app's narrator text. No people on the open floor; the only figure is the small blurred silhouette inside the glass cabin.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/saying-no/stills/story-1-friday-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-1-friday-end",
+      "scene": "story 1 · friday, 5:45",
+      "summary": "End frame of story-1-friday: the camera has drifted to your desk by the window, where you lean back in your chair, the week finally over.",
+      "prompt": "The same open-plan office, same golden evening light now a shade lower and more amber, the same glass cabin far in the background. The camera has moved forward down the aisle and turned slightly right: medium-wide shot of the player's desk by the window, seen from the front-left. The desk holds a dark monitor (screen blank), a closed silver laptop, a plain mug and a dark backpack lying open beside the chair. Seated at the desk is the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn exactly like the faceless purple figure in the first style reference image, which IS the player, so copy that figure as well as its style (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines). The figure leans back in the office chair with its head tipped back and shoulders dropped, arms resting loosely on the armrests, the body language of relief at the end of a long week. Hands are relaxed, simple and small in the frame. Keep the top fifth of the frame simple for the app's narrator text.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/saying-no/stills/story-1-friday-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "draft",
+      "id": "story-1-friday",
+      "scene": "story 1 · friday, 5:45",
+      "summary": "Friday, 5:45: the office empties out in low gold light, monitors going dark, and the camera drifts towards your desk, where you lean back, relieved the week is done.",
+      "prompt": "Interior of a modern open-plan office on a high floor: rows of light-wood desks with black monitors (screens dark or blank grey), grey mesh office chairs, a few potted plants, low grey storage cabinets, and a wall of tall floor-to-ceiling windows on the left with a soft city skyline outside. At the far end of the floor stands a glass-walled corner cabin with thin steel frames and a frosted glass door with no sign, Friday evening, warm low golden sunlight raking through the windows on the left and long shadows across the carpet. Seconds 0-2: wide shot down the empty central aisle; a pushed-out chair settles to a stop; one of the two glowing monitors in the middle row switches off and goes dark. Seconds 2-5: the camera glides slowly forward down the aisle at walking height, desks sliding past on both sides, the light warming to amber; the second monitor goes dark. Seconds 5-8: the camera eases to the right and settles on the player's desk by the window, where the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn exactly like the faceless purple figure in the first style reference image, which IS the player, so copy that figure as well as its style (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines) sits leaning back in the office chair; the figure slowly rolls its shoulders, tips its head back and lets the arms rest on the armrests, relieved. The figure has no face, so nothing changes on it. No other people, apart from Marcus's small, still silhouette at his desk behind the frosted glass of the far cabin. Camera: one slow, smooth dolly forward with a gentle drift to the right at the end; no cuts.",
+      "characters": [],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-1-friday-start",
+        "lastStill": "story-1-friday-end"
+      },
+      "output": "media/saying-no/videos/story-1-friday.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-2-dinner-start",
+      "scene": "story 2 · the dinner",
+      "summary": "Start frame of story-2-dinner: you stand at your desk, sliding your laptop into your backpack; your phone lies face-up on the desk, its screen dark.",
+      "prompt": "The player's desk by the tall window in the same open-plan office, Friday evening, warm amber light from the window on the left, the city skyline turning gold and pink outside. Medium-wide shot, straight on from the other side of the desk at chest height. Standing behind the desk is the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn exactly like the faceless purple figure in the first style reference image, which IS the player, so copy that figure as well as its style (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines), slightly turned to the left, sliding a closed silver laptop into a dark grey backpack that stands open on the desk. A smartphone lies flat on the desk beside the backpack, its screen dark and blank. The monitor beside it is off. An empty chair is pushed back behind the figure. Hands are relaxed, simple, correctly formed and small in the frame. Leave the upper third of the frame calm and uncluttered (window and soft sky) because the app draws a message card there.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/saying-no/stills/story-2-dinner-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-2-dinner-end",
+      "scene": "story 2 · the dinner",
+      "summary": "End frame of story-2-dinner: same desk and window as the start, backpack on one shoulder, you lean over the softly glowing phone on the desk, happy.",
+      "prompt": "The exact same place, camera position and framing as the reference image of the player at the desk: the same open-plan office, the same tall floor-to-ceiling window on the left with the city skyline turning gold and pink outside, the same light-wood desk in the foreground with the dark monitor on its left edge, the same empty chair and bookshelf behind, the same warm amber Friday-evening light. Do not add a wall calendar, posters or new furniture. the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn exactly like the faceless purple figure in the first style reference image, which IS the player, so copy that figure as well as its style (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines) now has the zipped dark grey backpack slung over one shoulder and leans forward over the desk, bowed towards the smartphone lying flat on the desk, whose screen gives off a soft, blank, warm glow (no text, no icons, just light). Because the figure leans down, its head sits just below the middle of the frame. The posture is light and happy: ready to go, one hand resting on the backpack strap, the other relaxed on the desk near the phone. Hands are simple, correctly formed and small in the frame. Keep the whole upper half of the frame calm and uncluttered (window, soft sky and plain wall) because the app draws a message card and a ride card there.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "img/you.png",
+          "media/saying-no/stills/story-2-dinner-start.png",
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/saying-no/stills/story-2-dinner-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-2-dinner",
+      "scene": "story 2 · the dinner",
+      "summary": "Your best friend's birthday dinner is at 7: you pack up your laptop, zip your bag, the phone on the desk lights up (the app draws the group chat card on top), and you swing the bag onto your shoulder and lean over the phone, happy.",
+      "prompt": "The player's desk by the tall window in the open-plan office, Friday evening, warm amber light, the skyline outside turning gold and pink. the player: a smooth, faceless, deep-purple silhouette figure with a thin lighter-purple rim outline, drawn exactly like the faceless purple figure in the first style reference image, which IS the player, so copy that figure as well as its style (no facial features at all, no hair, no skin; the collared shirt and trousers are only simple darker-purple shapes with plain black ink lines) stands behind the desk. Seconds 0-2: the figure slides a closed silver laptop into a dark grey backpack standing open on the desk. Seconds 2-3: the figure zips the backpack closed with one simple, relaxed hand movement. Second 3: the smartphone lying on the desk lights up with a soft, blank warm glow (no text or icons on the screen). Seconds 3-5: the figure swings the backpack up onto one shoulder. Seconds 5-8: it leans forward over the desk towards the glowing phone, head bowed so it sits just below the middle of the frame, and gives a small happy bounce, ready to leave. Hands stay small, simple and correctly formed, never the focus. Camera: locked off at chest height, no push-in; the upper half of the frame (window and sky) stays calm for the app's cards. No cuts. CRITICAL: the player is a smooth, completely FACELESS deep-purple silhouette in every frame: no eyes, no mouth, no smile, no facial features of any kind, even when the head turns or bows. The backpack stays clean and solid, never smeared. Keep the motion small and slow so nothing deforms.",
+      "characters": [],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-2-dinner-start",
+        "lastStill": "story-2-dinner-end"
+      },
+      "output": "media/saying-no/videos/story-2-dinner.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-3-incoming-start",
+      "scene": "story 3 · incoming",
+      "summary": "Start frame of story-3-incoming: from your desk, Marcus steps out of his glass cabin across the floor with an open laptop.",
+      "prompt": "Point of view from the player's desk in the open-plan office, Friday evening at about a quarter to six, the same warm low golden-amber sunset light as the rest of the story raking in through the tall windows on the left, long warm shadows across the grey carpet, only the far sky at the window edge starting to turn soft violet. No cool daylight, no blue cast. The same light-wood desks, grey mesh chairs and dark monitors as the rest of the story, with the glass-walled corner cabin with thin steel frames at the far end. Low shot from just above the desk surface: in the near foreground, slightly out of focus at the bottom of the frame, the edge of the desk and the zipped dark grey backpack. Across the emptying floor, in the middle distance and small in the frame, Marcus has just stepped out of the frosted glass door of his glass-walled cabin. He is small and seen full-length. He carries an open laptop held flat on one forearm, its screen turned towards him and away from the camera, and he is looking down at it, brows slightly furrowed in concentration, not angry, and has not noticed the camera yet. His free hand is relaxed at his side. Rows of empty desks and dark monitors lead from him towards the camera. Keep the upper right of the frame calm (wall and windows) because the app draws a calendar card there.",
+      "params": {
+        "aspect": "9:16"
+      },
+      "output": "media/saying-no/stills/story-3-incoming-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-3-incoming-end",
+      "scene": "story 3 · incoming",
+      "summary": "End frame of story-3-incoming: Marcus is a few desks away, mid-stride, eyes locked on you, laptop still open on his arm.",
+      "prompt": "The same point of view from the player's desk, same office and the same warm amber Friday-evening light, the backpack edge still soft in the foreground at the bottom of the frame. Marcus is now much closer, a few desks away, framed from the knees up and centred, mid-stride towards the camera. The open laptop rests flat on his left forearm with its screen facing him (the camera sees only the plain grey lid). He looks straight at the camera with purpose: brows slightly raised, a polite but determined set to his face, mouth closed. His free hand is relaxed at his side, simple and correctly formed. Behind him the aisle of empty desks recedes to the glass cabin. Keep the upper right of the frame calm because the app draws a calendar card there.",
+      "params": {
+        "aspect": "9:16"
+      },
+      "output": "media/saying-no/stills/story-3-incoming-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-3-incoming",
+      "scene": "story 3 · incoming",
+      "summary": "Marcus heads your way: he steps out of his glass cabin with an open laptop, looks up, finds you and walks straight across the floor towards your desk. The app draws the \"Wed · Client forecast review\" calendar card on top.",
+      "prompt": "Point of view from the player's desk in the open-plan office, Friday evening, warm low golden-amber sunset light through the windows on the left the whole time, light-wood desks, no cool daylight; the zipped backpack is a soft shape in the near foreground at the bottom of the frame. Seconds 0-2: in the middle distance Marcus steps out of the frosted glass door of his cabin, looking down at an open laptop held flat on his forearm (screen turned away from the camera). Seconds 2-4: he walks down the aisle between the empty desks, then lifts his eyes from the laptop, scans the floor and finds the camera; his brows lift slightly. Seconds 4-8: he keeps walking steadily towards the camera, purposeful, eyes locked on it, until he is a few desks away and framed from the knees up. His mouth stays closed the whole time. His free arm swings naturally and the hand stays relaxed and simple. Camera: locked low over the desk with a slow push-in and a smooth rack focus from the backpack to Marcus in the first two seconds. No cuts.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "1080p",
+        "hero": true,
+        "firstStill": "story-3-incoming-start",
+        "lastStill": "story-3-incoming-end"
+      },
+      "output": "media/saying-no/videos/story-3-incoming.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-4-one-more-thing-start",
+      "scene": "story 4 · one more thing",
+      "summary": "Start frame of story-4-one-more-thing: Marcus at the edge of your desk, chest-up, looking at you, mouth closed.",
+      "prompt": "Medium close-up of Marcus, chest-up and centred, standing (not sitting) at the edge of the player's desk and looking straight into the camera at eye level. Behind him the open-plan office is soft and out of focus in deep amber and dusk-blue light: blurred rows of desks, the tall windows and the city lights coming on. Warm light from the window falls on one side of his face. His expression: polite, expectant, a little apologetic, the face of a boss about to ask for one more thing: brows lifted slightly in the middle, eyes steady on the camera, mouth closed in a small tight line. His hands, the laptop and the desk are all below the frame: the frame ends at mid-chest, nothing in front of him. The blurred background matches the reference image (the same office behind him, same window on the left). Leave a little space above his head.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "media/saying-no/stills/story-4-one-more-thing-end.png"
+        ]
+      },
+      "output": "media/saying-no/stills/story-4-one-more-thing-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "marcus"
+      ],
+      "status": "approved",
+      "id": "story-4-one-more-thing-end",
+      "scene": "story 4 · one more thing",
+      "summary": "End frame of story-4-one-more-thing: tighter on Marcus, brows raised, head slightly tilted, waiting for your answer.",
+      "prompt": "Close-up of Marcus, head and shoulders centred, the same setting and light as the start frame but closer: the blurred amber-and-dusk office behind him, warm window light on one side of his face. He looks straight into the camera, brows raised a little higher, head tilted a few degrees, a faint expectant closed-mouth half smile, the look of someone who has just asked a favour and is waiting for a yes. Mouth closed. Hands below the frame.",
+      "params": {
+        "aspect": "9:16"
+      },
+      "output": "media/saying-no/stills/story-4-one-more-thing-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-4-one-more-thing",
+      "scene": "story 4 · one more thing",
+      "summary": "He has one more thing for you before you go: close on Marcus at the edge of your desk, silent, looking at you, with a slow push-in.",
+      "prompt": "Medium close-up of Marcus, chest-up and centred at the edge of the player's desk, looking straight into the camera, with the open-plan office soft and out of focus behind him in deep amber and dusk-blue evening light, city lights coming on in the windows. Seconds 0-3: he holds the camera's gaze, polite and expectant, and takes one slow, small breath (shoulders rise and settle). Seconds 3-6: his brows lift a little more and his head tilts a few degrees to one side. Seconds 6-8: a faint expectant closed-mouth half smile settles and he holds very still, waiting. His mouth stays closed throughout; he does not speak. His hands and the laptop stay below the frame. Camera: a slow, steady push-in from chest-up to head-and-shoulders. No cuts. CRITICAL: Marcus's lips stay pressed together and completely still for the whole clip: he does not speak, does not mouth words, does not open his mouth. Only his eyes, brows and a very slight head tilt move. Camera push-in only.",
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-4-one-more-thing-start",
+        "lastStill": "story-4-one-more-thing-end"
+      },
+      "output": "media/saying-no/videos/story-4-one-more-thing.mp4"
+    },
+    {
+      "id": "marcus-sheet",
+      "kind": "character-sheet",
+      "scene": "conversation · Marcus",
+      "summary": "Marcus's new pieces for this roleplay, from his character sheet (characters/marcus/character.json): the guilt-trip and relief moments, the calm base frame they start on, and the disappointed and relieved faces (also the Time's up and Close call results faces). Same units as media/characters/assets.json; edit them there.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "character": "marcus",
+        "entries": [
+          "calm",
+          "disappointed",
+          "relieved",
+          "guilt-trip",
+          "relief"
+        ]
+      },
+      "output": null,
+      "status": "draft"
+    },
+    {
+      "id": "opening",
+      "kind": "voice",
+      "scene": "voices · shared",
+      "summary": "Marcus, turn 1: friendly on the surface, already counting on you.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "hey, before you head out. i know it's been a long week, but the client wants the revised forecast by monday 9 am. can you take it this weekend?"
+      },
+      "output": "media/saying-no/voice/opening.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "gave-in-u1",
+      "kind": "voice",
+      "scene": "voices · Gave in path",
+      "summary": "Player, turn 2: showed you heard him: the forecast, by monday 9 am.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "okay, so the client needs the revised forecast by monday 9 am, right?"
+      },
+      "output": "media/saying-no/voice/gave-in-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "gave-in-t2",
+      "kind": "voice",
+      "scene": "voices · Gave in path",
+      "summary": "Marcus, turn 3: pressing for a yes.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "right. nine sharp. the numbers changed after today's call. so, can i count on you?"
+      },
+      "output": "media/saying-no/voice/gave-in-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "gave-in-u2",
+      "kind": "voice",
+      "scene": "voices · Gave in path",
+      "summary": "Player, turn 4: hedged instead of saying no.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "umm, i'm very tired... i was working late whole week. maybe i can try?"
+      },
+      "output": "media/saying-no/voice/gave-in-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "gave-in-t3",
+      "kind": "voice",
+      "scene": "voices · Gave in path",
+      "summary": "Marcus, turn 5: soft pressure, sensing a yes.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "i know, i know. it's just a few hours. you'd really be helping me out."
+      },
+      "output": "media/saying-no/voice/gave-in-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "gave-in-u3",
+      "kind": "voice",
+      "scene": "voices · Gave in path",
+      "summary": "Player, turn 6: offered your saturday before he asked for it.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "but i have one dinner tonight... maybe i can do little bit tomorrow?"
+      },
+      "output": "media/saying-no/voice/gave-in-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guilt-trip",
+      "kind": "voice",
+      "scene": "voices · shared",
+      "summary": "Marcus, turn 7: quietly disappointed, the guilt trip.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "go on, your ride's on its way. i'll just do it myself.",
+        "emotion": "[sighs]"
+      },
+      "output": "media/saying-no/voice/guilt-trip.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "gave-in-u4",
+      "kind": "voice",
+      "scene": "voices · Gave in path",
+      "summary": "Player, turn 8: caved to the guilt trip.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "no no, sorry, sorry! i will do it on saturday. no problem.",
+        "emotion": "[nervously]"
+      },
+      "output": "media/saying-no/voice/gave-in-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "gave-in-t5",
+      "kind": "voice",
+      "scene": "voices · Gave in path",
+      "summary": "Marcus, turn 9: got his way, already turning back to his laptop.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "great. file's in your inbox. have fun tonight."
+      },
+      "output": "media/saying-no/voice/gave-in-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "got-rude-u1",
+      "kind": "voice",
+      "scene": "voices · Got rude path",
+      "summary": "Player, turn 2: snapped before hearing him out.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "what? why you always ask me last minute?"
+      },
+      "output": "media/saying-no/voice/got-rude-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "got-rude-t2",
+      "kind": "voice",
+      "scene": "voices · Got rude path",
+      "summary": "Marcus, turn 3: stung, bristling.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "excuse me? the client changed the numbers this afternoon. that's not on me.",
+        "emotion": "[annoyed]"
+      },
+      "output": "media/saying-no/voice/got-rude-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "got-rude-u2",
+      "kind": "voice",
+      "scene": "voices · Got rude path",
+      "summary": "Player, turn 4: said no with attitude and no reason.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "no. i'm not doing it. weekend is my time. not my problem."
+      },
+      "output": "media/saying-no/voice/got-rude-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "got-rude-u3",
+      "kind": "voice",
+      "scene": "voices · Got rude path",
+      "summary": "Player, turn 6: sarcastic jab during the guilt trip.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "wow, great. yeah, you do it then. must be nice being the boss."
+      },
+      "output": "media/saying-no/voice/got-rude-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "got-rude-t4",
+      "kind": "voice",
+      "scene": "voices · Got rude path",
+      "summary": "Marcus, turn 7: cold, done with you.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "forget it. i'll remember this one.",
+        "emotion": "[coldly]"
+      },
+      "output": "media/saying-no/voice/got-rude-t4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u1",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 2: showed you heard him: the forecast, by monday 9 am.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "okay. the revised forecast for the client, by monday 9 am."
+      },
+      "output": "media/saying-no/voice/guided-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t2",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 3: expecting a yes.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "that's the one. so, can you take it?"
+      },
+      "output": "media/saying-no/voice/guided-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u2",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 4: fake excuse instead of the real reason.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "umm... actually i am not feeling so good today."
+      },
+      "output": "media/saying-no/voice/guided-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t3",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 5: unconvinced, pushing.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "you look fine to me. it's only a few hours. you can do it from home."
+      },
+      "output": "media/saying-no/voice/guided-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u3",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 6: apologised your way toward a yes.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes but... i have plan. sorry, sorry. maybe after the dinner i can try?"
+      },
+      "output": "media/saying-no/voice/guided-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "hint",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Sarah's hint (turn 8).",
+      "prompt": null,
+      "characters": [
+        "sarah"
+      ],
+      "params": {
+        "voice": "sarah",
+        "text": "don't apologise your way into a yes. say no once, give the real reason, and remind him you've stayed late all week."
+      },
+      "output": "media/saying-no/voice/hint.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u4",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player reads Sarah's guided answer (turn 8).",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "marcus, i can't take it this weekend. tonight is my best friend's birthday dinner, we planned it weeks ago, and i've stayed late every night since tuesday."
+      },
+      "output": "media/saying-no/voice/guided-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t5",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 9: softens, still needs the file.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "fair. you have been here late all week. but i still need it before the client sees it. when can i have it?"
+      },
+      "output": "media/saying-no/voice/guided-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u5",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 10: good plan, but he had to ask for it.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "monday by noon. the client meeting is on wednesday, so that still gives you two days."
+      },
+      "output": "media/saying-no/voice/guided-u5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t6",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Marcus, turn 11: relieved, a little gruff.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "fine. monday noon. next time just tell me straight."
+      },
+      "output": "media/saying-no/voice/guided-t6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u6",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 12.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i will. thanks, marcus. have a good weekend."
+      },
+      "output": "media/saying-no/voice/guided-u6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u1",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 2: showed you heard him: the forecast, by monday 9 am.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "got it, the revised forecast for the client, by monday 9 am. i can see why that's urgent."
+      },
+      "output": "media/saying-no/voice/perfect-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t2",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Marcus, turn 3: expecting a yes.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "exactly. so you'll take it?"
+      },
+      "output": "media/saying-no/voice/perfect-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u2",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 4: said a clear no with the real reason.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i can't this weekend. my best friend's birthday dinner is tonight, we planned it weeks ago, and i've stayed late every night since tuesday."
+      },
+      "output": "media/saying-no/voice/perfect-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u3",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 6: offered another way before he asked.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "you don't have to. the client review is on wednesday, so i'll have it to you by monday noon. that still gives you two days."
+      },
+      "output": "media/saying-no/voice/perfect-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t4",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Marcus, turn 7: relieved, won over.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "monday noon. that's actually smarter. go, your ride's waiting.",
+        "emotion": "[relieved]"
+      },
+      "output": "media/saying-no/voice/perfect-t4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u4",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 8.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "thanks, marcus. have a good weekend."
+      },
+      "output": "media/saying-no/voice/perfect-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u1",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 2: showed you heard him: the forecast, by monday 9 am.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "oh, the client forecast, by monday 9 am? okay, i understand."
+      },
+      "output": "media/saying-no/voice/timesup-u1.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-t2",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Marcus, turn 3: waiting, hopeful.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "good. so is that a yes?"
+      },
+      "output": "media/saying-no/voice/timesup-t2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u2",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 4: rambling: no yes, no no.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "so the thing is, tonight is maya's birthday, and we booked this place weeks ago, it's very much famous for the pasta..."
+      },
+      "output": "media/saying-no/voice/timesup-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-t3",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Marcus, turn 5: losing the thread, glancing at your phone.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "okay... and the forecast?"
+      },
+      "output": "media/saying-no/voice/timesup-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u3",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 6: still circling, the clock is running.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yeah, yeah, the forecast. so i was thinking, maybe, if i will get time sunday, or... i don't know..."
+      },
+      "output": "media/saying-no/voice/timesup-u3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u4",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 8: explained the party instead of answering.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "no, no, it's not like that! it's just... maya's turning thirty, and everyone is coming, and i was already telling her..."
+      },
+      "output": "media/saying-no/voice/timesup-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-t5",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Marcus, turn 9: out of patience, eyes on your phone.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "i need a yes or a no."
+      },
+      "output": "media/saying-no/voice/timesup-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "timesup-u5",
+      "kind": "voice",
+      "scene": "voices · Time's up path",
+      "summary": "Player, turn 10: out of time: silence counts as a yes.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes, i mean, no, i mean... the thing is...",
+        "emotion": "[flustered]"
+      },
+      "output": "media/saying-no/voice/timesup-u5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "clock-exit",
+      "kind": "voice",
+      "scene": "voices · shared",
+      "summary": "Marcus, when the clock runs out: the ride is here, silence counts as a yes.",
+      "prompt": null,
+      "characters": [
+        "marcus"
+      ],
+      "params": {
+        "voice": "marcus",
+        "text": "your ride's here. i'll take that as a yes. file's in your inbox."
+      },
+      "output": "media/saying-no/voice/clock-exit.mp3",
+      "status": "draft"
+    }
+  ]
+}

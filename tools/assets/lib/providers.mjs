@@ -25,6 +25,8 @@ export function requireKey(name) {
 
 const mimeOf = (file) => ({ '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp' })[path.extname(file).toLowerCase()] || 'image/png';
 const inline = (file) => ({ mimeType: mimeOf(file), data: fs.readFileSync(path.isAbsolute(file) ? file : path.join(ROOT, file)).toString('base64') });
+// Veo's predictLongRunning takes images as { bytesBase64Encoded, mimeType }, not Gemini's inlineData.
+const veoImage = (file) => { const { mimeType, data } = inline(file); return { bytesBase64Encoded: data, mimeType }; };
 
 async function failIfBad(res, what) {
   if (res.ok) return;
@@ -60,12 +62,13 @@ export async function generateImage({ model, prompt, refs, aspect }) {
 export async function generateVideo({ model, prompt, firstFrame, lastFrame, references, aspect, duration, resolution, onPoll }) {
   const key = requireKey('GEMINI_API_KEY');
   const instance = { prompt };
-  if (firstFrame) instance.image = { inlineData: inline(firstFrame) };
-  if (lastFrame) instance.lastFrame = { inlineData: inline(lastFrame) };
-  if (references?.length) instance.referenceImages = references.map((r) => ({ image: { inlineData: inline(r) }, referenceType: 'asset' }));
-  const parameters = { aspectRatio: aspect, durationSeconds: duration, resolution };
+  if (firstFrame) instance.image = veoImage(firstFrame);
+  if (lastFrame) instance.lastFrame = veoImage(lastFrame);
+  if (references?.length) instance.referenceImages = references.map((r) => ({ image: veoImage(r), referenceType: 'asset' }));
+  const parameters = { aspectRatio: aspect, durationSeconds: duration };
+  if (resolution) parameters.resolution = resolution;
   if (firstFrame || lastFrame || references?.length) parameters.personGeneration = GEMINI.personGeneration;
-  if (GEMINI.sendNegativePrompt) parameters.negativePrompt = VIDEO_NEGATIVE;
+  if (GEMINI.sendNegativePrompt && !model.includes('lite')) parameters.negativePrompt = VIDEO_NEGATIVE; // Veo lite rejects negativePrompt
 
   const headers = { 'x-goog-api-key': key, 'Content-Type': 'application/json' };
   const start = await fetch(`${GEMINI.base}/models/${model}:predictLongRunning`, { method: 'POST', headers, body: JSON.stringify({ instances: [instance], parameters }) });

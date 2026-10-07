@@ -1,0 +1,128 @@
+<!doctype html>
+<!-- Read a roleplay's script as chat bubbles, one tab per path: tools/script-view.html?r=<roleplay-id> -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Script</title>
+<style>
+  :root { --bg:#0D0B14; --card:#191723; --opt:#211F2E; --hi:#fff; --mid:#E9E6F2; --low:#A9A4BC; --faint:#6E6884;
+          --accent:#8982FF; --gold:#E9B94D; --red:#E06A5A; --amber:#F0A32F; --lav:#A8A1FF; --green:#43D6A0; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--mid); font:16px/1.5 "Inter Display", Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  main { max-width:720px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { color:var(--hi); font-size:36px; line-height:1.1; margin:0 0 4px; letter-spacing:-0.01em; }
+  .sub { color:var(--low); margin:0 0 28px; }
+  h2 { color:var(--hi); font-size:13px; letter-spacing:.14em; text-transform:uppercase; margin:32px 0 12px; }
+  .scene { background:var(--card); border-radius:16px; padding:14px 16px; margin-bottom:8px; }
+  .scene b { color:var(--hi); }
+  .cloud { color:var(--low); font-style:italic; }
+  .stars li { margin:4px 0; }
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; position:sticky; top:0; background:var(--bg); padding:12px 0; z-index:1; }
+  .tabs button { font:inherit; font-size:14px; color:var(--mid); background:var(--opt); border:1px solid transparent; border-radius:999px; padding:8px 14px; cursor:pointer; }
+  .tabs button[aria-selected="true"] { border-color:var(--accent); color:var(--hi); }
+  .pathhead { margin:12px 0 20px; color:var(--low); }
+  .row { display:flex; flex-direction:column; margin:10px 0; }
+  .row.user { align-items:flex-end; }
+  .who { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin:0 6px 4px; }
+  .bubble { max-width:85%; padding:12px 16px; border-radius:20px; background:var(--card); color:var(--hi); }
+  .user .bubble { background:#2A2556; }
+  .hint .bubble { background:#2B2440; border:1px solid var(--accent); }
+  .meta { font-size:13px; color:var(--low); margin:4px 6px 0; max-width:85%; }
+  .star { color:var(--gold); }
+  .miss { color:var(--red); }
+  .event { align-self:center; font-size:13px; color:var(--amber); border:1px dashed var(--amber); border-radius:12px; padding:6px 12px; margin:12px 0; }
+  .fix { font-size:13px; color:var(--low); margin:6px 6px 0; max-width:85%; }
+  .fix .right { color:var(--green); }
+  .stamp { margin-top:28px; text-align:center; font-weight:800; font-size:28px; letter-spacing:.04em; }
+  .gold { color:var(--gold); } .red { color:var(--red); } .amber { color:var(--amber); } .lavender { color:var(--lav); }
+  .switch { display:flex; gap:16px; margin-bottom:28px; font-size:14px; }
+  .switch a { color:var(--low); text-decoration:none; padding-bottom:4px; }
+  .switch a[aria-current="true"] { color:var(--hi); border-bottom:2px solid var(--accent); }
+  audio.say { height:28px; margin:6px 4px 0; max-width:85%; }
+  .shots { display:flex; gap:8px; margin-bottom:10px; }
+  .shots video, .shots img { width:150px; aspect-ratio:9/16; object-fit:cover; border-radius:10px; background:#000; }
+  .appcard { display:inline-block; margin-top:8px; font-size:13px; color:var(--hi); background:var(--opt); border-radius:10px; padding:6px 10px; }
+  .underline-y { text-decoration:underline wavy var(--amber); }
+  .err { color:var(--red); } .hl { color:var(--gold); }
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const id = new URLSearchParams(location.search).get('r') || 'saying-no';
+const s = document.createElement('script');
+s.src = `../roleplays/${id}.js`;
+s.onload = async () => {
+  /* the asset list maps each story video to its start and end pictures */
+  const assets = await fetch(`../media/${id}/assets.json`).then((r) => (r.ok ? r.json() : { items: [] })).catch(() => ({ items: [] }));
+  render(window.ROLEPLAYS[id], assets.items || []);
+};
+s.onerror = () => { document.getElementById('app').textContent = `No roleplay file for "${id}".`; };
+document.head.appendChild(s);
+
+const ALL = [['saying-no', 'Saying no'], ['your-mistake', 'Your mistake'], ['small-talk', 'Small talk'], ['being-blamed', 'Being blamed']];
+const strip = (html) => String(html ?? '').replace(/<br\s*\/?>/g, ' ');
+const name = (t, r) => t.who === 'user' ? 'you' : t.who === 'hint' ? 'sarah' : (t.speaker || r.character);
+
+function meterText(m) {
+  if (m == null) return '';
+  return typeof m === 'object' ? Object.entries(m).map(([k, v]) => `${k} ${v}`).join(' · ') : `meter ${m}`;
+}
+
+function render(r, items = []) {
+  const app = document.getElementById('app');
+  const st = r.story, c = r.conversation;
+  const cardsOf = (sc) => [].concat(sc.card || [], sc.cards || []).map((k) => `<div class="appcard">${k.title} · ${k.body}</div>`).join('');
+  const byId = Object.fromEntries(items.map((i) => [i.id, i]));
+  const byOutput = Object.fromEntries(items.filter((i) => i.kind === 'video').map((i) => [i.output, i]));
+  const media = (sc) => (sc.videos || []).map((v) => {
+    const clip = byOutput[v];
+    if (!clip) return '';
+    const first = byId[clip.params.firstStill]?.output, last = byId[clip.params.lastStill]?.output;
+    return `<div class="shots"><video src="../${v}" poster="../${first}" muted loop playsinline controls onerror="this.replaceWith(Object.assign(document.createElement('img'),{src:'../${first}'}))"></video>${last ? `<img src="../${last}" alt="">` : ''}</div>`;
+  }).join('');
+  app.innerHTML = `
+    <nav class="switch">${ALL.map(([rid, label]) => `<a href="?r=${rid}" aria-current="${rid === id}">${label}</a>`).join('')}</nav>
+    <h1>${r.title}</h1>
+    <p class="sub">${r.gameType} · ${c.paths.length} paths · meter: ${c.meter?.kind || 'anger'}</p>
+    <h2>Story</h2>
+    ${st.scenes.map((sc, i) => `<div class="scene">${media(sc)}<b>${i + 1}.</b> ${sc.narrator?.text || ''}<br><span class="cloud">"${sc.cloud?.text || ''}"</span>${cardsOf(sc)}</div>`).join('')}
+    <div class="scene"><b>${strip(st.faceoff.headline)}</b> · ${st.faceoff.tagline}</div>
+    <div class="scene"><b>${strip(st.mission.goal)}</b>
+      <ol class="stars">${st.mission.stars.map((x) => `<li><b>${x.title}</b>: ${x.sub}</li>`).join('')}</ol>${strip(st.mission.clock)}</div>
+    <h2>Conversation</h2>
+    <div class="tabs" role="tablist">${c.paths.map((p, i) => `<button role="tab" aria-selected="${i === 0}" data-i="${i}">${p.title}</button>`).join('')}</div>
+    <section id="path"></section>`;
+  const tabs = app.querySelectorAll('.tabs button');
+  tabs.forEach((b) => b.addEventListener('click', () => {
+    tabs.forEach((x) => x.setAttribute('aria-selected', x === b));
+    showPath(r, c.paths[+b.dataset.i]);
+  }));
+  showPath(r, c.paths[0]);
+}
+
+const play = (src) => (src ? `<audio class="say" controls preload="none" src="../${src}"></audio>` : '');
+function showPath(r, p) {
+  const out = [`<p class="pathhead">${p.tag || ''} · ${p.stars}★</p>`];
+  for (const t of p.turns) {
+    if (t.event && t.event.at === 'before') out.push(`<div class="event">${t.event.id}</div>`);
+    if (t.who === 'hint') {
+      out.push(`<div class="row hint"><div class="who">sarah · hint</div><div class="bubble">${t.hintText || ''}</div>${play(t.audio)}</div>`);
+      if (t.response) out.push(`<div class="row user"><div class="who">you</div><div class="bubble">${t.response}</div>${play(t.uaudio)}</div>`);
+    } else {
+      const meta = [t.mood, meterText(t.meter ?? t.anger), t.morph && `clip: ${t.morph}`].filter(Boolean).join(' · ');
+      const stars = t.card ? `<div class="meta star">★ ${t.card}</div>` : '';
+      const miss = (t.chips || []).map((ch) => `<div class="meta miss">✕ ${ch.label}</div>`).join('');
+      const g = t.feedback?.grammar;
+      const fix = g ? `<div class="fix">${g.wrong} → <span class="right">${g.right}</span></div>` : '';
+      out.push(`<div class="row ${t.who === 'user' ? 'user' : ''}"><div class="who">${name(t, r)}</div><div class="bubble">${t.text}</div>${play(t.who === 'user' ? t.uaudio : t.audio)}<div class="meta">${meta}</div>${stars}${miss}${fix}</div>`);
+    }
+    if (t.event && t.event.at !== 'before') out.push(`<div class="event">${t.event.id}</div>`);
+  }
+  if (p.stamp) out.push(`<div class="stamp ${p.stamp.color}">${p.stamp.text}</div>`);
+  document.getElementById('path').innerHTML = out.join('');
+}
+</script>
+</body>
+</html>

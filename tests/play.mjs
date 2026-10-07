@@ -13,8 +13,8 @@ async function tap(page, locator, offset) {
   await page.mouse.click(x, y);
 }
 
-export async function openRoleplay(page, topicText, { shots } = {}) {
-  await page.goto('/index.html');
+export async function openRoleplay(page, topicText, { shots, query = '' } = {}) {
+  await page.goto('/index.html' + query);
   if (shots) await shots('topics');
   await tap(page, page.locator('.topic-row', { hasText: topicText }));
   const story = page.frameLocator('#ctx-frame');
@@ -87,6 +87,8 @@ export async function readOutcome(frame) {
     stamp: getComputedStyle(document.querySelector('#resultsScreen .r-stamp')).display === 'none'
       ? null : document.querySelector('#resultsScreen .r-stamp').innerText.replace(/\s+/g, ' ').trim(),
     title: document.querySelector('#resultsScreen .r-title').textContent,
-    anger: ANGER,
+    // Leave keeps its anger global; the other roleplays publish the last applied meter value
+    anger: typeof ANGER === 'undefined' ? null : ANGER,
+    meter: window.METER_VALUE === undefined ? null : window.METER_VALUE,
   }));
 }

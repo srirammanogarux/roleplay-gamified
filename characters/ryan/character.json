@@ -1,18 +1,26 @@
 {
   "id": "ryan",
   "name": "Ryan",
-  "role": "Coworker. Casual and likeable on the surface; blames you in the project review.",
+  "role": "Coworker who just moved to the desk two away from you. Small talk at the coffee machine; in the dropped-handover meeting with Elena he says it was never handed over properly.",
   "look": "a man in his early thirties with tousled sandy-blond hair swept to one side, light stubble, bright blue eyes, fair skin with a faint flush on the cheeks and an easy lopsided grin. Slim build. He wears a light-blue oxford shirt with the top button open and the sleeves rolled to the forearms, no tie, grey chinos and a black smartwatch.",
   "style": null,
-  "personality": "Easy-going, charming, a bit lazy; deflects blame without thinking and backs down fast when calmly shown the facts. Talks over people when he is nervous.",
+  "personality": "Easy-going, charming, a bit lazy; deflects blame without thinking and backs down fast when calmly shown the facts. Talks over people when he is nervous. In small talk he is friendly but polite-distracted, half on his phone, until you say something specific; then he lights up about running (his first half marathon), Pickle (his rescue dog) and his move to your team.",
   "voice": {
-    "id": null,
-    "model": null,
-    "settings": null,
+    "id": "RPEIZnKMqlQiZyZd1Dae",
+    "model": "eleven_v4",
+    "settings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0,
+      "use_speaker_boost": true,
+      "speed": 1
+    },
     "pronunciationDictionaries": [],
-    "note": "New voice: relaxed, friendly American male in his thirties."
+    "note": "Picked by the user on 2026-10-07: Christopher · guy next door. Keep id, model and settings fixed."
   },
-  "references": [],
+  "references": [
+    "characters/ryan/look-approved.png"
+  ],
   "styleReferences": [
     "flow-assets/boss-meter-calm.png",
     "boss.png"
@@ -25,7 +33,7 @@
       "prompt": "Ryan facing the camera, chest-up, relaxed and neutral: brows level, eyes friendly, mouth closed, shoulders loose. This is his master reference portrait: clear, evenly lit, every detail of his hair, stubble and shirt visible.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/neutral.png",
-      "status": "draft",
+      "status": "approved",
       "reference": true,
       "base": true
     },
@@ -36,7 +44,7 @@
       "prompt": "Ryan in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, relaxed neutral expression, mouth closed.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/three-quarter-left.png",
-      "status": "draft",
+      "status": "approved",
       "reference": true
     },
     {
@@ -46,7 +54,7 @@
       "prompt": "Ryan facing the camera with his easy lopsided grin, closed mouth, one corner higher, eyebrows relaxed, eyes friendly.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/casual-grin.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "smug",
@@ -55,7 +63,7 @@
       "prompt": "Ryan facing the camera, smug: one eyebrow slightly raised, eyes half-lidded, a small self-satisfied closed-mouth smirk, chin lifted a little.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/smug.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "surprised",
@@ -64,7 +72,7 @@
       "prompt": "Ryan facing the camera, caught off guard: eyebrows jump up, eyes wide, mouth closed or slightly parted, head pulled back a touch.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/surprised.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "defensive",
@@ -73,7 +81,7 @@
       "prompt": "Ryan facing the camera, defensive: brows pulled together and down, eyes narrowed, jaw tight, mouth closed in a tense line, shoulders raised slightly.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/defensive.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "sheepish",
@@ -82,7 +90,7 @@
       "prompt": "Ryan facing the camera, sheepish: eyes glancing down and away, brows raised in the middle, an awkward closed-mouth half smile, neck slightly flushed.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/sheepish.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "annoyed",
@@ -91,7 +99,34 @@
       "prompt": "Ryan facing the camera, quietly annoyed: brows lowered, eyes rolled slightly to the side, lips pressed together, cheek muscles tight.",
       "aspect": "9:16",
       "output": "characters/ryan/sheet/annoyed.png",
-      "status": "draft"
+      "status": "approved"
+    },
+    {
+      "id": "bored",
+      "type": "still",
+      "summary": "Mood face (small talk): bored, polite-distracted, attention drifting (spark low).",
+      "prompt": "Ryan facing the camera, bored and polite-distracted: eyelids half lowered, gaze drifting down and to the side past the camera as if towards a phone, brows flat, mouth closed in a small polite half smile that has gone slack. Friendly but clearly elsewhere.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/bored.png",
+      "status": "approved"
+    },
+    {
+      "id": "interested",
+      "type": "still",
+      "summary": "Mood face (small talk): interested, leaning in.",
+      "prompt": "Ryan facing the camera, interested: head tilted slightly forward, brows lifted a little, eyes focused and bright, the corner of his lopsided grin starting to lift, mouth closed.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/interested.png",
+      "status": "approved"
+    },
+    {
+      "id": "delighted",
+      "type": "still",
+      "summary": "Mood face (small talk): delighted, laughing, warm (spark full).",
+      "prompt": "Ryan facing the camera, delighted and laughing: a wide open grin showing the top teeth, eyes crinkled almost shut, brows lifted, cheeks raised with the faint flush a little stronger, head tipped back a touch. Warm and open.",
+      "aspect": "9:16",
+      "output": "characters/ryan/sheet/delighted.png",
+      "status": "approved"
     },
     {
       "id": "leans-back",
@@ -130,7 +165,8 @@
       "fitSeconds": 4,
       "crop": "square",
       "output": "characters/ryan/sheet/caught-out.mp4",
-      "status": "draft"
+      "status": "draft",
+      "note": "Veo refused this clip 8 times (audio filter). Built by hand on 2026-10-07: cross-fade from the first face to the last with a slow push-in. Regenerate with Veo later if wanted."
     },
     {
       "id": "gets-defensive",
@@ -143,6 +179,58 @@
       "fitSeconds": 4,
       "crop": "square",
       "output": "characters/ryan/sheet/gets-defensive.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "greeting",
+      "type": "video",
+      "summary": "Clip (small talk): easy greeting nod, from neutral to casual grin.",
+      "prompt": "Ryan starts neutral, then gives a small easy chin-up nod, the way you greet someone you half know, and his face settles into his easy lopsided grin. The camera slowly pushes in a little. His mouth never opens; no speaking.",
+      "firstFrame": "neutral",
+      "lastFrame": "casual-grin",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/greeting.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "laugh",
+      "type": "video",
+      "summary": "Clip (small talk): genuine laugh, from interested to delighted.",
+      "prompt": "Ryan starts interested, then breaks into a genuine silent laugh: eyes crinkle, head tips back slightly, shoulders lift once, ending on his delighted face. The camera holds steady with a very slight push-in. No speech, no lip movement shaped like words.",
+      "firstFrame": "interested",
+      "lastFrame": "delighted",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/laugh.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "checks-phone",
+      "type": "video",
+      "summary": "Clip (small talk): his phone buzzes and he drifts off to it, from neutral to bored.",
+      "prompt": "Ryan starts neutral, then lowers his eyes and tips his head down to glance at a phone held below the frame (the phone and his hands stay out of view), then looks back up with a bored, distracted expression, half his attention still on the phone. A faint cool screen glow touches his chin while he looks down. The camera stays still.",
+      "firstFrame": "neutral",
+      "lastFrame": "bored",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/checks-phone.mp4",
+      "status": "draft"
+    },
+    {
+      "id": "leaves",
+      "type": "video",
+      "summary": "Clip (small talk): turns and walks out of frame (he drifted off). Ends on the empty black background.",
+      "prompt": "Ryan starts on his bored face, gives a brief friendly nod, then turns to our left and walks out of the frame. The camera stays still. The clip ends on the plain black background with nobody in it.",
+      "firstFrame": "bored",
+      "lastFrame": null,
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/ryan/sheet/leaves.mp4",
       "status": "draft"
     }
   ]

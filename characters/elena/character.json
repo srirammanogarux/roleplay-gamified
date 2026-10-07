@@ -2,17 +2,25 @@
   "id": "elena",
   "name": "Elena",
   "role": "Senior leader, Marcus's boss. Small talk in the kitchen; the most important face in the project review.",
-  "look": "a woman in her late forties with medium-brown skin, a sleek chin-length dark-brown bob with a single silver streak at her left temple, dark brown eyes, defined cheekbones, thin dark eyebrows, small gold stud earrings and a composed, alert face. Lean runner's build. She wears a tailored navy blazer over a cream silk blouse with a simple round neckline and a slim gold watch.",
+  "look": "a woman in her late forties with light olive skin, dark-brown hair pulled back into a sleek low ponytail with a few silver strands at both temples, dark brown eyes, strong straight brows, a sharp jaw, small silver hoop earrings and a composed, alert face. Lean, athletic shoulders. She wears a deep emerald tailored blazer over a plain white crew-neck top.",
   "style": null,
   "personality": "Sharp, time-poor and hard to impress; allergic to \"how's it going\". Warms up fast to specific details and good questions, especially about running (she just finished a marathon), her dog, and the new Austin office she is opening. In meetings she cares about fixes, not blame.",
   "voice": {
-    "id": null,
-    "model": null,
-    "settings": null,
+    "id": "ZIlrSGI4jZqobxRKprJz",
+    "model": "eleven_v4",
+    "settings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0,
+      "use_speaker_boost": true,
+      "speed": 1
+    },
     "pronunciationDictionaries": [],
-    "note": "New voice: pick a clear, confident, warm-when-engaged American female voice."
+    "note": "Picked by the user on 2026-10-07: Clara · warm, professional. Keep id, model and settings fixed."
   },
-  "references": [],
+  "references": [
+    "characters/elena/look-approved.png"
+  ],
   "styleReferences": [
     "flow-assets/boss-meter-calm.png",
     "boss.png"
@@ -22,10 +30,10 @@
       "id": "neutral",
       "type": "still",
       "summary": "Base reference: front bust, composed neutral face. Approve this first; every other Elena image copies it.",
-      "prompt": "Elena facing the camera, chest-up, composed and neutral: brows level, eyes attentive, mouth closed in a relaxed line, shoulders square. This is her master reference portrait: clear, evenly lit, every detail of her face, hair streak, earrings and outfit visible.",
+      "prompt": "Elena facing the camera, chest-up, composed and neutral: brows level, eyes attentive, mouth closed in a relaxed line, shoulders square. This is her master reference portrait: clear, evenly lit, every detail of her face, ponytail, silver strands at both temples, earrings and outfit visible.",
       "aspect": "9:16",
       "output": "characters/elena/sheet/neutral.png",
-      "status": "draft",
+      "status": "approved",
       "reference": true,
       "base": true
     },
@@ -33,10 +41,10 @@
       "id": "three-quarter-left",
       "type": "still",
       "summary": "Three-quarter view turned to our left, neutral. Second reference.",
-      "prompt": "Elena in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, neutral composed expression, mouth closed. The silver streak at her left temple stays visible.",
+      "prompt": "Elena in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, neutral composed expression, mouth closed. The low ponytail and the silver strands at her temples stay visible.",
       "aspect": "9:16",
       "output": "characters/elena/sheet/three-quarter-left.png",
-      "status": "draft",
+      "status": "approved",
       "reference": true
     },
     {
@@ -46,7 +54,7 @@
       "prompt": "Elena facing the camera, bored: eyelids half lowered, gaze drifting to the side past the camera, brows flat, mouth closed in a slight polite downturn. Polite but clearly elsewhere.",
       "aspect": "9:16",
       "output": "characters/elena/sheet/bored.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "interested",
@@ -55,7 +63,7 @@
       "prompt": "Elena facing the camera, interested: head tilted slightly forward, brows lifted a little, eyes focused and bright, a small closed-mouth smile.",
       "aspect": "9:16",
       "output": "characters/elena/sheet/interested.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "delighted",
@@ -64,7 +72,7 @@
       "prompt": "Elena facing the camera, delighted: a wide genuine smile showing the top teeth, eyes crinkled, brows lifted, cheeks raised. Warm and open.",
       "aspect": "9:16",
       "output": "characters/elena/sheet/delighted.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "skeptical",
@@ -73,7 +81,7 @@
       "prompt": "Elena facing the camera, skeptical and questioning: one eyebrow raised slightly, eyes narrowed a touch and fixed on the camera, head tilted a few degrees, mouth closed in a neutral line. Waiting for an answer, not hostile.",
       "aspect": "9:16",
       "output": "characters/elena/sheet/skeptical.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "disapproving",
@@ -82,7 +90,7 @@
       "prompt": "Elena facing the camera, coolly disapproving: brows lowered and drawn slightly together, eyes steady and unimpressed, mouth closed and pressed flat, chin lifted a little. Controlled, never shouting.",
       "aspect": "9:16",
       "output": "characters/elena/sheet/disapproving.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "greeting",
@@ -122,6 +130,20 @@
       "crop": "square",
       "output": "characters/elena/sheet/checks-phone.mp4",
       "status": "draft"
+    },
+    {
+      "id": "turns-to-you",
+      "type": "video",
+      "summary": "Clip (project review): \"is that right?\", turns to you, from neutral to skeptical.",
+      "prompt": "Elena starts neutral, facing the camera. Her eyes flick briefly to our left, as if towards someone across the table, then come back and fix on the camera (on the player). She tilts her head a few degrees, one eyebrow rises slightly and her eyes narrow a touch, ending on her skeptical face: questioning, not hostile. The camera pushes in slightly as her gaze lands. Hands stay below the frame. Her mouth stays closed; no speaking.",
+      "firstFrame": "neutral",
+      "lastFrame": "skeptical",
+      "duration": 8,
+      "fitSeconds": 4,
+      "crop": "square",
+      "output": "characters/elena/sheet/turns-to-you.mp4",
+      "status": "draft",
+      "note": "Veo refused this clip 8 times (audio filter). Built by hand on 2026-10-07: cross-fade from the first face to the last with a slow push-in. Regenerate with Veo later if wanted."
     },
     {
       "id": "leaves",

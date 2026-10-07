@@ -7,11 +7,17 @@
   "style": "Smooth Bitmoji-like 2D cartoon avatar exactly as in the Sarah reference images: soft thin outlines, flat colours with very gentle shading, big expressive eyes, rounded friendly features. This style is unique to Sarah as the app's guide; never draw her in Marcus's style.",
   "personality": "Warm, quick and on your side. Speaks in one short, practical tip, never a lecture.",
   "voice": {
-    "id": null,
-    "model": null,
-    "settings": null,
+    "id": "OYTbf65OHHFELVut7v2H",
+    "model": "eleven_v4",
+    "settings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0,
+      "use_speaker_boost": true,
+      "speed": 1
+    },
     "pronunciationDictionaries": [],
-    "note": "Look up her id with --list-voices if she already has one; she has no lines in Asking for leave."
+    "note": "Picked by the user on 2026-10-07: Hope. Keep id, model and settings fixed."
   },
   "references": [
     "sarah.png",
@@ -37,7 +43,7 @@
       "prompt": "Sarah facing the camera, chest-up, arms relaxed at her sides and out of frame, a soft closed-mouth smile, eyes bright and attentive.",
       "aspect": "9:16",
       "output": "characters/sarah/sheet/front-neutral.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "three-quarter-left",
@@ -46,7 +52,7 @@
       "prompt": "Sarah in a three-quarter view turned about 35 degrees to our left, eyes glancing back towards the camera, soft closed-mouth smile. Hair falls naturally over her far shoulder.",
       "aspect": "9:16",
       "output": "characters/sarah/sheet/three-quarter-left.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "concerned",
@@ -55,7 +61,7 @@
       "prompt": "Sarah facing the camera, concerned and caring: brows drawn up in the middle, eyes wide and soft, lips pressed together gently, head tilted slightly. Worried for the player, not scared.",
       "aspect": "9:16",
       "output": "characters/sarah/sheet/concerned.png",
-      "status": "draft"
+      "status": "approved"
     },
     {
       "id": "encouraging",
@@ -64,7 +70,7 @@
       "prompt": "Sarah facing the camera, encouraging: bright eyes, eyebrows lifted, a warm wide closed-mouth smile, a small confident nod of the head.",
       "aspect": "9:16",
       "output": "characters/sarah/sheet/encouraging.png",
-      "status": "draft"
+      "status": "approved"
     }
   ]
 }

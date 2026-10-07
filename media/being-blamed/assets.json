@@ -1,0 +1,831 @@
+{
+  "roleplay": "being-blamed",
+  "title": "When a coworker blames you",
+  "note": "Gate 1 draft: stills generated, videos and voices not yet. Scenario \"The dropped handover\": story is four scenes (Thursday handover in the open-plan office, Monday at your desk, the small meeting room, the blame), each a prompted start still, a prompted end still and one 8 s Veo clip retimed to 6 s; story 4 is the hero shot (1080p). No text in any picture: phone screens face away or glow blank, and the app draws the phone cards (your Thu 5:10 PM note, Ryan's \"got it 👍\", Elena's Mon 8:47 AM message) on top. The player is the faceless deep-purple silhouette, as in Asking for leave. Reaction clips and mood faces live on the character sheets: ryan shifts-blame / gets-defensive / caught-out, elena turns-to-you / checks-phone (clock exit), plus the existing flow-assets/sarah-hint.mp4. Meter faces: characters/ryan|elena/sheet/<face>.png. Face-off uses characters/ryan/sheet/smug.png and img/you.png. Voice items are derived from roleplays/being-blamed.js (HTML tags stripped), one per line, one playlist per path.",
+  "characters": [
+    "ryan",
+    "elena",
+    "sarah"
+  ],
+  "playlists": {
+    "defensive": [
+      "opening",
+      "defensive-u2",
+      "defensive-t3",
+      "defensive-u4",
+      "defensive-t5",
+      "defensive-u6",
+      "defensive-t7",
+      "defensive-u8",
+      "defensive-t9"
+    ],
+    "silent": [
+      "opening",
+      "silent-u2",
+      "silent-t3",
+      "silent-u4",
+      "silent-t5",
+      "silent-u6",
+      "clock-exit"
+    ],
+    "guided": [
+      "opening",
+      "guided-u2",
+      "guided-t3",
+      "guided-u4",
+      "guided-t5",
+      "guided-t6",
+      "guided-u7",
+      "hint",
+      "guided-u8",
+      "guided-t9",
+      "guided-t10",
+      "guided-u11",
+      "guided-t12"
+    ],
+    "perfect": [
+      "opening",
+      "perfect-u2",
+      "perfect-t3",
+      "perfect-u4",
+      "perfect-t5",
+      "perfect-t6",
+      "perfect-u7",
+      "perfect-t8",
+      "perfect-t9"
+    ]
+  },
+  "items": [
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "topic-avatar",
+      "scene": "topics",
+      "summary": "Topic tile avatar on the topics list: Ryan, leaning back with a smug, easy grin.",
+      "prompt": "Ryan, the coworker, chest-up against a plain pure black background, facing the camera and leaning back slightly, smug and at ease: one eyebrow a touch raised, eyes half-lidded, a small self-satisfied closed-mouth lopsided grin, chin lifted a little. Hands below the frame. Centred, square framing with the head and shoulders filling the middle of the frame.",
+      "params": {
+        "aspect": "1:1"
+      },
+      "output": "media/being-blamed/stills/topic-avatar.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-1-handover-start",
+      "scene": "story 1 · the handover",
+      "summary": "Start frame of story-1-handover: Thursday 5 PM. You at your desk, phone in hand, sending the handover; Ryan two desks away at his laptop.",
+      "prompt": "An open-plan office: rows of pale-oak desks with slim black monitors (screens blank or showing soft abstract colour blocks), charcoal mesh chairs, low white storage cabinets with a few potted plants, tall windows along the left wall, and a glass door to the corridor on the far right. The player's desk is in the near-left foreground; Ryan's desk is two desks away, in the middle of the frame on the right. No text, no numbers, no logos on any screen, paper or sign. It is Thursday, just after five in the afternoon: warm, low, golden sunlight slants in long stripes through the windows; half the desks are already empty. Medium-wide shot from just behind and to the left of the player's desk, at seated eye level. In the left foreground the player sits at their desk, seen from behind at three-quarters: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline. The player holds a phone low at desk height, looking down at it; the phone screen faces the player, away from the camera, so only a soft glow lights the silhouette's edge. A packed bag sits on the player's desk beside a closed laptop. Two desks away, in the middle of the frame on the right, Ryan sits at his desk facing roughly towards the camera, relaxed, eyes on his laptop, mouth closed, a phone lying face-down beside the laptop. His hands rest small and simple on the desk. Calm, end-of-day mood.",
+      "params": {
+        "aspect": "9:16"
+      },
+      "output": "media/being-blamed/stills/story-1-handover-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-1-handover-end",
+      "scene": "story 1 · the handover",
+      "summary": "End frame of story-1-handover: your chair empty and pushed back, bag gone; Ryan at his own desk two desks away, leaning back with his phone in hand, easy and unbothered.",
+      "prompt": "An open-plan office: rows of pale-oak desks with slim black monitors (screens blank or showing soft abstract colour blocks), charcoal mesh chairs, low white storage cabinets with a few potted plants, tall windows along the left wall, and a glass door to the corridor on the far right. The player's desk is in the near-left foreground; Ryan's desk is two desks away, in the middle of the frame on the right. No text, no numbers, no logos on any screen, paper or sign. It is Thursday, just after five in the afternoon: warm, low, golden sunlight slants in long stripes through the windows; half the desks are already empty. Exactly the same camera position and framing as the start of this shot (medium-wide, from just behind and to the left of the player's desk, seated eye level), only a touch closer. The player's desk in the left foreground is now empty: the chair is pushed back and turned a little to the side, the bag is gone, the open laptop and the mug are left on the desk. The player is no longer in the room. Two desks away, at the same desk in the middle of the frame on the right, Ryan sits behind his laptop and leans back in his chair, relaxed, holding his phone loosely at chest height with its screen facing him (away from the camera), an easy lopsided closed-mouth grin, eyes on the phone. His hands are small and simple in the frame. No other people in the office. The golden light has dropped a little lower.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "media/being-blamed/stills/story-1-handover-start.png"
+        ]
+      },
+      "output": "media/being-blamed/stills/story-1-handover-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "draft",
+      "id": "story-1-handover",
+      "scene": "story 1 · the handover",
+      "summary": "Thursday, 5:10 PM. Friday's your day off: you send Ryan the handover from your phone, he reads it, taps a reply and leans back, and you head out. The app draws both phone cards (your note, his \"got it 👍\") on top.",
+      "prompt": "An open-plan office: rows of pale-oak desks with slim black monitors (screens blank or showing soft abstract colour blocks), charcoal mesh chairs, low white storage cabinets with a few potted plants, tall windows along the left wall, and a glass door to the corridor on the far right. The player's desk is in the near-left foreground; Ryan's desk is two desks away, in the middle of the frame on the right. No text, no numbers, no logos on any screen, paper or sign. It is Thursday, just after five in the afternoon: warm, low, golden sunlight slants in long stripes through the windows; half the desks are already empty. The player sits at their desk in the left foreground, seen from behind at three-quarters (a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline), a phone held low; Ryan sits at his desk two desks away on the right, his phone face-down beside his laptop. Action: for the first two seconds the player looks down at the phone, thumb moving, still; its screen faces away from the camera. From second 2 to 4 Ryan's face-down phone gives a soft glow; he turns it over and reads it. From second 4 to 6 he taps a quick one-thumb reply with his easy lopsided grin and a small nod, then leans back with the phone loosely in hand, mouth closed throughout. From second 5 to 7.5 the player slips the phone into a pocket, stands, picks up the bag and walks out of frame to the left, leaving the laptop and mug on the desk. The last half second holds on the empty chair, turned slightly, and on Ryan leaning back with his phone in hand. Nobody speaks. Hands stay small and simple and are never the focus. Camera: a slow, steady drift with a gentle push-in towards Ryan, no cuts.",
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-1-handover-start",
+        "lastStill": "story-1-handover-end"
+      },
+      "output": "media/being-blamed/videos/story-1-handover.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-2-monday-start",
+      "scene": "story 2 · monday",
+      "summary": "Start frame of story-2-monday: Monday morning, the same office from the same angle as Thursday; you arrive at your desk, bag on your shoulder; Ryan's desk two desks away is empty.",
+      "prompt": "An open-plan office: rows of pale-oak desks with slim black monitors (screens blank or showing soft abstract colour blocks), charcoal mesh chairs, low white storage cabinets with a few potted plants, tall windows along the left wall, and a glass door to the corridor on the far right. The player's desk is in the near-left foreground; Ryan's desk is two desks away, in the middle of the frame on the right. No text, no numbers, no logos on any screen, paper or sign. It is Monday morning: flat, cool, grey-blue daylight through the windows; the office lights are on; nobody else is in this part of the office. The same office and the same camera position as the reference image (from just behind and to the left of the player's desk), raised to standing eye level, a little wider; keep every desk, window, cabinet and the glass door where they are, but swap the warm Thursday light for flat grey Monday light. In the left foreground the player has just arrived at their desk, standing, bag still on one shoulder, seen from behind at three-quarters: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline. Two desks away, Ryan's desk in the middle of the frame on the right is empty: his chair is tucked in, his laptop is open with a dark, switched-off screen, a plain white mug with no print sits beside it. On the player's desk sit an open laptop with a dark screen and a small brown bag. The glass door on the far right has just swung shut. Quiet, slightly uneasy mood.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "media/being-blamed/stills/story-1-handover-start.png",
+          "boss.png",
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/being-blamed/stills/story-2-monday-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [],
+      "status": "approved",
+      "id": "story-2-monday-end",
+      "scene": "story 2 · monday",
+      "summary": "End frame of story-2-monday: closer, over your shoulder; phone lowered, you've turned your head to look across at Ryan's empty desk.",
+      "prompt": "An open-plan office: rows of pale-oak desks with slim black monitors (screens blank or showing soft abstract colour blocks), charcoal mesh chairs, low white storage cabinets with a few potted plants, tall windows along the left wall, and a glass door to the corridor on the far right. The player's desk is in the near-left foreground; Ryan's desk is two desks away, in the middle of the frame on the right. No text, no numbers, no logos on any screen, paper or sign. It is Monday morning: flat, cool, grey-blue daylight through the windows; the office lights are on; nobody else is in this part of the office. The reference image is the same shot a few seconds earlier: keep its room, furniture, props, light and camera layout exactly, and change only what is described here. Closer medium shot from behind the player's left shoulder: the player (a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline) stands at their desk, the shoulder bag now set down on the desk, a phone held low at chest height with its screen facing the player (away from the camera), a soft cool glow on the silhouette's rim. The player's head is turned to the right, in profile as a smooth faceless silhouette, looking across at Ryan's empty desk two desks away in the middle-right of the frame: chair tucked in, laptop open with a dark screen, plain white mug beside it, softly in focus. No hands in close-up: the phone hand is small at the lower edge of the frame. Still, uneasy mood.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "media/being-blamed/stills/story-2-monday-start.png",
+          "boss.png",
+          "flow-assets/boss-meter-calm.png"
+        ]
+      },
+      "output": "media/being-blamed/stills/story-2-monday-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "draft",
+      "id": "story-2-monday",
+      "scene": "story 2 · monday",
+      "summary": "Monday. The request never got done. You get to your desk, your phone buzzes (the app draws Elena's message on top), and you look across at Ryan's empty desk.",
+      "prompt": "An open-plan office: rows of pale-oak desks with slim black monitors (screens blank or showing soft abstract colour blocks), charcoal mesh chairs, low white storage cabinets with a few potted plants, tall windows along the left wall, and a glass door to the corridor on the far right. The player's desk is in the near-left foreground; Ryan's desk is two desks away, in the middle of the frame on the right. No text, no numbers, no logos on any screen, paper or sign. It is Monday morning: flat, cool, grey-blue daylight through the windows; the office lights are on; nobody else is in this part of the office. Action: in the first second the glass door on the far right swings shut behind the player, who stands at their desk in the left foreground (a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline), bag on one shoulder. From second 1 to 3 the player sets the shoulder bag down on the desk. From second 3 to 5 a soft glow lights the player's rim as they lift a phone to chest height and look down at it; the screen faces the player and is never seen by the camera. From second 5 to 7 the player's head turns slowly to the right, towards Ryan's empty desk two desks away (chair tucked in, laptop open with a dark screen, plain white mug). The last second holds, completely still. Camera: a slow, steady push-in from the wide shot to a medium shot over the player's left shoulder, no cuts.",
+      "characters": [],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-2-monday-start",
+        "lastStill": "story-2-monday-end"
+      },
+      "output": "media/being-blamed/videos/story-2-monday.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "elena",
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-3-room-start",
+      "scene": "story 3 · the room",
+      "summary": "Start frame of story-3-room: from the doorway of the small meeting room, Elena seated on the far side, Ryan about to sit on the right.",
+      "prompt": "A small glass-walled meeting room: a round pale-oak table for three with charcoal mesh chairs, a tall window wall on the left with soft, cool Monday-morning daylight and a hazy city skyline, clear glass walls on the back and right, a blank whiteboard mounted on the back wall (completely clean, no writing) and a single potted plant in the back-right corner. On the table there is only Elena's slim silver laptop, open in front of her and angled away from the camera so its screen is never seen, and one plain matte white mug with no print: no water jug, no glasses, no other cups. Seating: Elena on the far side of the table, centred, facing the camera; Ryan on the right side of the table, turned towards her; the player on the near side, where the camera is. No text, no numbers, no logos anywhere. Medium-wide shot from the doorway at standing eye level, looking in. Elena sits upright on the far side of the round table, centred in the upper middle of the frame, her eyes down on her open laptop, composed and unsmiling, mouth closed. Ryan stands on the right side of the table, one hand on the back of his chair, about to sit, casual. In the bottom-left corner, softly out of focus, the edge of the player's shoulder: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline. Hands are relaxed, simple and small in the frame.",
+      "params": {
+        "aspect": "9:16"
+      },
+      "output": "media/being-blamed/stills/story-3-room-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "elena",
+        "ryan"
+      ],
+      "status": "approved",
+      "id": "story-3-room-end",
+      "scene": "story 3 · the room",
+      "summary": "End frame of story-3-room: same doorway view; Ryan has sat down on the right, and Elena has looked up from her laptop at you, cool.",
+      "prompt": "A small glass-walled meeting room: a round pale-oak table for three with charcoal mesh chairs, a tall window wall on the left with soft, cool Monday-morning daylight and a hazy city skyline, clear glass walls on the back and right, a blank whiteboard mounted on the back wall (completely clean, no writing) and a single potted plant in the back-right corner. On the table there is only Elena's slim silver laptop, open in front of her and angled away from the camera so its screen is never seen, and one plain matte white mug with no print: no water jug, no glasses, no other cups. Seating: Elena on the far side of the table, centred, facing the camera; Ryan on the right side of the table, turned towards her; the player on the near side, where the camera is. No text, no numbers, no logos anywhere. The reference image is the same shot a few seconds earlier: keep its room, furniture, props, light and camera layout exactly, and change only what is described here. The same medium-wide view from the doorway, the camera only a touch closer. Elena, centred in the upper middle of the frame behind her open laptop, has lifted her eyes and looks straight into the camera: cool, sharp, unimpressed, brows level and slightly lowered, mouth closed and flat. Her hands are below the table edge, out of frame. Ryan now sits in the chair on the right side of the table, leaning back, relaxed, his eyes on Elena, mouth closed. The bottom-left foreground holds the soft, out-of-focus shoulder of the player: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "media/being-blamed/stills/story-3-room-start.png"
+        ]
+      },
+      "output": "media/being-blamed/stills/story-3-room-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-3-room",
+      "scene": "story 3 · the room",
+      "summary": "Elena, your boss's boss, has you both in the small meeting room. Ryan drops into his chair; Elena looks up from her laptop at you. The app rings Elena's face.",
+      "prompt": "A small glass-walled meeting room seen from the doorway, past the player's shoulder: a round pale-oak table for three, charcoal mesh chairs, a tall window wall on the left with soft cool Monday-morning daylight, a blank whiteboard, one potted plant. On the table only Elena's open silver laptop (screen angled away) and one plain white mug. Elena sits on the far side of the table, centred. Ryan is on the right side of the table. The out-of-focus purple shoulder of the player (the faceless purple figure) stays in the bottom-left foreground. No text, numbers or logos anywhere. Action: 0-1.5 s, Ryan stands behind his chair on the right, one hand on its back. 1.5-3 s, he pulls the chair out and drops into it, leaning back, relaxed. 3-6 s, Elena, still seated, lifts her eyes from her laptop and looks straight at the camera (at the player), cool and unimpressed; only her eyes and head move. 6-8 s, everyone holds still. CRITICAL: there is exactly ONE Elena and ONE Ryan in the whole clip. Elena stays SEATED in her chair at the far side of the table the entire time: she never stands, never walks, never comes closer to the camera, and no second copy of her appears. Nobody enters or leaves the room. Mouths stay closed; nobody speaks. Camera: locked off on this same wide shot from the doorway, at most a barely perceptible push-in; no cut, no close-up.",
+      "characters": [
+        "elena",
+        "ryan"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "720p",
+        "hero": false,
+        "firstStill": "story-3-room-start",
+        "lastStill": "story-3-room-end"
+      },
+      "output": "media/being-blamed/videos/story-3-room.mp4"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan",
+        "elena"
+      ],
+      "status": "approved",
+      "id": "story-4-blame-start",
+      "scene": "story 4 · the blame",
+      "summary": "Start frame of story-4-blame: the same view as story 3's end; Ryan has just answered Elena, relaxed and easy; Elena is looking at him.",
+      "prompt": "A small glass-walled meeting room: a round pale-oak table for three with charcoal mesh chairs, a tall window wall on the left with soft, cool Monday-morning daylight and a hazy city skyline, clear glass walls on the back and right, a blank whiteboard mounted on the back wall (completely clean, no writing) and a single potted plant in the back-right corner. On the table there is only Elena's slim silver laptop, open in front of her and angled away from the camera so its screen is never seen, and one plain matte white mug with no print: no water jug, no glasses, no other cups. Seating: Elena on the far side of the table, centred, facing the camera; Ryan on the right side of the table, turned towards her; the player on the near side, where the camera is. No text, no numbers, no logos anywhere. The reference image is the moment just before: keep its room, props, light and camera position exactly: the same medium-wide view from the doorway, past the player's shoulder. Elena, centred on the far side behind her open laptop, has turned her head towards the right side of the frame to look at Ryan, listening, composed, mouth closed; her eyes are on Ryan, not on the camera and not on the window. Ryan, in his chair on the right side of the table, has his head turned towards Elena (towards the left of the frame), looking at her, leaning back in an easy, open posture, shoulders a little raised in a small casual shrug, an easy closed-mouth half-smile; he is not looking at the camera. In the bottom-left foreground, softly out of focus, the shoulder and the back of the head of the player: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline. Hands are below the frame or small and simple.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "media/being-blamed/stills/story-3-room-end.png"
+        ]
+      },
+      "output": "media/being-blamed/stills/story-4-blame-start.png"
+    },
+    {
+      "kind": "still",
+      "characters": [
+        "ryan",
+        "elena"
+      ],
+      "status": "approved",
+      "id": "story-4-blame-end",
+      "scene": "story 4 · the blame",
+      "summary": "End frame of story-4-blame: Elena has turned to you, one eyebrow raised; Ryan glances at you sideways, smug.",
+      "prompt": "A small glass-walled meeting room: a round pale-oak table for three with charcoal mesh chairs, a tall window wall on the left with soft, cool Monday-morning daylight and a hazy city skyline, clear glass walls on the back and right, a blank whiteboard mounted on the back wall (completely clean, no writing) and a single potted plant in the back-right corner. On the table there is only Elena's slim silver laptop, open in front of her and angled away from the camera so its screen is never seen, and one plain matte white mug with no print: no water jug, no glasses, no other cups. Seating: Elena on the far side of the table, centred, facing the camera; Ryan on the right side of the table, turned towards her; the player on the near side, where the camera is. No text, no numbers, no logos anywhere. The reference image is the same shot a few seconds earlier: keep its room, furniture, props, light and camera layout exactly, and change only what is described here. The same medium-wide view from the doorway past the player's shoulder, only slightly closer to Elena; Elena and Ryan stay in the same seats and poses. Elena, centred on the far side behind her open laptop, now looks straight into the camera, at the player: one eyebrow slightly raised, eyes narrowed a touch, cool and questioning, mouth closed. Ryan, on the right, still leaning back in his chair, glances sideways at the camera with a smug, half-lidded closed-mouth smirk. The bottom-left foreground still holds the soft, out-of-focus shoulder of the player: a smooth, faceless, deep-purple silhouette figure (no facial features, no clothing details) with a thin lighter-purple rim outline. Hands are out of frame. The room feels very quiet.",
+      "params": {
+        "aspect": "9:16",
+        "references": [
+          "media/being-blamed/stills/story-4-blame-start.png"
+        ]
+      },
+      "output": "media/being-blamed/stills/story-4-blame-end.png"
+    },
+    {
+      "kind": "video",
+      "status": "approved",
+      "id": "story-4-blame",
+      "scene": "story 4 · the blame",
+      "summary": "Hero shot. Ryan has just said \"it was never handed over properly\". He settles back; Elena turns to look at you, one eyebrow up; Ryan glances at you, smug. The camera holds.",
+      "prompt": "A small glass-walled meeting room seen from the doorway, past the player's shoulder: a round pale-oak table for three, charcoal mesh chairs, a tall window wall on the left with soft cool Monday-morning daylight, a blank whiteboard, one potted plant. On the table only Elena's open silver laptop (screen angled away) and one plain white mug. Elena sits on the far side of the table, centred. Ryan is on the right side of the table. The out-of-focus purple shoulder of the player (the faceless purple figure) stays in the bottom-left foreground. No text, numbers or logos anywhere. Ryan sits back in his chair. Action: 0-2 s, Ryan, seated, gives a small easy shrug towards Elena and settles back, closed-mouth half smile. 2-4.5 s, Elena, seated, slowly turns her head from Ryan to look straight at the camera (at the player), one eyebrow lifting slightly. 4.5-6 s, Ryan glances sideways at the camera with a smug, half-lidded smirk. 6-8 s, both hold their gaze; nobody moves. CRITICAL: there is exactly ONE Elena and ONE Ryan in the whole clip. Elena stays SEATED in her chair at the far side of the table the entire time: she never stands, never walks, never comes closer to the camera, and no second copy of her appears. Nobody enters or leaves the room. Mouths stay closed; nobody speaks. Camera: locked off on this same wide shot from the doorway, at most a barely perceptible push-in; no cut, no close-up.",
+      "characters": [
+        "ryan",
+        "elena"
+      ],
+      "params": {
+        "aspect": "9:16",
+        "duration": 8,
+        "fitSeconds": 6,
+        "resolution": "1080p",
+        "hero": true,
+        "firstStill": "story-4-blame-start",
+        "lastStill": "story-4-blame-end"
+      },
+      "output": "media/being-blamed/videos/story-4-blame.mp4"
+    },
+    {
+      "id": "opening",
+      "kind": "voice",
+      "scene": "voices · all paths",
+      "summary": "Ryan, turn 1: relaxed, shifting the blame.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "honestly, it was never handed over properly."
+      },
+      "output": "media/being-blamed/voice/opening.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-u2",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Player, turn 2: called it a lie in front of elena.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "what? that's a lie! i was hand over everything to him on thursday!"
+      },
+      "output": "media/being-blamed/voice/defensive-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-t3",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Elena, turn 3: cool, turning to you.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "hold on. ryan says it wasn't handed over properly. is that right?"
+      },
+      "output": "media/being-blamed/voice/defensive-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-u4",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Player, turn 4: attacked ryan's habits instead of giving the fact.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "no! he never reads nothing. always he is doing like this, ask anyone!"
+      },
+      "output": "media/being-blamed/voice/defensive-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-t5",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Ryan, turn 5: stung, digging in.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "whoa. so i'm lying now? come on, that's not fair."
+      },
+      "output": "media/being-blamed/voice/defensive-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-u6",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Player, turn 6: threw the right fact at ryan like an attack.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes! you said me \"got it\" and then you did nothing!"
+      },
+      "output": "media/being-blamed/voice/defensive-u6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-t7",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Ryan, turn 7: annoyed, pushing back.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "you sent a text at five o'clock and left for the day. what was i supposed to do?"
+      },
+      "output": "media/being-blamed/voice/defensive-t7.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-u8",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Player, turn 8: said \"not my problem\" about a missed deadline.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "that is not my problem! i was in leave, what i can do?"
+      },
+      "output": "media/being-blamed/voice/defensive-u8.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "defensive-t9",
+      "kind": "voice",
+      "scene": "voices · Got defensive path",
+      "summary": "Elena, turn 9: cold, done with both of you.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "stop. i'm not here to referee. i'll talk to you both separately."
+      },
+      "output": "media/being-blamed/voice/defensive-t9.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "silent-u2",
+      "kind": "voice",
+      "scene": "voices · Stayed silent path",
+      "summary": "Player, turn 2: apologized for a handover you did right.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "oh... sorry, sorry. maybe i was not explain it good."
+      },
+      "output": "media/being-blamed/voice/silent-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "silent-t3",
+      "kind": "voice",
+      "scene": "voices · Stayed silent path",
+      "summary": "Elena, turn 3: cool, turning to you.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "so it wasn't handed over properly? is that right?"
+      },
+      "output": "media/being-blamed/voice/silent-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "silent-u4",
+      "kind": "voice",
+      "scene": "voices · Stayed silent path",
+      "summary": "Player, turn 4: took half the blame and hid the note on your phone.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "um... maybe little bit confusion from both side. i don't remember what i wrote exactly."
+      },
+      "output": "media/being-blamed/voice/silent-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "silent-t5",
+      "kind": "voice",
+      "scene": "voices · Stayed silent path",
+      "summary": "Ryan, turn 5: off the hook, easy again.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "yeah, it happens. we're on it now."
+      },
+      "output": "media/being-blamed/voice/silent-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "silent-u6",
+      "kind": "voice",
+      "scene": "voices · Stayed silent path",
+      "summary": "Player, turn 6: apologized again, no time and no plan.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "yes, we will finish it soon as possible. sorry again for the trouble."
+      },
+      "output": "media/being-blamed/voice/silent-u6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "clock-exit",
+      "kind": "voice",
+      "scene": "voices · clock exit",
+      "summary": "Elena, when the 60-second clock runs out (any path): glances at her phone and moves on.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "okay. so the handover wasn't clear. let's make sure that doesn't happen again."
+      },
+      "output": "media/being-blamed/voice/clock-exit.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u2",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 2: stayed calm.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "okay, i hear you. can i add something?"
+      },
+      "output": "media/being-blamed/voice/guided-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t3",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Elena, turn 3: cool, turning to you.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "go on. so it wasn't handed over properly, is that right?"
+      },
+      "output": "media/being-blamed/voice/guided-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u4",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 4: buried the note under \"last time\".",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "not exactly. i was give him everything. and last time also, when i was off, same thing happened..."
+      },
+      "output": "media/being-blamed/voice/guided-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t5",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Ryan, turn 5: stung, defensive.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "come on, that was months ago. it's got nothing to do with this."
+      },
+      "output": "media/being-blamed/voice/guided-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t6",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Elena, turn 6: losing patience.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "i don't need the history. what happened with this one?"
+      },
+      "output": "media/being-blamed/voice/guided-t6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u7",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 7: still on ryan's habits, elena is almost gone.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "what i'm saying is, i explained him everything. he never takes it serious."
+      },
+      "output": "media/being-blamed/voice/guided-u7.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "hint",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Sarah's hint, turn 8.",
+      "prompt": null,
+      "characters": [
+        "sarah"
+      ],
+      "params": {
+        "voice": "sarah",
+        "text": "don't go over the past. just say when you handed it over, and what he wrote back."
+      },
+      "output": "media/being-blamed/voice/hint.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u8",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 8: the guided response (Sarah's suggested line).",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "sorry, let me be clear. i left ryan a written handover on thursday at 5:10, and he replied \"got it.\" i can show you."
+      },
+      "output": "media/being-blamed/voice/guided-u8.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t9",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Ryan, turn 9: caught out, backing down.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "oh... right. i did say that. that one's on me."
+      },
+      "output": "media/being-blamed/voice/guided-t9.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t10",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Elena, turn 10: moving on, still cool.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "okay. so what happens now?"
+      },
+      "output": "media/being-blamed/voice/guided-t10.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-u11",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Player, turn 11: clean line.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i'll call them this morning and get it done by noon."
+      },
+      "output": "media/being-blamed/voice/guided-u11.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "guided-t12",
+      "kind": "voice",
+      "scene": "voices · Guided path",
+      "summary": "Elena, turn 12: satisfied, but noting it.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "okay, noon. next time, lead with the note."
+      },
+      "output": "media/being-blamed/voice/guided-t12.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u2",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 2: stayed calm.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i hear you, ryan. can i add one thing?"
+      },
+      "output": "media/being-blamed/voice/perfect-u2.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t3",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Elena, turn 3: cool, turning to you.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "go ahead. is that right?"
+      },
+      "output": "media/being-blamed/voice/perfect-t3.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u4",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 4: corrected it with one fact.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "not quite. i left ryan a written handover on thursday at 5:10, and he replied \"got it.\" i can show you."
+      },
+      "output": "media/being-blamed/voice/perfect-u4.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t5",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Ryan, turn 5: caught out, sheepish.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "oh... yeah, i did say that. i thought it could wait till monday."
+      },
+      "output": "media/being-blamed/voice/perfect-t5.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t6",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Elena, turn 6: moving on, all business.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "okay. so where does that leave us?"
+      },
+      "output": "media/being-blamed/voice/perfect-t6.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-u7",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Player, turn 7: brought it back to the fix.",
+      "prompt": null,
+      "characters": [],
+      "params": {
+        "voice": "player",
+        "text": "i'll call them this morning and get it done by noon. and next time, i'll go through the handover face to face."
+      },
+      "output": "media/being-blamed/voice/perfect-u7.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t8",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Ryan, turn 8: owning his part, quietly.",
+      "prompt": null,
+      "characters": [
+        "ryan"
+      ],
+      "params": {
+        "voice": "ryan",
+        "text": "and i should've asked if it wasn't clear. i'll help you finish it."
+      },
+      "output": "media/being-blamed/voice/perfect-t8.mp3",
+      "status": "draft"
+    },
+    {
+      "id": "perfect-t9",
+      "kind": "voice",
+      "scene": "voices · Perfect path",
+      "summary": "Elena, turn 9: impressed, closing it out.",
+      "prompt": null,
+      "characters": [
+        "elena"
+      ],
+      "params": {
+        "voice": "elena",
+        "text": "good. noon, then. and from now on, handovers get talked through, not just written."
+      },
+      "output": "media/being-blamed/voice/perfect-t9.mp3",
+      "status": "draft"
+    }
+  ]
+}
